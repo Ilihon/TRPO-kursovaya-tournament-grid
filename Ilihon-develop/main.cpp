@@ -3,6 +3,8 @@
 #include <math.h>
 #include <iostream>
 #include <string.h>
+#include <sstream>
+#include <string>
 
 using namespace std;
 
@@ -29,7 +31,7 @@ main()
 	cin >> 	team_num;
 	if (team_num<=0 || team_num >=33) {
 		puts("Не корректное количество комманд!");
-    	return 0;
+    	main();
   	}	
 
 	char team_names[team_num][n];
@@ -38,15 +40,33 @@ main()
 	int i;	
 	
 
-	
-	
 	// имена комманд
+	cout << "Ввести имена комманд? (y/n) \n";
+	char g='0';
+	cin >> g;
+	while((g!='y') && (g!='n')){
+		cout << "Yes OR Not?\n";
+		cin >>g;
+	} 
 
-	for(i=0;i<team_num;i++){
-		char str[n];
-		scanf("%s",&str);
-		strcpy(team_names[i],str);
+	if(g=='y'){
+		for(i=0;i<team_num;i++){
+			char str[n-3];
+			scanf("%s",&str);
+			strcpy(team_names[i],str);
+		}
 	}
+	else{
+		for(i=0;i<team_num;i++){
+			char str[n-3]="TeamNum";
+			char *p;
+			char num[n-3];
+			p=itoa(i+1,num,10);
+			strcat(str,num);
+			strcpy(team_names[i],str);
+		}
+	}	
+	
 	for(i=0;i<team_num;i++){
 		printf("\n%s", team_names[i]);
 	}
@@ -75,16 +95,16 @@ void round_match(int num_matches, const char team_mas[][n], int num){
 	match_struct A[num_matches];
 	for(int i=0, j=0; i<num; i=i+2){
 		strcpy(A[j].first, team_mas[i]);
-		//cout << "\n\n" << A[j].first;
+		cout << "\n\n" << A[j].first;
 		if (i+1>=num){
 			strcpy(A[j].second, "Phantom name");
-			//cout << "\n" << A[j].second;
+			cout << "\n" << A[j].second;
 		}
 		else{
 			strcpy(A[j].second, team_mas[i+1]);
-			//cout << "\n" << A[j].second;
+			cout << "\n" << A[j].second;
 		}
-		cout << "\n\n" << A[j].first << "\n" << A[j].second;
+		//cout << "\n\n" << A[j].first << "\n" << A[j].second;
 		j++;
 	}
 	num_matches = num_matches /2;
