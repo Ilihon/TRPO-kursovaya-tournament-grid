@@ -53,7 +53,7 @@ main()
 	if(g=='y'){
 		for(i=0;i<team_num;i++){
 			char str[n-3];
-			scanf("%s",&str);
+			scanf("%s",str);
 			strcpy(team_names[i],str);
 		}
 	}
@@ -82,7 +82,7 @@ main()
 	j=team_num;
 	round_match( match, team_names, j);
 	
-	
+	return 0;
 }
 
 int round_amount_count(int team_num){
