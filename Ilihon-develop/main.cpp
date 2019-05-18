@@ -60,9 +60,8 @@ main()
 	else{
 		for(i=0;i<team_num;i++){
 			char str[n-3]="TeamNum";
-			char *p;
 			char num[n-3];
-			p=itoa(i+1,num,10);
+			itoa(i+1,num,10);
 			strcat(str,num);
 			strcpy(team_names[i],str);
 		}
