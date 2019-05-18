@@ -25,7 +25,7 @@ struct match_struct{
 };
 
 
-main()
+int main()
 {
 	setlocale(LC_ALL, "russian");        
 	int team_num;
