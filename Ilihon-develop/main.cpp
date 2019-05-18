@@ -61,7 +61,7 @@ int main()
 		for(i=0;i<team_num;i++){
 			char str[n-3]="TeamNum";
 			char num[n-3];
-			itoa(i+1,num,10);
+			sprintf(num,"%d",i+1);
 			strcat(str,num);
 			strcpy(team_names[i],str);
 		}
