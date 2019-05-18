@@ -10,9 +10,10 @@ using namespace std;
 
 
 const int n=33;
+int j=0;
 
 int round_match_count(int num);
-
+int round_amount_count(int team_num);
 void round_match(int num_matches, char team_mas[][n], int num);
 
 struct match_struct{
@@ -71,17 +72,27 @@ main()
 		printf("\n%s", team_names[i]);
 	}
 
-	int round_amount=0,v=team_num;
-	for(i=0;i<5;i++){
+	int round_amount=round_amount_count(team_num);
+	
+	cout << "\n\nКол-во раундов: "<< round_amount << "\n";
+	
+	int match = round_match_count(team_num);
+	cout <<"Кол-во матчей в следующем раунде: "<< match;
+	
+	j=team_num;
+	round_match( match, team_names, j);
+	
+	
+}
+
+int round_amount_count(int team_num){
+	int round_amount=0;
+	for(int i=0;i<5;i++){
 		if((team_num > pow(2,i)) && (team_num <= pow(2,i+1))){
 			round_amount=i+1;
 		}
 	}
-	cout << "\n\nКол-во раундов: "<< round_amount << "\n";
-	
-	int match = round_match_count(team_num);
-	cout <<"Кол-во матчей в 1м раунде: "<< match;
-	round_match( match, team_names, team_num);
+	return round_amount;
 }
 
 int round_match_count(int num){
@@ -93,7 +104,7 @@ int round_match_count(int num){
 
 void round_match(int num_matches, char team_mas[][n], int num){
 	match_struct A[num_matches];
-	int i,j;
+	int i;
 	for(i=0, j=0; i<num; i=i+2){
 		strcpy(A[j].first, team_mas[i]);
 		//cout << "\n\n" << A[j].first;
@@ -106,20 +117,21 @@ void round_match(int num_matches, char team_mas[][n], int num){
 			//cout << "\n" << A[j].second;
 		}
 		cout << "\n\n" << A[j].first << "\n" << A[j].second;
-		strcpy(A[j].winner,A[j].first);
 		
-		cout << "\n" << A[j].winner;
+		strcpy(A[j].winner,A[j].first); // поменять на считываие баллов
+		
+		cout << "\n" << A[j].winner <<" - winner"; // побдеитель пока-что 1ый игрок
 		
 		j++;
 	}
-	cout << j;
 	num_matches = round_match_count(j);
-	cout << num_matches;
 	char team_names[j][n];
 	for(i=0;i<j;i++){
 		strcpy(team_names[i],A[i].winner);
 	}
 	if(j!=1){
+	cout << "\n\n"<<j; // кол-во игроков в след раунде
+	cout <<"\nКол-во матчей в следующем раунде: "<< num_matches << "\n---------------------------------------";
 		round_match(num_matches,team_names,j);
 	}
 }
