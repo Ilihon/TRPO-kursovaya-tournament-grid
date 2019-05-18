@@ -13,7 +13,7 @@ const int n=33;
 
 int round_match_count(int num);
 
-void round_match(int num_matches, const char team_mas[][n], int num);
+void round_match(int num_matches, char team_mas[][n], int num);
 
 struct match_struct{
 	char first[n];
@@ -91,23 +91,37 @@ int round_match_count(int num){
 	return(matches);
 }
 
-void round_match(int num_matches, const char team_mas[][n], int num){
+void round_match(int num_matches, char team_mas[][n], int num){
 	match_struct A[num_matches];
-	for(int i=0, j=0; i<num; i=i+2){
+	int i,j;
+	for(i=0, j=0; i<num; i=i+2){
 		strcpy(A[j].first, team_mas[i]);
-		cout << "\n\n" << A[j].first;
+		//cout << "\n\n" << A[j].first;
 		if (i+1>=num){
 			strcpy(A[j].second, "Phantom name");
-			cout << "\n" << A[j].second;
+			//cout << "\n" << A[j].second;
 		}
 		else{
 			strcpy(A[j].second, team_mas[i+1]);
-			cout << "\n" << A[j].second;
+			//cout << "\n" << A[j].second;
 		}
-		//cout << "\n\n" << A[j].first << "\n" << A[j].second;
+		cout << "\n\n" << A[j].first << "\n" << A[j].second;
+		strcpy(A[j].winner,A[j].first);
+		
+		cout << "\n" << A[j].winner;
+		
 		j++;
 	}
-	num_matches = num_matches /2;
+	cout << j;
+	num_matches = round_match_count(j);
+	cout << num_matches;
+	char team_names[j][n];
+	for(i=0;i<j;i++){
+		strcpy(team_names[i],A[i].winner);
+	}
+	if(j!=1){
+		round_match(num_matches,team_names,j);
+	}
 }
 
 
