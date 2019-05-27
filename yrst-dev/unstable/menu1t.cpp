@@ -34,7 +34,7 @@ void menu(RenderWindow& window)
             menu2.setColor(Color::Blue);
             menuNum = 2;
         }
-        if (IntRect(400, 300, 300, 50).contains(Mouse::getPosition(window))) {
+        if (IntRect(400, 350, 300, 50).contains(Mouse::getPosition(window))) {
             menu3.setColor(Color::Blue);
             menuNum = 3;
         }
@@ -63,13 +63,21 @@ void menu(RenderWindow& window)
 
 int main()
 {
-    RenderWindow window(sf::VideoMode(960, 540), "kyrsch");
-    menu(window);
+    RenderWindow window(VideoMode(960, 540), "kyrsch");
+
+    Font font;
+
+    Text text("", font, 20);
+    text.setStyle(Text::Bold);
     while (window.isOpen()) {
         Event event;
         while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
+            if (event.type == Event::Closed)
                 window.close();
+            if (event.type == Event::KeyPressed)
+                if ((event.key.code == Keyboard::Tab)) {
+                    menu(window);
+                }
         }
     }
 
