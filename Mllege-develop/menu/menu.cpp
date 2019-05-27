@@ -63,12 +63,12 @@ void menu(RenderWindow& window)
 
 int main()
 {
-    RenderWindow window(sf::VideoMode(960, 540), "kyrsch");
+    RenderWindow window(VideoMode(960, 540), "kyrsch");
     menu(window);
     while (window.isOpen()) {
         Event event;
         while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
+            if (event.type == Event::Closed)
                 window.close();
         }
     }
