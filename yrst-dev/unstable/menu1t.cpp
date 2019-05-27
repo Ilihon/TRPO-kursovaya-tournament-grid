@@ -63,12 +63,20 @@ void menu(RenderWindow& window)
 
 int main()
 {
-    RenderWindow window(VideoMode(960, 540), "kyrsch");
+    RenderWindow window(VideoMode(1200, 720), "kyrsch");
+
+    Texture men;
+    men.loadFromFile("images/loading.png");
+    Sprite menu1(men);
 
     Font font;
-
-    Text text("", font, 20);
+    font.loadFromFile("ubuntu.ttf");
+    Text text("", font, 40);
+    text.setFillColor(Color::Red);
     text.setStyle(Text::Bold);
+    text.setString("Press TAB to start"); //задает строку тексту
+    text.setPosition(400, 200); //задаем позицию текста, центр камеры
+
     while (window.isOpen()) {
         Event event;
         while (window.pollEvent(event)) {
@@ -79,6 +87,10 @@ int main()
                     menu(window);
                 }
         }
+        window.clear();
+        window.draw(menu1);
+        window.draw(text);
+        window.display();
     }
 
     return 0;
