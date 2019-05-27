@@ -1,7 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 using namespace sf;
+using namespace std;
 
 void menu(RenderWindow& window)
 {
@@ -61,8 +65,56 @@ void menu(RenderWindow& window)
     }
 }
 
+/*void pole(RenderWindow& window, char** team, int size)
+{
+    Texture stk;
+    stk.loadFromFile("images/stk.jpeg");
+    Sprite setk(stk);
+
+    Font font;
+    font.loadFromFile("ubuntu.ttf");
+    Text text("", font, 40);
+    text.setFillColor(Color::Red);
+    text.setStyle(Text::Bold);
+    text.setPosition(400, 200);
+    text.setString("sss");
+    window.draw(text);
+
+    bool isMenu = 1;
+
+    while (isMenu) {
+            for (int i = 0; i < size + 1; i++) {
+            text.setPosition(400, 200 + i * 10);
+            text.setString(team[i]);
+            window.draw(text);
+        }
+
+        window.clear();
+        window.draw(setk);
+        window.display();
+    }
+}
+*/
+
 int main()
 {
+    printf("Enter number of teams\n");
+
+    char** team;
+    int size = 0;
+    scanf("%d", &size);
+    team = new char*[size + 1];
+    printf("Input string:\n");
+    for (int i = 0; i < size + 1; i++) {
+        team[i] = new char[255];
+        cin.getline(team[i], 255);
+    }
+
+    // Print string array
+    for (int i = 0; i < size + 1; i++) {
+        cout << team[i] << endl;
+    }
+
     RenderWindow window(VideoMode(1200, 720), "kyrsch");
 
     Texture men;
@@ -74,8 +126,13 @@ int main()
     Text text("", font, 40);
     text.setFillColor(Color::Red);
     text.setStyle(Text::Bold);
-    text.setString("Press TAB to start"); //задает строку тексту
-    text.setPosition(400, 200); //задаем позицию текста, центр камеры
+    text.setString("Press TAB to start");
+    text.setPosition(400, 200);
+
+    window.clear();
+    window.draw(menu1);
+    window.draw(text);
+    window.display();
 
     while (window.isOpen()) {
         Event event;
@@ -85,13 +142,45 @@ int main()
             if (event.type == Event::KeyPressed)
                 if ((event.key.code == Keyboard::Tab)) {
                     menu(window);
+
+                    // pole(window, team, size);
+                    Texture stk, exit;
+                    stk.loadFromFile("images/stk.jpeg");
+                    exit.loadFromFile("images/3333.png");
+                    Sprite setk(stk), ext(exit);
+                    ext.setPosition(800, 600);
+                    menu1.setColor(Color::Red);
+
+                    window.clear();
+                    window.draw(setk);
+                    window.draw(ext);
+                    window.display();
+
+                    bool isMenu = 1;
+                    int m = 170;
+                    int menuNum = 0;
+
+                    for (int i = 0; i < size + 1; i++) {
+                        text.setPosition(50, m += 30);
+                        text.setString(team[i]);
+
+                        window.draw(text);
+                        window.display();
+                    }
+                    while (isMenu) {
+                        if (IntRect(800, 600, 300, 50)
+                                    .contains(Mouse::getPosition(window))) {
+                            menuNum = 3;
+                        }
+                        if (Mouse::isButtonPressed(Mouse::Left)) {
+                            if (menuNum == 3) {
+                                window.close();
+                                isMenu = false;
+                            }
+                        }
+                    }
                 }
         }
-        window.clear();
-        window.draw(menu1);
-        window.draw(text);
-        window.display();
     }
-
     return 0;
 }
