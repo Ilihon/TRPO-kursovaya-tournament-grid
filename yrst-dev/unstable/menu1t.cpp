@@ -43,14 +43,19 @@ void steam(RenderWindow& window);
 
 int main()
 {
-    printf("Enter number of teams\n");
+    printf("Введите количество команд (Меньше 33):\n");
 
     char** team;
     char* rnd2[16];
     int size = 0;
     scanf("%d", &size);
+    while ((size > 32) || (size < 2)) {
+        printf("Неправильно задано количество команд.\n Повторите попытку:\n");
+        scanf("%d", &size);
+    }
+
     team = new char*[size + 1];
-    printf("Input string:\n");
+    printf("Введите названия команд:\n");
 
     for (int i = 0; i < size + 1; i++) {
         team[i] = new char[30];
@@ -61,11 +66,7 @@ int main()
         rnd2[i] = new char[30];
     }
 
-    for (int i = 0; i < size + 1; i++) {
-        cout << team[i] << endl;
-    }
-
-    RenderWindow window(VideoMode(1200, 720), "kyrsch");
+    RenderWindow window(VideoMode(1200, 720), "Menu");
 
     Texture men;
     men.loadFromFile("images/loading.png");
@@ -86,25 +87,32 @@ int main()
 
     while (window.isOpen()) {
         Event event;
+
         while (window.pollEvent(event)) {
             if (event.type == Event::Closed)
                 window.close();
+
             if (event.type == Event::KeyPressed)
                 if ((event.key.code == Keyboard::Tab)) {
                     menu(window);
+                    window.close();
+
+                    RenderWindow setka(VideoMode(1920, 1080), "Setka");
+
                     Text text("", font, 20);
                     text.setFillColor(Color::Red);
-                    // pole(window, team, size);
+
                     Texture stk, exit;
                     stk.loadFromFile("images/stk.jpeg");
                     exit.loadFromFile("images/3333.png");
+
                     Sprite setk(stk), ext(exit);
                     ext.setPosition(900, 600);
 
-                    window.clear();
-                    window.draw(setk);
-                    window.draw(ext);
-                    window.display();
+                    setka.clear();
+                    setka.draw(setk);
+                    setka.draw(ext);
+                    setka.display();
 
                     bool isMenu = 1;
                     int m = 40;
@@ -122,8 +130,8 @@ int main()
 
                         text.setString(team[i]);
                         text.setPosition(20, m);
-                        window.draw(text);
-                        window.display();
+                        setka.draw(text);
+                        setka.display();
 
                         m += 17;
                         c++;
@@ -136,49 +144,96 @@ int main()
 
                         //-------------------------TEAM-MGMNT------------------------------------------
                         if (IntRect(20, 70, 300, 80)
-                                    .contains(Mouse::getPosition(window))) {
+                                    .contains(Mouse::getPosition(setka))) {
                             teamnum = 1;
                             printf("%d\n", teamnum);
                         }
 
                         if (IntRect(20, 101, 300, 80)
-                                    .contains(Mouse::getPosition(window))) {
+                                    .contains(Mouse::getPosition(setka))) {
                             teamnum = 2;
                             printf("%d\n", teamnum);
                         }
 
                         if (IntRect(20, 140, 300, 80)
-                                    .contains(Mouse::getPosition(window))) {
+                                    .contains(Mouse::getPosition(setka))) {
                             teamnum = 3;
                             printf("%d\n", teamnum);
                         }
 
                         if (IntRect(20, 170, 300, 80)
-                                    .contains(Mouse::getPosition(window))) {
+                                    .contains(Mouse::getPosition(setka))) {
                             teamnum = 4;
                             printf("%d\n", teamnum);
                         }
 
                         if (IntRect(20, 210, 300, 80)
-                                    .contains(Mouse::getPosition(window))) {
+                                    .contains(Mouse::getPosition(setka))) {
                             teamnum = 5;
                             printf("%d\n", teamnum);
                         }
 
                         if (IntRect(20, 240, 300, 80)
-                                    .contains(Mouse::getPosition(window))) {
+                                    .contains(Mouse::getPosition(setka))) {
                             teamnum = 6;
                             printf("%d\n", teamnum);
                         }
 
                         if (IntRect(20, 280, 300, 80)
-                                    .contains(Mouse::getPosition(window))) {
+                                    .contains(Mouse::getPosition(setka))) {
                             teamnum = 7;
                         }
 
                         if (IntRect(20, 310, 300, 80)
-                                    .contains(Mouse::getPosition(window))) {
+                                    .contains(Mouse::getPosition(setka))) {
                             teamnum = 8;
+                            printf("%d\n", teamnum);
+                        }
+
+                        if (IntRect(20, 70, 300, 80)
+                                    .contains(Mouse::getPosition(setka))) {
+                            teamnum = 9;
+                            printf("%d\n", teamnum);
+                        }
+
+                        if (IntRect(20, 101, 300, 80)
+                                    .contains(Mouse::getPosition(setka))) {
+                            teamnum = 10;
+                            printf("%d\n", teamnum);
+                        }
+
+                        if (IntRect(20, 140, 300, 80)
+                                    .contains(Mouse::getPosition(setka))) {
+                            teamnum = 11;
+                            printf("%d\n", teamnum);
+                        }
+
+                        if (IntRect(20, 170, 300, 80)
+                                    .contains(Mouse::getPosition(setka))) {
+                            teamnum = 12;
+                            printf("%d\n", teamnum);
+                        }
+
+                        if (IntRect(20, 210, 300, 80)
+                                    .contains(Mouse::getPosition(setka))) {
+                            teamnum = 13;
+                            printf("%d\n", teamnum);
+                        }
+
+                        if (IntRect(20, 240, 300, 80)
+                                    .contains(Mouse::getPosition(setka))) {
+                            teamnum = 14;
+                            printf("%d\n", teamnum);
+                        }
+
+                        if (IntRect(20, 280, 300, 80)
+                                    .contains(Mouse::getPosition(setka))) {
+                            teamnum = 15;
+                        }
+
+                        if (IntRect(20, 310, 300, 80)
+                                    .contains(Mouse::getPosition(setka))) {
+                            teamnum = 16;
                             printf("%d\n", teamnum);
                         }
 
@@ -192,7 +247,7 @@ int main()
                         //------------------END-OF-TEAM-MNGMNT------------------------------------------
 
                         if (IntRect(900, 600, 300, 50)
-                                    .contains(Mouse::getPosition(window))) {
+                                    .contains(Mouse::getPosition(setka))) {
                             ext.setColor(Color::Blue);
                             menuNum = 1;
                         }
