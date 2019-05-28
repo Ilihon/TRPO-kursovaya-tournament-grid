@@ -103,7 +103,7 @@ int main()
                     text.setFillColor(Color::Red);
 
                     Texture stk, exit;
-                    stk.loadFromFile("images/stk.jpeg");
+                    stk.loadFromFile("images/stk.jpg");
                     exit.loadFromFile("images/3333.png");
 
                     Sprite setk(stk), ext(exit);
