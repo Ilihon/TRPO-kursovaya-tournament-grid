@@ -106,8 +106,8 @@ int main()
     team = new char*[size + 1];
     printf("Input string:\n");
     for (int i = 0; i < size + 1; i++) {
-        team[i] = new char[255];
-        cin.getline(team[i], 255);
+        team[i] = new char[30];
+        cin.getline(team[i], 30);
     }
 
     // Print string array
@@ -123,7 +123,7 @@ int main()
 
     Font font;
     font.loadFromFile("ubuntu.ttf");
-    Text text("", font, 40);
+    Text text("", font, 40), text2("", font, 40);
     text.setFillColor(Color::Red);
     text.setStyle(Text::Bold);
     text.setString("Press TAB to start");
@@ -148,8 +148,7 @@ int main()
                     stk.loadFromFile("images/stk.jpeg");
                     exit.loadFromFile("images/3333.png");
                     Sprite setk(stk), ext(exit);
-                    ext.setPosition(800, 600);
-                    menu1.setColor(Color::Red);
+                    ext.setPosition(900, 600);
 
                     window.clear();
                     window.draw(setk);
@@ -157,23 +156,37 @@ int main()
                     window.display();
 
                     bool isMenu = 1;
-                    int m = 170;
+                    int m = 70;
                     int menuNum = 0;
+                    int c = 1;
 
                     for (int i = 0; i < size + 1; i++) {
-                        text.setPosition(50, m += 30);
-                        text.setString(team[i]);
+                        printf("%d\n", c);
 
+                        if (c == 2) {
+                            m += 40;
+                            c = 0;
+                        }
+
+                        text.setString(team[i]);
+                        text.setPosition(50, m);
                         window.draw(text);
                         window.display();
+
+                        m += 30;
+                        c++;
                     }
                     while (isMenu) {
-                        if (IntRect(800, 600, 300, 50)
+                        setk.setColor(Color::White);
+
+                        if (IntRect(900, 600, 300, 50)
                                     .contains(Mouse::getPosition(window))) {
-                            menuNum = 3;
+                            ext.setColor(Color::Blue);
+                            menuNum = 1;
                         }
+
                         if (Mouse::isButtonPressed(Mouse::Left)) {
-                            if (menuNum == 3) {
+                            if (menuNum == 1) {
                                 window.close();
                                 isMenu = false;
                             }
