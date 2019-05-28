@@ -82,7 +82,7 @@ int main()
                     window.display();
 
                     bool isMenu = 1;
-                    int m = 40;
+                    int m = -20;
                     int menuNum = 0;
                     int c = 1;
                     int teamnum = 0;
@@ -110,7 +110,7 @@ int main()
 
                         if (Mouse::isButtonPressed(Mouse::Middle)) {
                             x = steam(window, size, teamnum);
-                            if (x == 200)
+                            if ((x == 200) || (x == 100))
                                 menuNum = x;
                             else if ((x > 1) && (x < 33))
                                 teamnum = x;
@@ -180,7 +180,7 @@ void menu(RenderWindow& window)
 
         if (Mouse::isButtonPressed(Mouse::Left)) {
             if (menuNum == 1) {
-                window.setSize(Vector2u(1920, 1080));
+                // window.setSize(Vector2u(1920, 1080));
                 isMenu = false;
             }
             if (menuNum == 2) {
@@ -208,48 +208,48 @@ int steam(RenderWindow& window, int size, int teamnum)
     int menuNum = 100;
     while (isMenu) {
         if (IntRect(0, 0, 899, 599).contains(Mouse::getPosition(window))) {
-            if (IntRect(20, 70, 300, 80).contains(Mouse::getPosition(window))
+            if ((IntRect(20, 70, 300, 80).contains(Mouse::getPosition(window)))
                 && (size > 1)) {
                 teamnum = 1;
                 printf("%d\n", teamnum);
             }
 
-            if (IntRect(20, 101, 300, 80).contains(Mouse::getPosition(window))
+            if ((IntRect(20, 101, 300, 80).contains(Mouse::getPosition(window)))
                 && (size > 1)) {
                 teamnum = 2;
                 printf("%d\n", teamnum);
             }
 
-            if (IntRect(20, 140, 300, 80).contains(Mouse::getPosition(window))
+            if ((IntRect(20, 140, 300, 80).contains(Mouse::getPosition(window)))
                 && (size > 2)) {
                 teamnum = 3;
                 printf("%d\n", teamnum);
             }
 
-            if (IntRect(20, 170, 300, 80).contains(Mouse::getPosition(window))
+            if ((IntRect(20, 170, 300, 80).contains(Mouse::getPosition(window)))
                 && (size > 3)) {
                 teamnum = 4;
                 printf("%d\n", teamnum);
             }
 
-            if (IntRect(20, 210, 300, 80).contains(Mouse::getPosition(window))
+            if ((IntRect(20, 210, 300, 80).contains(Mouse::getPosition(window)))
                 && (size > 4)) {
                 teamnum = 5;
                 printf("%d\n", teamnum);
             }
 
-            if (IntRect(20, 240, 300, 80).contains(Mouse::getPosition(window))
+            if ((IntRect(20, 240, 300, 80).contains(Mouse::getPosition(window)))
                 && (size > 5)) {
                 teamnum = 6;
                 printf("%d\n", teamnum);
             }
 
-            if (IntRect(20, 280, 300, 80).contains(Mouse::getPosition(window))
+            if ((IntRect(20, 280, 300, 80).contains(Mouse::getPosition(window)))
                 && (size > 6)) {
                 teamnum = 7;
             }
 
-            if (IntRect(20, 310, 300, 80).contains(Mouse::getPosition(window))
+            if ((IntRect(20, 310, 300, 80).contains(Mouse::getPosition(window)))
                 && (size > 7)) {
                 teamnum = 8;
                 printf("%d\n", teamnum);
