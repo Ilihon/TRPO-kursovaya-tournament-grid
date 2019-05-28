@@ -67,6 +67,7 @@ int main()
     }
 
     RenderWindow window(VideoMode(1200, 720), "Menu");
+    //  RenderWindow window(VideoMode(1920, 1080), "window");
 
     Texture men;
     men.loadFromFile("images/loading.png");
@@ -95,9 +96,10 @@ int main()
             if (event.type == Event::KeyPressed)
                 if ((event.key.code == Keyboard::Tab)) {
                     menu(window);
-                    window.close();
+                    //  window.close();
 
-                    RenderWindow grid(VideoMode(1920, 1080), "grid");
+                    //  window.display();
+                    window.setSize(sf::Vector2u(1920, 1080));
 
                     Text text("", font, 20);
                     text.setFillColor(Color::Red);
@@ -109,10 +111,10 @@ int main()
                     Sprite setk(stk), ext(exit);
                     ext.setPosition(900, 600);
 
-                    grid.clear();
-                    grid.draw(setk);
-                    grid.draw(ext);
-                    grid.display();
+                    window.clear();
+                    window.draw(setk);
+                    window.draw(ext);
+                    window.display();
 
                     bool isMenu = 1;
                     int m = 40;
@@ -130,8 +132,8 @@ int main()
 
                         text.setString(team[i]);
                         text.setPosition(20, m);
-                        grid.draw(text);
-                        grid.display();
+                        window.draw(text);
+                        window.display();
 
                         m += 17;
                         c++;
@@ -143,111 +145,105 @@ int main()
                         setk.setColor(Color::White);
 
                         //-------------------------TEAM-MGMNT------------------------------------------
-                        if (IntRect(20, 70, 300, 80)
-                                    .contains(Mouse::getPosition(grid))) {
-                            teamnum = 1;
-                            printf("%d\n", teamnum);
-                        }
+                        /*
+                      if (IntRect(20, 70, 300, 80)
+                                  .contains(Mouse::getPosition(window))) {
+                          teamnum = 1;
+                          printf("%d\n", teamnum);
+                      }
 
-                        if (IntRect(20, 101, 300, 80)
-                                    .contains(Mouse::getPosition(grid))) {
-                            teamnum = 2;
-                            printf("%d\n", teamnum);
-                        }
+                      if (IntRect(20, 101, 300, 80)
+                                  .contains(Mouse::getPosition(window))) {
+                          teamnum = 2;
+                          printf("%d\n", teamnum);
+                      }
 
-                        if (IntRect(20, 140, 300, 80)
-                                    .contains(Mouse::getPosition(grid))) {
-                            teamnum = 3;
-                            printf("%d\n", teamnum);
-                        }
+                      if (IntRect(20, 140, 300, 80)
+                                  .contains(Mouse::getPosition(window))) {
+                          teamnum = 3;
+                          printf("%d\n", teamnum);
+                      }
 
-                        if (IntRect(20, 170, 300, 80)
-                                    .contains(Mouse::getPosition(grid))) {
-                            teamnum = 4;
-                            printf("%d\n", teamnum);
-                        }
+                      if (IntRect(20, 170, 300, 80)
+                                  .contains(Mouse::getPosition(window))) {
+                          teamnum = 4;
+                          printf("%d\n", teamnum);
+                      }
 
-                        if (IntRect(20, 210, 300, 80)
-                                    .contains(Mouse::getPosition(grid))) {
-                            teamnum = 5;
-                            printf("%d\n", teamnum);
-                        }
+                      if (IntRect(20, 210, 300, 80)
+                                  .contains(Mouse::getPosition(window))) {
+                          teamnum = 5;
+                          printf("%d\n", teamnum);
+                      }
 
-                        if (IntRect(20, 240, 300, 80)
-                                    .contains(Mouse::getPosition(grid))) {
-                            teamnum = 6;
-                            printf("%d\n", teamnum);
-                        }
+                      if (IntRect(20, 240, 300, 80)
+                                  .contains(Mouse::getPosition(window))) {
+                          teamnum = 6;
+                          printf("%d\n", teamnum);
+                      }
 
-                        if (IntRect(20, 280, 300, 80)
-                                    .contains(Mouse::getPosition(grid))) {
-                            teamnum = 7;
-                        }
+                      if (IntRect(20, 280, 300, 80)
+                                  .contains(Mouse::getPosition(window))) {
+                          teamnum = 7;
+                      }
 
-                        if (IntRect(20, 310, 300, 80)
-                                    .contains(Mouse::getPosition(grid))) {
-                            teamnum = 8;
-                            printf("%d\n", teamnum);
-                        }
+                      if (IntRect(20, 310, 300, 80)
+                                  .contains(Mouse::getPosition(window))) {
+                          teamnum = 8;
+                          printf("%d\n", teamnum);
+                      }
 
-                        if (IntRect(20, 70, 300, 80)
-                                    .contains(Mouse::getPosition(grid))) {
-                            teamnum = 9;
-                            printf("%d\n", teamnum);
-                        }
+                                         if (IntRect(20, 70, 300, 80)
+                                                          .contains(Mouse::getPosition(window)))
+                         { teamnum = 9; printf("%d\n", teamnum);
+                                              }
 
-                        if (IntRect(20, 101, 300, 80)
-                                    .contains(Mouse::getPosition(grid))) {
-                            teamnum = 10;
-                            printf("%d\n", teamnum);
-                        }
+                                              if (IntRect(20, 101, 300, 80)
+                                                          .contains(Mouse::getPosition(window)))
+                         { teamnum = 10; printf("%d\n", teamnum);
+                                              }
 
-                        if (IntRect(20, 140, 300, 80)
-                                    .contains(Mouse::getPosition(grid))) {
-                            teamnum = 11;
-                            printf("%d\n", teamnum);
-                        }
+                                              if (IntRect(20, 140, 300, 80)
+                                                          .contains(Mouse::getPosition(window)))
+                         { teamnum = 11; printf("%d\n", teamnum);
+                                              }
 
-                        if (IntRect(20, 170, 300, 80)
-                                    .contains(Mouse::getPosition(grid))) {
-                            teamnum = 12;
-                            printf("%d\n", teamnum);
-                        }
+                                              if (IntRect(20, 170, 300, 80)
+                                                          .contains(Mouse::getPosition(window)))
+                         { teamnum = 12; printf("%d\n", teamnum);
+                                              }
 
-                        if (IntRect(20, 210, 300, 80)
-                                    .contains(Mouse::getPosition(grid))) {
-                            teamnum = 13;
-                            printf("%d\n", teamnum);
-                        }
+                                              if (IntRect(20, 210, 300, 80)
+                                                          .contains(Mouse::getPosition(window)))
+                         { teamnum = 13; printf("%d\n", teamnum);
+                                              }
 
-                        if (IntRect(20, 240, 300, 80)
-                                    .contains(Mouse::getPosition(grid))) {
-                            teamnum = 14;
-                            printf("%d\n", teamnum);
-                        }
+                                              if (IntRect(20, 240, 300, 80)
+                                                          .contains(Mouse::getPosition(window)))
+                         { teamnum = 14; printf("%d\n", teamnum);
+                                              }
 
-                        if (IntRect(20, 280, 300, 80)
-                                    .contains(Mouse::getPosition(grid))) {
-                            teamnum = 15;
-                        }
+                                              if (IntRect(20, 280, 300, 80)
+                                                          .contains(Mouse::getPosition(window)))
+                         { teamnum = 15;
+                                              }
 
-                        if (IntRect(20, 310, 300, 80)
-                                    .contains(Mouse::getPosition(grid))) {
-                            teamnum = 16;
-                            printf("%d\n", teamnum);
-                        }
+                                              if (IntRect(20, 310, 300, 80)
+                                                          .contains(Mouse::getPosition(window)))
+                         { teamnum = 16; printf("%d\n", teamnum);
+                                              }
 
-                        if (Mouse::isButtonPressed(Mouse::Left)) {
-                            if (teamnum == 8) {
-                                rnd2[teamnum] = team[teamnum];
-                                printf("%s\n", rnd2[teamnum]);
-                            }
-                        }
-
+                                              if
+                         (Mouse::isButtonPressed(Mouse::Left)) { if (teamnum
+                         == 8) { rnd2[teamnum] = team[teamnum]; printf("%s\n",
+                         rnd2[teamnum]);
+                                                  }
+                                              }
+                      */
                         //------------------END-OF-TEAM-MNGMNT------------------------------------------
 
                         if (IntRect(900, 600, 300, 50)
-                                    .contains(Mouse::getPosition(grid))) {
+                                    .contains(Mouse::getPosition(window))) {
                             ext.setColor(Color::Blue);
                             menuNum = 1;
                         }
