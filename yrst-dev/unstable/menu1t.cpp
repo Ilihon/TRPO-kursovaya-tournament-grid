@@ -8,7 +8,8 @@ using namespace sf;
 using namespace std;
 
 void menu(RenderWindow& window);
-int steam(RenderWindow& window, int size, int teamnum);
+int steam(RenderWindow& window, int size);
+int type(RenderWindow& window, int c, int te, int size, char** rnd2, int x);
 
 int main()
 {
@@ -19,10 +20,15 @@ int main()
     int size = 0;
 
     scanf("%d", &size);
+
     while ((size > 32) || (size < 2)) {
         printf("Неправильно задано количество команд.\nПовторите попытку:\n");
         scanf("%d", &size);
     }
+
+    int a[size];
+    for (int i = 0; i < size; i++)
+        a[i] = 0;
 
     team = new char*[size + 1];
     printf("Введите названия команд:\n");
@@ -37,7 +43,7 @@ int main()
         *rnd2[i] = ' ';
     }
 
-    RenderWindow window(VideoMode(1600, 900), "Menu");
+    RenderWindow window(VideoMode(1600, 1024), "Menu");
 
     Texture men;
     men.loadFromFile("images/loading.png");
@@ -45,16 +51,12 @@ int main()
 
     Font font;
     font.loadFromFile("ubuntu.ttf");
+
     Text text("", font, 40), text2("", font, 20);
     text.setFillColor(Color::Red);
     text.setStyle(Text::Bold);
     text.setString("Press TAB to start");
     text.setPosition(400, 200);
-
-    Color Grey;
-    Grey.r = 208;
-    Grey.g = 208;
-    Grey.b = 208;
 
     window.clear();
     window.draw(menu1);
@@ -73,15 +75,14 @@ int main()
                     menu(window);
 
                     bool isMenu = 1; // Все работает, пока меню
-                    int m = -20, t = 55,
-                        te = 55; //переменные используемые в отрисовке сетке,
-                                 //для увелечения дистанции мду элементами
+                    int m = -40, t = 35,
+                        te = -25; //переменные используемые в отрисовке сетке,
+                                  //для увелечения дистанции мду элементами
                     int menuNum = 0; //для выхода из программы
                     int c = 1; // счетчик, оторые исп для рисования ячеек
-                    int stop = 0, st = 0;
-                    Для остановки циколов int teamnum
-                            = 0; // номер команды из 1го массива, который
-                                 // записывается во 2ой
+                    int stop = 0, st = 0; //Для остановки циклов
+                    int teamnum = 0; // номер команды из 1го массива, который
+                                     // записывается во 2ой
                     int x = 0; //Переменная, в которую записываем рез-т функции
                                //стим
 
@@ -96,11 +97,10 @@ int main()
                     RectangleShape rectangle(Vector2f(202, 20));
                     rectangle.setFillColor(Color::Green);
 
-                    // window.clear();
                     window.draw(setk);
-
                     window.display();
 
+                    // отрисовка 1го столбца------------------------------
                     for (int i = 0; i < size + 1; i++) {
                         if (c == 2) {
                             m += 25;
@@ -120,99 +120,105 @@ int main()
                         m += 18;
                         c++;
                     }
-                    c = 1;
 
-                    while (isMenu) {
-                        setk.setColor(Color::White);
+                    // отрисовка 2го столбца------------------------------
+                    if (stop == 0) {
+                        c = 0;
+                        for (int i = 0; i < (size / 2); i++) {
+                            if (c == 2) {
+                                t += 70;
+                                c = 0;
+                            }
+                            rectangle.setFillColor(Color::Green);
+                            rectangle.setPosition(298, t);
 
+                            window.draw(rectangle);
+                            window.display();
+                            c++;
+                            t += 25;
+                        }
+                        stop = 1;
+                    }
+                    //конец---отрисовки----------------------------------------
+
+                    /*  while (isMenu) {
+                          // setk.setColor(Color::White);
+                          //определение дальнейших действий: 200 - выход, 1 - 33
+                          //передача команды
+                          if (Mouse::isButtonPressed(Mouse::Middle)) {
+                              x = steam(window, size, teamnum);
+                              if ((x == 200) || (x == 100))
+                                  menuNum = x;
+                              else if ((x > 1) && (x < 33)) {
+                                  teamnum = x;
+                                  //   st = 0;
+                              }
+                          }
+                          //конец определения
+                          //-------------------------TEAM-MANAGMENT------------------------------------------
+                          if ((x < 33) && (x > 0)) {
+                              rnd2[x] = team[x];
+                              printf("%s\n PROVEROCHNOR", rnd2[x]);
+                          }
+                          //  printf("ОНА ЕЩЕ ЖИВА, СУКА");
+                          //------------------END-OF-TEAM-MNGMNT------------------------------------------
+                          //условие выхода--------------
+                          if (x == 200) {
+                              window.close();
+                              isMenu = false;
+                          }
+                          if (Mouse::isButtonPressed(Mouse::Right)) {
+                              isMenu = false;
+                          }
+                          //конец условия-----------------
+                      }*/
+                    //  for (int i = 0; i < ((size / 2) + 1); i++)
+                    do {
                         if (Mouse::isButtonPressed(Mouse::Middle)) {
-                            x = steam(window, size, teamnum);
-                            if ((x == 200) || (x == 100))
-                                menuNum = x;
-                            else if ((x > 1) && (x < 33))
-                                teamnum = x;
-                            else
-                                printf("Что-то пошло не так, попробуйте "
-                                       "заново");
+                            x = steam(window, size);
+                            a[x] = x;
+                            st += 1;
                         }
-                        // отрисовка 2го столбца------------------------------
-                        if (stop == 0) {
-                            c = 0;
-                            for (int i = 0; i < (size / 2); i++) {
-                                if (c == 2) {
-                                    t += 60;
-                                    c = 0;
-                                }
-                                rectangle.setFillColor(Color::Green);
-                                rectangle.setPosition(298, t);
-
-                                window.draw(rectangle);
-                                window.display();
-                                c++;
-                                t += 25;
-                            }
-                            stop = 1;
+                        if (Keyboard::isKeyPressed(Keyboard::Escape)) {
+                            isMenu = false;
+                            window.close();
                         }
-                        //конец
-                        //отрисовки------------------------------------------------------------
-                        //-------------------------TEAM-MANAGMENT------------------------------------------
-
-                        if (Mouse::isButtonPressed(Mouse::Left)) {
-                            if ((x < 33) && (x > 0)) {
-                                rnd2[x] = team[x];
-                                printf("%s\n", rnd2[x]);
-
-                                c = 1;
-                                for (int i = 0; i < (size / 2) + 1; i++) {
-                                    if (c == 2) {
-                                        te += 60;
-                                        c = 0;
-                                    }
-                                    printf("%d\n SSSSSS", c);
-                                    printf("%d\nTETETETE", te);
-                                    text.setString(rnd2[i]);
-                                    text.setPosition(300, te);
-
-                                    window.draw(text);
-                                    window.display();
-
-                                    te += 25;
-                                    c++;
-                                }
-                                //    }
-                            }
-                        }
-                        //  if (!rnd2[x] == ' ') {
-                        // printf("%s\n ВОВО ДАВАЙ", rnd2[x]);
-                        /*for (int i = 0; i < (size / 2) + 1; i++) {
-                            if (!rnd2[i] == ' ') {
-                                if (c == 2) {
-                                    t += 25;
-                                    c = 0;
-                                }
-
-                                text.setString(rnd2[i]);
-                                text.setPosition(300, t);
-
-                                rectangle.setFillColor(Color::Green);
-                                rectangle.setPosition(298, t);
-                                window.draw(rectangle);
-                                window.draw(text);
-
-                                window.display();
-
-                                t += 18;
-                                c++;
-                            }
-                        }*/
-                        //}
-                        //------------------END-OF-TEAM-MNGMNT------------------------------------------
-
                         if (x == 200) {
                             window.close();
                             isMenu = false;
                         }
-                    }
+                    } while (st < size / 2);
+
+                    for (int i = 0; i < size; i++)
+                        if (a[x] != 0)
+                            printf("%d\n", a[x]);
+
+                    /*  while (isMenu) {
+                          if (Mouse::isButtonPressed(Mouse::Middle)) {
+                              x = steam(window, size);
+                              c = 1;
+                              t = 58;
+                          }
+                          if ((x != 0) && (Mouse::isButtonPressed(Mouse::Left))
+                              && (c < 2)) {
+                              text.setString(team[x]);
+                              text.setPosition(300, t);
+                              window.draw(text);
+                              window.display();
+
+                              t += 18;
+                              c++;
+                          }
+                          c = 1;
+                          if (Keyboard::isKeyPressed(Keyboard::Escape)) {
+                              isMenu = false;
+                              window.close();
+                          }
+                          if (x == 200) {
+                              window.close();
+                              isMenu = false;
+                          }
+                      } */
                 }
         }
     }
@@ -280,66 +286,100 @@ void menu(RenderWindow& window)
     }
 }
 
-int steam(RenderWindow& window, int size, int teamnum)
+int steam(RenderWindow& window, int size)
 {
     bool isMenu = 1;
     int menuNum = 100;
+    int teamnum = 0;
     while (isMenu) {
-        do {
-            if ((IntRect(20, 24, 200, 20).contains(Mouse::getPosition(window)))
-                && (size > 1)) {
-                teamnum = 1;
-                printf("%d\n", teamnum);
-            }
+        if ((IntRect(20, 24, 200, 20).contains(Mouse::getPosition(window)))
+            && (size > 1)) {
+            teamnum = 1;
+            // printf("%d\n", teamnum);
+        }
 
-            if ((IntRect(20, 45, 200, 20).contains(Mouse::getPosition(window)))
-                && (size > 1)) {
-                teamnum = 2;
-                printf("%d\n", teamnum);
-            }
+        if ((IntRect(20, 45, 200, 20).contains(Mouse::getPosition(window)))
+            && (size > 1)) {
+            teamnum = 2;
+            // printf("%d\n", teamnum);
+        }
 
-            if ((IntRect(20, 87, 200, 18).contains(Mouse::getPosition(window)))
-                && (size > 2)) {
-                teamnum = 3;
-                printf("%d\n", teamnum);
-            }
+        if ((IntRect(20, 87, 200, 18).contains(Mouse::getPosition(window)))
+            && (size > 2)) {
+            teamnum = 3;
+            // printf("%d\n", teamnum);
+        }
 
-            if ((IntRect(20, 107, 200, 18).contains(Mouse::getPosition(window)))
-                && (size > 3)) {
-                teamnum = 4;
-                printf("%d\n", teamnum);
-            }
+        if ((IntRect(20, 107, 200, 18).contains(Mouse::getPosition(window)))
+            && (size > 3)) {
+            teamnum = 4;
+            //  printf("%d\n", teamnum);
+        }
 
-            if ((IntRect(20, 210, 200, 18).contains(Mouse::getPosition(window)))
-                && (size > 4)) {
-                teamnum = 5;
-                printf("%d\n", teamnum);
-            }
+        if ((IntRect(20, 210, 200, 18).contains(Mouse::getPosition(window)))
+            && (size > 4)) {
+            teamnum = 5;
+            //  printf("%d\n", teamnum);
+        }
 
-            if ((IntRect(20, 240, 200, 18).contains(Mouse::getPosition(window)))
-                && (size > 5)) {
-                teamnum = 6;
-                printf("%d\n", teamnum);
-            }
+        if ((IntRect(20, 240, 200, 18).contains(Mouse::getPosition(window)))
+            && (size > 5)) {
+            teamnum = 6;
+            printf("%d\n", teamnum);
+        }
 
-            if ((IntRect(20, 280, 200, 18).contains(Mouse::getPosition(window)))
-                && (size > 6)) {
-                teamnum = 7;
-            }
+        if ((IntRect(20, 280, 200, 18).contains(Mouse::getPosition(window)))
+            && (size > 6)) {
+            teamnum = 7;
+        }
 
-            if ((IntRect(20, 310, 200, 18).contains(Mouse::getPosition(window)))
-                && (size > 7)) {
-                teamnum = 8;
-                printf("%d\n", teamnum);
-            }
-            if (Mouse::isButtonPressed(Mouse::Left)) {
-                isMenu = false;
-                return (teamnum);
-            }
-        } while (!Keyboard::isKeyPressed(Keyboard::Escape));
-        menuNum = 200;
-        return (menuNum);
-        isMenu = false;
+        if ((IntRect(20, 310, 200, 18).contains(Mouse::getPosition(window)))
+            && (size > 7)) {
+            teamnum = 8;
+            printf("%d\n", teamnum);
+        }
+        if (Mouse::isButtonPressed(Mouse::Left)) {
+            isMenu = false;
+            return (teamnum);
+        }
+        if (Keyboard::isKeyPressed(Keyboard::Escape)) {
+            menuNum = 200;
+            return (menuNum);
+            isMenu = false;
+        }
     }
-    return (0);
+    return 0;
+}
+
+int type(RenderWindow& window, int c, int te, int size, char** rnd2, int x)
+{
+    Font font;
+    font.loadFromFile("ubuntu.ttf");
+
+    Text text("", font, 10);
+    text.setFillColor(Color::Red);
+
+    int st = 0;
+    printf("TYTT");
+
+    for (int i = x / 2; i < (size / 2) + 1; i++) {
+        if (!(*rnd2[i] == ' ')) {
+            printf("YA TUT");
+            if (c == 2) {
+                te += 60;
+                c = 0;
+            }
+            printf("%d\n SSSSSS", c);
+            printf("%d\nTETETETE", te);
+            text.setString(rnd2[i]);
+            text.setPosition(300, te);
+
+            window.draw(text);
+            window.display();
+
+            te += 25;
+            c++;
+        }
+    }
+    return (st);
 }
