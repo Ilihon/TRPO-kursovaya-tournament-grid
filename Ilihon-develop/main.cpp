@@ -26,12 +26,11 @@ struct match_struct{
 
 
 int main()
-{
-	setlocale(LC_ALL, "russian");        
+{      
 	int team_num;
 	cin >> 	team_num;
 	if (team_num<=0 || team_num >=33) {
-		puts("Не корректное количество комманд!");
+		puts("Uncorrect team count!");
     	main();
   	}	
 
@@ -42,7 +41,7 @@ int main()
 	
 
 	// имена комманд
-	cout << "Ввести имена комманд? (y/n) \n";
+	cout << "Enter team names? (y/n) \n";
 	char g='0';
 	cin >> g;
 	while((g!='y') && (g!='n')){
@@ -73,15 +72,18 @@ int main()
 
 	int round_amount=round_amount_count(team_num);
 	
-	cout << "\n\nКол-во раундов: "<< round_amount << "\n";
+	cout << "\n\nRound amount: "<< round_amount << "\n";
 	
 	int match = round_match_count(team_num);
-	cout <<"Кол-во матчей в следующем раунде: "<< match;
+	cout <<"Match amount for next round: "<< match;
 	
 	j=team_num;
 	FILE *f = fopen("tour.txt", "w");
 	fclose(f);
 	round_match( match, team_names, j);
+	
+	
+	
 	return 0;
 }
 
@@ -142,7 +144,7 @@ void round_match(int num_matches, char team_mas[][n], int num){
 	
 	if(j!=1){
 	cout << "\n\n"<<j; // кол-во игроков в след раунде
-	cout <<"\nКол-во матчей в следующем раунде: "<< num_matches << "\n---------------------------------------";
+	cout <<"\nMatch amount for next round: "<< num_matches << "\n---------------------------------------";
 		round_match(num_matches,team_names,j);
 	}
 }
