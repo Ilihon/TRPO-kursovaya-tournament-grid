@@ -79,8 +79,9 @@ int main()
 	cout <<"Кол-во матчей в следующем раунде: "<< match;
 	
 	j=team_num;
+	FILE *f = fopen("tour.txt", "w");
+	fclose(f);
 	round_match( match, team_names, j);
-	
 	return 0;
 }
 
@@ -101,7 +102,7 @@ int round_match_count(int num){
 	return(matches);
 }
 
-void round_match(int num_matches, char team_mas[][n], int num){
+void round_match(int num_matches, char team_mas[][n], int num){ 
 	match_struct A[num_matches];
 	int i;
 	for(i=0, j=0; i<num; i=i+2){
@@ -123,11 +124,22 @@ void round_match(int num_matches, char team_mas[][n], int num){
 		
 		j++;
 	}
+	int num_matches_old=num_matches;
 	num_matches = round_match_count(j);
 	char team_names[j][n];
 	for(i=0;i<j;i++){
 		strcpy(team_names[i],A[i].winner);
 	}
+	
+	FILE *f = fopen("tour.txt", "a");
+	for(i=0;i<num_matches_old;i++){
+		fputs(A[i].first,f);
+		fputs(A[i].second,f);
+		fputs("\n\n",f);
+	}
+	fputs("\n-------\n",f);
+	fclose(f);
+	
 	if(j!=1){
 	cout << "\n\n"<<j; // кол-во игроков в след раунде
 	cout <<"\nКол-во матчей в следующем раунде: "<< num_matches << "\n---------------------------------------";
