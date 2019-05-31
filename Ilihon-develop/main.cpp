@@ -110,8 +110,6 @@ int main()
 		fputs("\0",team_file);
 	}
 	fclose(team_file);
-	FILE *f = fopen("tour.txt", "w");
-	fclose(f);
 	
 	
 	// создаём файлы для раундов
@@ -130,7 +128,6 @@ int main()
 	match_fill_empty(team_num,round_amount,V);
 	match_fill(team_num,round_amount,team_names,V);
 	match_round(team_num,round_amount,team_names, V);
-	//round_match( match, team_names, j);
 	
 	return 0;
 }
@@ -230,48 +227,5 @@ int round_match_count(int team_num){
 	return(matches);
 }
 
-void round_match(int num_matches, char team_mas[][n], int num){ 
-	match_struct A[num_matches];
-	int i;
-	for(i=0, j=0; i<num; i=i+2){
-		strcpy(A[j].first, team_mas[i]);
-		//cout << "\n\n" << A[j].first;
-		if (i+1>=num){
-			strcpy(A[j].second, "Phantom name");
-			//cout << "\n" << A[j].second;
-		}
-		else{
-			strcpy(A[j].second, team_mas[i+1]);
-			//cout << "\n" << A[j].second;
-		}
-		cout << "\n\n" << A[j].first << "\n" << A[j].second;
-		
-		strcpy(A[j].winner,A[j].first); // поменять на считываие баллов
-		
-		cout << "\n" << A[j].winner <<" - winner"; // побдеитель пока-что 1ый игрок
-		
-		j++;
-	}
-	int num_matches_old=num_matches;
-	num_matches = round_match_count(j);
-	char team_names[j][n];
-	for(i=0;i<j;i++){
-		strcpy(team_names[i],A[i].winner);
-	}
-	
-	FILE *f = fopen("tour.txt", "a");
-	for(i=0;i<num_matches_old;i++){
-		fputs(A[i].first,f);
-		fputs(A[i].second,f);
-		fputs("\n\n",f);
-	}
-	fputs("\n-------\n",f);
-	fclose(f);
-	
-	if(j!=1){
-	cout << "\n\n"<<j; // кол-во игроков в след раунде
-	cout <<"\nMatch amount for next round: "<< num_matches << "\n---------------------------------------";
-		round_match(num_matches,team_names,j);
-	}
-}
+
 
