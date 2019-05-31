@@ -29,7 +29,7 @@ struct playoff{
 	playoff *next;
 } *V[6];
 
-
+int match_fill_empty(int team_num, int round_amount, struct playoff *V[6]);
 int match_fill(int team_num, int round_amount, char team_mas[][n], struct playoff *V[6]);
 int match_round(int team_num, int round_amount, char team_mas[][n], struct playoff *V[6]);
 
@@ -127,16 +127,30 @@ int main()
 	fclose(round1);	
 	
 	
-	j=team_num;
-	//round_match( match, team_names, j);
-	//match_round(team_num,round_mount,team_names, V);
+	match_fill_empty(team_num,round_amount,V);
 	match_fill(team_num,round_amount,team_names,V);
+	match_round(team_num,round_amount,team_names, V);
+	//round_match( match, team_names, j);
 	
 	return 0;
 }
+int match_fill_empty(int team_num, int round_amount, struct playoff *V[6]){
+	for(int i=6-round_amount;i<6;i++){
+		if(team_num%2!=0)
+			team_num++;
+		team_num=team_num/2;	
+		for(int d=0;d<team_num;d++){	
+			strcpy(V[i]->A[d].first,"UnknownFirstPlayer");
+			strcpy(V[i]->A[d].second,"UnknownSeconPlayer");	
+			V[i]->A[d].first_score=0;
+			V[i]->A[d].second_score=0;
+			strcpy(V[i]->A[d].winner,"UnknownWinner");
+		}	
+	}
+}
 
 int match_fill(int team_num, int round_amount, char team_mas[][n], struct playoff *V[6]){
-	int i,j;
+	int i;
 	for(i=0, j=0; i<team_num; i=i+2){
 		strcpy(V[6-round_amount]->A[j].first, team_mas[i]);
 		if (i+1>=team_num){
@@ -145,59 +159,57 @@ int match_fill(int team_num, int round_amount, char team_mas[][n], struct playof
 		else{
 			strcpy(V[6-round_amount]->A[j].second, team_mas[i+1]);
 		}
-		V[6-round_amount]->A[j].first_score=0;
-		V[6-round_amount]->A[j].second_score=0;
-		strcpy(V[6-round_amount]->A[j].winner,"Unknown");
-				cout << "\n\n" << V[6-round_amount]->A[j].first << "\n" << V[6-round_amount]->A[j].second;				
+		cout << "\n\n" << V[6-round_amount]->A[j].first << "\n" << V[6-round_amount]->A[j].second;				
 		j++;
 	}
-	FILE *f;
-	
-	switch(round_amount){
-		case 1:
-			f = fopen("round5.txt", "a");	
-		break;	
-		case 2:
-			f = fopen("round4.txt", "a");	
-		break;
-		case 3:
-			f = fopen("round3.txt", "a");	
-		break;	
-		case 4:
-			f = fopen("round2.txt", "a");	
-		break;	
-		case 5:
-			f = fopen("round1.txt", "a");	
-		break;	
-
-		
-	}
-	for(i=0;i<j;i++){
-		char num[n-3];
-		fputs(V[6-round_amount]->A[i].first,f);
-		fputs("\0",f);
-		fputs("\n",f);
-		sprintf(num,"%d",V[6-round_amount]->A[i].first_score);
-		fputs(num,f);
-		fputs("\0",f);
-		fputs("\n",f);
-		fputs(V[6-round_amount]->A[i].second,f);
-		fputs("\0",f);
-		fputs("\n",f);
-		sprintf(num,"%d",V[6-round_amount]->A[i].second_score);
-		fputs(num,f);
-		fputs("\0",f);
-		fputs("\n",f);
-		fputs(V[6-round_amount]->A[i].winner,f);
-		fputs("\0",f);
-		fputs("\n\n",f);
-	}
-return 0;
+	return 0;
 }
 
-int match_round(int team_num, int round_amount, char team_mas[][n], struct playoff *V[6]){
-	
-	
+int match_round(int team_num,int round_amount, char team_mas[][n], struct playoff *V[6]){
+	FILE *f;
+	while(round_amount!=0){
+		switch(round_amount){
+			case 1:
+				f = fopen("round5.txt", "a");	
+			break;	
+			case 2:
+				f = fopen("round4.txt", "a");	
+			break;
+			case 3:
+				f = fopen("round3.txt", "a");	
+			break;	
+			case 4:
+				f = fopen("round2.txt", "a");	
+			break;	
+			case 5:
+				f = fopen("round1.txt", "a");	
+			break;	
+		}
+		if(team_num%2!=0)
+			team_num++;
+		team_num=team_num/2;	
+		for(int i=0;i<team_num;i++){
+			char num[n-3];
+			fputs(V[6-round_amount]->A[i].first,f);
+			fputs("\0",f);
+			fputs("\n",f);
+			sprintf(num,"%d",V[6-round_amount]->A[i].first_score);
+			fputs(num,f);
+			fputs("\0",f);
+			fputs("\n",f);
+			fputs(V[6-round_amount]->A[i].second,f);
+			fputs("\0",f);
+			fputs("\n",f);
+			sprintf(num,"%d",V[6-round_amount]->A[i].second_score);
+			fputs(num,f);
+			fputs("\0",f);
+			fputs("\n",f);
+			fputs(V[6-round_amount]->A[i].winner,f);
+			fputs("\0",f);
+			fputs("\n\n",f);
+		}
+		round_amount--;
+	}
 }
 
 int round_amount_count(int team_num){
