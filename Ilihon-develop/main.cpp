@@ -131,7 +131,9 @@ int main()
 	
 	return 0;
 }
-int match_fill_empty(int team_num, int round_amount, struct playoff *V[6]){
+
+
+int match_fill_empty(int team_num, int round_amount, struct playoff *V[6]){ //заполняем пустые структуры в массиве "неизвестными"
 	for(int i=6-round_amount;i<6;i++){
 		if(team_num%2!=0)
 			team_num++;
@@ -146,7 +148,7 @@ int match_fill_empty(int team_num, int round_amount, struct playoff *V[6]){
 	}
 }
 
-int match_fill(int team_num, int round_amount, char team_mas[][n], struct playoff *V[6]){
+int match_fill(int team_num, int round_amount, char team_mas[][n], struct playoff *V[6]){  //заполяем структуры в массиве с "неизвестными" фактическими данными
 	int i;
 	for(i=0, j=0; i<team_num; i=i+2){
 		strcpy(V[6-round_amount]->A[j].first, team_mas[i]);
@@ -162,7 +164,7 @@ int match_fill(int team_num, int round_amount, char team_mas[][n], struct playof
 	return 0;
 }
 
-int match_round(int team_num,int round_amount, char team_mas[][n], struct playoff *V[6]){
+int match_round(int team_num,int round_amount, char team_mas[][n], struct playoff *V[6]){ //переносим данные из структур в массиве в текстовые файлы
 	FILE *f;
 	while(round_amount!=0){
 		switch(round_amount){
