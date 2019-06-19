@@ -135,15 +135,22 @@ int main()
 
 
 int match_fill_empty(int team_num, int round_amount, struct playoff *V[6]){ //заполняем пустые структуры в массиве "неизвестными"
-	for(int i=5-round_amount;i<5;i++){
-		team_num=(team_num+1)/2;	
-		for(int d=0;d<team_num;d++){	
-			strcpy(V[i]->A[d].first,"UnknownFirstPlayer");
-			strcpy(V[i]->A[d].second,"UnknownSeconPlayer");	
-			V[i]->A[d].first_score=0;
-			V[i]->A[d].second_score=0;
-			strcpy(V[i]->A[d].winner,"UnknownWinner");
+	for(int i=5-round_amount;i<5;i++){	
+		for(int d=0,j=0;d<team_num;d=d+2){
+			V[i]->A[j].first_score=0;
+			V[i]->A[j].second_score=0;	
+			strcpy(V[i]->A[j].first,"UnknownFirstPlayer");
+			if (d+1>=team_num){
+				strcpy(V[i]->A[j].second, "Phantom name");
+				V[i]->A[j].second_score=-1;
+			}
+			else{
+				strcpy(V[i]->A[j].second,"UnknownSeconPlayer");	
+			}
+			strcpy(V[i]->A[j].winner,"UnknownWinner");
+		j++;
 		}	
+		team_num=(team_num+1)/2;
 	}
 }
 
