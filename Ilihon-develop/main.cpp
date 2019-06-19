@@ -10,7 +10,6 @@ using namespace std;
 
 
 const int n=33;
-int j=0;
 
 int round_match_count(int num);
 int round_amount_count(int team_num);
@@ -31,6 +30,7 @@ struct playoff{
 
 int match_fill_empty(int team_num, int round_amount, struct playoff *V[6]);
 int match_fill(int team_num, int round_amount, char team_mas[][n], struct playoff *V[6]);
+int refill_roundwinner(int team_num, int round_amount, struct playoff *V[6]);
 int match_round(int team_num, int round_amount, char team_mas[][n], struct playoff *V[6]);
 
 int main()
@@ -53,7 +53,7 @@ int main()
 		printf("Failed to allocate memory");
 	   	return 1; // выход по ошибке, код ошибки 1
 	}
-	for(int i=1;i<=5;i++){//выделяем память
+	for(int i=1;i<=6;i++){//выделяем память
 		V[i]=new playoff;  
 		if ( V[i] == NULL )	{
 			printf("Failed to allocate memory");
@@ -61,7 +61,7 @@ int main()
 		}
 		V[i-1]->next=V[i];
 	}
-	V[5]->next=NULL;
+	V[6]->next=NULL;
 	
 	//сгенерировать или считать имена комманд
 	cout << "Enter team names? (y/n) \n";
@@ -127,6 +127,7 @@ int main()
 	
 	match_fill_empty(team_num,round_amount,V);
 	match_fill(team_num,round_amount,team_names,V);
+	refill_roundwinner(team_num,round_amount,V);
 	match_round(team_num,round_amount,team_names, V);
 	
 	return 0;
@@ -134,10 +135,8 @@ int main()
 
 
 int match_fill_empty(int team_num, int round_amount, struct playoff *V[6]){ //заполняем пустые структуры в массиве "неизвестными"
-	for(int i=6-round_amount;i<6;i++){
-		if(team_num%2!=0)
-			team_num++;
-		team_num=team_num/2;	
+	for(int i=5-round_amount;i<5;i++){
+		team_num=(team_num+1)/2;	
 		for(int d=0;d<team_num;d++){	
 			strcpy(V[i]->A[d].first,"UnknownFirstPlayer");
 			strcpy(V[i]->A[d].second,"UnknownSeconPlayer");	
@@ -149,20 +148,62 @@ int match_fill_empty(int team_num, int round_amount, struct playoff *V[6]){ //з
 }
 
 int match_fill(int team_num, int round_amount, char team_mas[][n], struct playoff *V[6]){  //заполяем структуры в массиве с "неизвестными" фактическими данными
-	int i;
+	int i,j;
 	for(i=0, j=0; i<team_num; i=i+2){
-		strcpy(V[6-round_amount]->A[j].first, team_mas[i]);
+		strcpy(V[5-round_amount]->A[j].first, team_mas[i]);
 		if (i+1>=team_num){
-			strcpy(V[6-round_amount]->A[j].second, "Phantom name");
+			strcpy(V[5-round_amount]->A[j].second, "Phantom name");
+			V[5-round_amount]->A[j].second_score=-1;
 		}
 		else{
-			strcpy(V[6-round_amount]->A[j].second, team_mas[i+1]);
+			strcpy(V[5-round_amount]->A[j].second, team_mas[i+1]);
 		}
-		cout << "\n\n" << V[6-round_amount]->A[j].first << "\n" << V[6-round_amount]->A[j].second;				
+		
+		cout << "\n\n" << V[5-round_amount]->A[j].first << "\n" << V[5-round_amount]->A[j].second;				
 		j++;
 	}
 	return 0;
 }
+
+int refill_roundwinner(int team_num, int round_amount, struct playoff *V[6]){
+	int i,j,k;
+	for(i=5-round_amount;i<5;i++){
+		team_num=(team_num+1)/2;
+		for(j=0;j<team_num;j++){
+			if(V[i]->A[j].first_score > V[i]->A[j].second_score){
+				strcpy(V[i]->A[j].winner, V[i]->A[j].first);
+				}
+			if(V[i]->A[j].first_score < V[i]->A[j].second_score){
+				strcpy(V[i]->A[j].winner, V[i]->A[j].second);
+			}
+			
+			if((strcmp(V[i]->A[j].winner,"UnknownWinner") !=0) && (strcmp(V[i]->A[j].winner,"UnknownFirstPlayer") !=0) && (strcmp(V[i]->A[j].winner,"UnknownSeconPlayer") !=0)){
+				k=j/2;
+				switch(j%2){
+					case 0:
+						strcpy(V[i+1]->A[k].first,V[i]->A[j].winner);
+						break;
+					case 1:
+						strcpy(V[i+1]->A[k].second,V[i]->A[j].winner);
+						break;	
+				}
+			}
+		}	
+	
+	}	
+	
+	/*int next_round= (team_num+1)/2;
+			int next_round_num = next_round%2;
+			switch(next_round_num){
+				case 1:
+					strcpy(V[7-round_amount]->A[next_round].first,V[6-round_amount]->A[j].winner)
+					break;
+				case 2:	
+					
+					break;
+		*/
+}
+
 
 int match_round(int team_num,int round_amount, char team_mas[][n], struct playoff *V[6]){ //переносим данные из структур в массиве в текстовые файлы
 	FILE *f;
@@ -189,21 +230,21 @@ int match_round(int team_num,int round_amount, char team_mas[][n], struct playof
 		team_num=team_num/2;	
 		for(int i=0;i<team_num;i++){
 			char num[n-3];
-			fputs(V[6-round_amount]->A[i].first,f);
+			fputs(V[5-round_amount]->A[i].first,f);
 			fputs("\0",f);
 			fputs("\n",f);
-			sprintf(num,"%d",V[6-round_amount]->A[i].first_score);
+			sprintf(num,"%d",V[5-round_amount]->A[i].first_score);
 			fputs(num,f);
 			fputs("\0",f);
 			fputs("\n",f);
-			fputs(V[6-round_amount]->A[i].second,f);
+			fputs(V[5-round_amount]->A[i].second,f);
 			fputs("\0",f);
 			fputs("\n",f);
-			sprintf(num,"%d",V[6-round_amount]->A[i].second_score);
+			sprintf(num,"%d",V[5-round_amount]->A[i].second_score);
 			fputs(num,f);
 			fputs("\0",f);
 			fputs("\n",f);
-			fputs(V[6-round_amount]->A[i].winner,f);
+			fputs(V[5-round_amount]->A[i].winner,f);
 			fputs("\0",f);
 			fputs("\n\n",f);
 		}
