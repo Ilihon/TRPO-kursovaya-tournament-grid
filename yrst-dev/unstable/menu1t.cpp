@@ -18,7 +18,7 @@ int main()
 
     char** team;
     char** rnd2;
-    int size = 0, x = 0, c = 1;
+    int size = 0, x = 2, c = 1;
 
     scanf("%d", &size);
 
@@ -52,6 +52,9 @@ int main()
 
     Font font;
     font.loadFromFile("ubuntu.ttf");
+
+    RectangleShape rectangle(Vector2f(182, 20));
+    rectangle.setFillColor(Color::Green);
 
     Text text("", font, 40), text2("", font, 20);
     text.setFillColor(Color::Red);
@@ -198,8 +201,15 @@ int main()
                 goto Again;
             if (Mouse::isButtonPressed(Mouse::Left)) {
                 x = steam(window, size);
-                rnd2[x] = team[x];
+                if (x % 2 == 1) {
+                    rnd2[x] = team[x];
+                    *rnd2[x + 1] = ' ';
+                } else {
+                    rnd2[x] = team[x];
+                    //*rnd2[x - 1] = ' ';
+                }
                 printf("GOTCHA\n");
+                break;
             }
             if (Keyboard::isKeyPressed(Keyboard::Enter)) {
                 int t = 36, c = 0, x = 0;
@@ -216,6 +226,10 @@ int main()
                         text.setString(rnd2[i]);
                         text.setPosition(280, t);
 
+                        rectangle.setFillColor(Color::Green);
+                        rectangle.setPosition(278, t);
+
+                        window.draw(rectangle);
                         window.draw(text);
 
                         window.display();
