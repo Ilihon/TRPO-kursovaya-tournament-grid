@@ -31,7 +31,7 @@ setlocale(LC_ALL,"Rus");
 		scanf("%d", &size);
   	}
 
-	team = new char*[size + 1];
+	team = new char*[size];
 	 
 	//сгенерировать или считать имена комманд
 	cout << "Enter team names? (y/n) \n";
@@ -53,7 +53,7 @@ setlocale(LC_ALL,"Rus");
 			team[i] = new char[30];
 			char str[30]="TeamNum";
 			char num[30];
-			sprintf(num,"%d",i+1);
+			sprintf(num,"%d",i);
 			strcat(str,num);
 			strcpy(team[i],str);
 		}
