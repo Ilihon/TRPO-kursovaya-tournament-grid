@@ -211,7 +211,7 @@ int main()
                 printf("GOTCHA\n");
                 break;
             }
-            if (Keyboard::isKeyPressed(Keyboard::Enter)) {
+            if (Keyboard::isKeyPressed(Keyboard::Return)) {
                 int t = 36, c = 0, x = 0;
                 Text text("", font, 10);
                 text.setFillColor(Color::Red);
