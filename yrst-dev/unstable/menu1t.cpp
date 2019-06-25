@@ -280,7 +280,7 @@ void(draw)(RenderWindow& window, char* team[], Font font, int size)
             m += 7;
             c = 0;
         }
-        for (int j = 1; j < 100000000; j++) {
+        for (int j = 1; j < 1000000; j++) {
             j = j;
         }
 
@@ -310,6 +310,11 @@ void(draw)(RenderWindow& window, char* team[], Font font, int size)
                 t += 61;
                 c = 0;
             }
+
+            for (int j = 1; j < 1000000; j++) {
+                j = j;
+            }
+
             rectangle.setFillColor(Color::Green);
             rectangle.setPosition(278, t);
 
@@ -335,6 +340,11 @@ void(draw)(RenderWindow& window, char* team[], Font font, int size)
                 t += 169;
                 c = 0;
             }
+
+            for (int j = 1; j < 1000000; j++) {
+                j = j;
+            }
+
             rectangle.setFillColor(Color::Green);
             rectangle.setPosition(538, t);
 
@@ -358,6 +368,11 @@ void(draw)(RenderWindow& window, char* team[], Font font, int size)
                 t += 389;
                 c = 0;
             }
+
+            for (int j = 1; j < 1000000; j++) {
+                j = j;
+            }
+
             rectangle.setFillColor(Color::Green);
             rectangle.setPosition(808, t);
 
@@ -373,6 +388,10 @@ void(draw)(RenderWindow& window, char* team[], Font font, int size)
     if ((stop == 3) && (i <= (size / 16))) {
         t = 423;
         for (int i = 0; i < 2; i++) {
+            for (int j = 1; j < 1000000; j++) {
+                j = j;
+            }
+
             rectangle.setFillColor(Color::Green);
             rectangle.setPosition(1008, t);
 
