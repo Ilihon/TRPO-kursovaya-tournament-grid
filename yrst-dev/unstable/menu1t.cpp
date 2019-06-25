@@ -37,12 +37,6 @@ int main()
     for (int i = 0; i < size + 1; i++) {
         team[i] = new char[30];
         cin.getline(team[i], 30);
-        /*  empty:
-              if (*team[i] = ' ') {
-                  printf("AGAIN, EMPTY NOT ALLOWED\n");
-                  cin.getline(team[i], 30);
-                  goto empty;
-              }*/
     }
     rnd2 = new char*[size + 1];
     for (int i = 0; i < size + 1; i++) {
