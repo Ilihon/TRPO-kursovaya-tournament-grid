@@ -264,6 +264,8 @@ void(draw)(RenderWindow& window, char* team[], Font font, int size)
 
     int m = 10, t = 36; //переменные используемые в отрисовке сетке,
                         //для увелечения дистанции мду элементами
+    float time = 0;
+    Clock clock;
 
     int c = 0, newsize = size; // счетчик, оторые исп для рисования ячеек
     int stop = 0; //Для остановки циклов
@@ -274,11 +276,18 @@ void(draw)(RenderWindow& window, char* team[], Font font, int size)
     RectangleShape rectangle(Vector2f(182, 20));
     rectangle.setFillColor(Color::Green);
 
+    clock.restart();
+    time = clock.getElapsedTime().asMicroseconds();
     // отрисовка 1го столбца------------------------------
+
+    //  if (time > 100) {
     for (int i = 1; i < size + 1; i++) {
         if (c == 2) {
             m += 7;
             c = 0;
+        }
+        for (int j = 1; j < 100000000; j++) {
+            j = j;
         }
 
         text.setString(team[i]);
@@ -294,7 +303,7 @@ void(draw)(RenderWindow& window, char* team[], Font font, int size)
         m += 24;
         c++;
     }
-
+    //
     // отрисовка 2го столбца------------------------------
     if (stop == 0) {
         if (size % 2 == 1)
@@ -383,15 +392,20 @@ void(draw)(RenderWindow& window, char* team[], Font font, int size)
 
 void menu(RenderWindow& window)
 {
+    window.clear();
+
     Texture menuTexture1, menuTexture2, menuTexture3, menuBackground;
     menuTexture1.loadFromFile("images/1111.png");
     menuTexture2.loadFromFile("images/2222.png");
     menuTexture3.loadFromFile("images/3333.png");
     menuBackground.loadFromFile("images/Background.jpg");
+
     Sprite menu1(menuTexture1), menu2(menuTexture2), menu3(menuTexture3),
             menuBg(menuBackground);
+
     bool isMenu = 1;
     int menuNum = 0;
+
     menu1.setPosition(400, 200);
     menu2.setPosition(400, 250);
     menu3.setPosition(400, 350);
