@@ -14,30 +14,63 @@ int type(RenderWindow& window, int c, int te, int size, char** rnd2, int x);
 
 int main()
 {
-    printf("Введите количество команд (Меньше 33):\n");
 
-    char** team;
-    char** rnd2;
-    int size = 0, x = 2, c = 1;
+/////////////////
+setlocale(LC_ALL,"Rus");	
+	cout << "Enter team num(1-32): ";
+	int size; //кол-во комманд
+	cin >> 	size;
+	
+	char** team;
+    	char** rnd2;
+    	int x = 2, c = 1;
 
-    scanf("%d", &size);
+	while (size<1 || size >32) {
+		puts("Uncorrect team count!");
+		puts("Please !");
+		scanf("%d", &size);
+  	}
 
-    while ((size > 32) || (size < 2)) {
-        printf("Неправильно задано количество команд.\nПовторите попытку:\n");
-        scanf("%d", &size);
-    }
+	team = new char*[size];
+	 
+	//сгенерировать или считать имена комманд
+	cout << "Enter team names? (y/n) \n";
+	char g='0'; //
+	cin >> g;
+	while((g!='y') && (g!='n')){
+		cout << "Yes OR Not?\n";
+		cin >>g;
+	} 
 
+	if(g=='y'){ //считываем имена комманд
+		for(int i=0;i<size+1;i++){;
+			team[i] = new char[30];
+			cin.getline(team[i], 30);
+		}
+	}
+	else{ //генерируем имена комманд
+		for(int i=0;i<size+1;i++){
+			team[i] = new char[30];
+			char str[30]="TeamNum";
+			char num[30];
+			sprintf(num,"%d",i);
+			strcat(str,num);
+			strcpy(team[i],str);
+		}
+	}
+
+
+//////////////
+
+    
+ /*
     int a[size];
     for (int i = 0; i < size; i++)
         a[i] = 0;
+*/
 
-    team = new char*[size + 1];
-    printf("Введите названия команд:\n");
 
-    for (int i = 0; i < size + 1; i++) {
-        team[i] = new char[30];
-        cin.getline(team[i], 30);
-    }
+    
     rnd2 = new char*[size + 1];
     for (int i = 0; i < size + 1; i++) {
         rnd2[i] = new char[30];
