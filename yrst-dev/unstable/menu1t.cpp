@@ -37,6 +37,12 @@ int main()
     for (int i = 0; i < size + 1; i++) {
         team[i] = new char[30];
         cin.getline(team[i], 30);
+        /*  empty:
+              if (*team[i] = ' ') {
+                  printf("AGAIN, EMPTY NOT ALLOWED\n");
+                  cin.getline(team[i], 30);
+                  goto empty;
+              }*/
     }
     rnd2 = new char*[size + 1];
     for (int i = 0; i < size + 1; i++) {
@@ -81,14 +87,6 @@ int main()
 
                     Text text("", font, 10);
                     text.setFillColor(Color::Red);
-
-                    Texture stk;
-                    stk.loadFromFile("images/stk.jpg");
-
-                    Sprite setk(stk);
-
-                    window.draw(setk);
-                    window.display();
 
                     draw(window, team, font, size);
                     break;
@@ -203,21 +201,31 @@ int main()
                 x = steam(window, size);
                 if (x % 2 == 1) {
                     rnd2[x] = team[x];
-                    *rnd2[x + 1] = ' ';
+                    a[x] = 1;
+                    a[x + 1] = 0;
                 } else {
                     rnd2[x] = team[x];
-                    //*rnd2[x - 1] = ' ';
+                    a[x] = 1;
+                    a[x - 1] = 0;
                 }
                 printf("GOTCHA\n");
                 break;
             }
             if (Keyboard::isKeyPressed(Keyboard::Return)) {
-                int t = 36, c = 0, x = 0;
+                int t = 36, c = 0, x = 0, newsize = size;
                 Text text("", font, 10);
                 text.setFillColor(Color::Red);
+                window.clear();
+                draw(window, team, font, size);
+                window.display();
+
+                if (size % 2 == 1)
+                    newsize = size / 2 + 1;
+                else
+                    newsize = size / 2;
 
                 for (int i = 1; i < size + 1; i++) {
-                    if ((*rnd2[i] != ' ') && (x < size / 2)) {
+                    if ((a[i] != 0) && (x < newsize)) {
                         if (c == 2) {
                             t += 61;
                             c = 0;
@@ -226,10 +234,6 @@ int main()
                         text.setString(rnd2[i]);
                         text.setPosition(280, t);
 
-                        rectangle.setFillColor(Color::Green);
-                        rectangle.setPosition(278, t);
-
-                        window.draw(rectangle);
                         window.draw(text);
 
                         window.display();
@@ -248,10 +252,20 @@ int main()
 
 void(draw)(RenderWindow& window, char* team[], Font font, int size)
 {
+    window.clear();
+
+    Texture stk;
+    stk.loadFromFile("images/stk.jpg");
+
+    Sprite setk(stk);
+
+    window.draw(setk);
+    window.display();
+
     int m = 10, t = 36; //переменные используемые в отрисовке сетке,
                         //для увелечения дистанции мду элементами
 
-    int c = 0; // счетчик, оторые исп для рисования ячеек
+    int c = 0, newsize = size; // счетчик, оторые исп для рисования ячеек
     int stop = 0; //Для остановки циклов
 
     Text text("", font, 10);
@@ -283,8 +297,12 @@ void(draw)(RenderWindow& window, char* team[], Font font, int size)
 
     // отрисовка 2го столбца------------------------------
     if (stop == 0) {
+        if (size % 2 == 1)
+            newsize = size / 2 + 1;
+        else
+            newsize = size / 2;
         c = 0;
-        for (int i = 0; i < (size / 2); i++) {
+        for (int i = 0; i < (newsize); i++) {
             if (c == 2) {
                 t += 61;
                 c = 0;
@@ -302,9 +320,13 @@ void(draw)(RenderWindow& window, char* team[], Font font, int size)
 
     //отрисовка 3го столбца--------------------------------
     if (stop == 1) {
+        if (size % 4 < 4)
+            newsize = size / 4 + 1;
+        else
+            newsize = size / 4;
         c = 0;
         t = 97;
-        for (int i = 0; i < (size / 4); i++) {
+        for (int i = 0; i < (newsize); i++) {
             if (c == 2) {
                 t += 169;
                 c = 0;
@@ -419,62 +441,81 @@ int steam(RenderWindow& window, int size)
     bool isMenu = 1;
     int menuNum = 100;
     int teamnum = 0;
+    int m = 10, t = 36;
+    int c = 0;
+
     while (isMenu) {
-        if ((IntRect(18, 10, 182, 20).contains(Mouse::getPosition(window)))
-            && (size > 1)) {
-            teamnum = 1;
-            printf("%d\n", teamnum);
+        for (int i = 1; i < size + 1; i++) {
+            if (c == 2) {
+                m += 7;
+                c = 0;
+            }
+            if ((IntRect(20, m, 182, 20).contains(Mouse::getPosition(window)))
+                && (size > 1)) {
+                teamnum = i;
+                printf("%d\n", teamnum);
+            }
+
+            m += 24;
+            c++;
         }
 
-        if ((IntRect(18, 34, 182, 20).contains(Mouse::getPosition(window)))
-            && (size > 1)) {
-            teamnum = 2;
-            printf("%d\n", teamnum);
-        }
+        /*  if ((IntRect(18, 10, 182, 20).contains(Mouse::getPosition(window)))
+              && (size > 1)) {
+              teamnum = 1;
+              printf("%d\n", teamnum);
+          }
 
-        if ((IntRect(18, 65, 182, 18).contains(Mouse::getPosition(window)))
-            && (size > 2)) {
-            teamnum = 3;
-            printf("%d\n", teamnum);
-        }
+          if ((IntRect(18, 34, 182, 20).contains(Mouse::getPosition(window)))
+              && (size > 1)) {
+              teamnum = 2;
+              printf("%d\n", teamnum);
+          }
 
-        if ((IntRect(18, 89, 182, 18).contains(Mouse::getPosition(window)))
-            && (size > 3)) {
-            teamnum = 4;
-            printf("%d\n", teamnum);
-        }
+          if ((IntRect(18, 65, 182, 18).contains(Mouse::getPosition(window)))
+              && (size > 2)) {
+              teamnum = 3;
+              printf("%d\n", teamnum);
+          }
 
-        if ((IntRect(18, 110, 182, 18).contains(Mouse::getPosition(window)))
-            && (size > 4)) {
-            teamnum = 5;
-            printf("%d\n", teamnum);
-        }
+          if ((IntRect(18, 89, 182, 18).contains(Mouse::getPosition(window)))
+              && (size > 3)) {
+              teamnum = 4;
+              printf("%d\n", teamnum);
+          }
 
-        if ((IntRect(18, 134, 182, 18).contains(Mouse::getPosition(window)))
-            && (size > 5)) {
-            teamnum = 6;
-            printf("%d\n", teamnum);
-        }
+          if ((IntRect(18, 110, 182, 18).contains(Mouse::getPosition(window)))
+              && (size > 4)) {
+              teamnum = 5;
+              printf("%d\n", teamnum);
+          }
 
-        if ((IntRect(18, 165, 182, 18).contains(Mouse::getPosition(window)))
-            && (size > 6)) {
-            teamnum = 7;
-        }
+          if ((IntRect(18, 134, 182, 18).contains(Mouse::getPosition(window)))
+              && (size > 5)) {
+              teamnum = 6;
+              printf("%d\n", teamnum);
+          }
 
-        if ((IntRect(18, 189, 182, 18).contains(Mouse::getPosition(window)))
-            && (size > 7)) {
-            teamnum = 8;
-            printf("%d\n", teamnum);
-        }
+          if ((IntRect(18, 165, 182, 18).contains(Mouse::getPosition(window)))
+              && (size > 6)) {
+              teamnum = 7;
+          }
+
+          if ((IntRect(18, 189, 182, 18).contains(Mouse::getPosition(window)))
+              && (size > 7)) {
+              teamnum = 8;
+              printf("%d\n", teamnum);
+          }
+          */
         if (Mouse::isButtonPressed(Mouse::Left)) {
             isMenu = false;
             return (teamnum);
         }
-        if (Keyboard::isKeyPressed(Keyboard::Escape)) {
-            menuNum = 180;
-            return (menuNum);
-            isMenu = false;
-        }
+        /*  if (Keyboard::isKeyPressed(Keyboard::Escape)) {
+              menuNum = 180;
+              return (menuNum);
+              isMenu = false;
+          }*/
     }
     return 0;
 }
