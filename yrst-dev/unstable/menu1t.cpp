@@ -43,7 +43,6 @@ int main()
 
     if (g == 'y') { //считываем имена комманд
         for (int i = 0; i < size + 1; i++) {
-            ;
             team[i] = new char[30];
             cin.getline(team[i], 30);
         }
