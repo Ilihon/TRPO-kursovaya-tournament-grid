@@ -50,7 +50,7 @@ int main()
         *rnd2[i] = ' ';
     }
 
-    RenderWindow window(VideoMode(1600, 1000), "Menu");
+    RenderWindow window(VideoMode(1500, 900), "Menu");
 
     Texture men;
     men.loadFromFile("images/loading.png");
@@ -320,7 +320,8 @@ void(draw)(RenderWindow& window, char* team[], Font font, int size)
 
     //отрисовка 3го столбца--------------------------------
     if (stop == 1) {
-        if (size % 4 < 4)
+        if ((size % 4 < 4) && (size != 8) && (size != 12) && (size != 16)
+            && (size != 20) && (size != 24) && (size != 28) && (size != 32))
             newsize = size / 4 + 1;
         else
             newsize = size / 4;
@@ -343,9 +344,13 @@ void(draw)(RenderWindow& window, char* team[], Font font, int size)
     }
     //отрисовка 4го столбца--------------------------------
     if (stop == 2) {
+        if ((size % 8 < 8) && (size != 16) && (size != 24) && (size != 32))
+            newsize = size / 8 + 1;
+        else
+            newsize = size / 8;
         c = 0;
         t = 205;
-        for (int i = 0; i < (size / 8); i++) {
+        for (int i = 0; i < (newsize); i++) {
             if (c == 2) {
                 t += 389;
                 c = 0;
