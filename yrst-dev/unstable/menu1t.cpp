@@ -14,61 +14,56 @@ int type(RenderWindow& window, int c, int te, int size, char** rnd2, int x);
 
 int main()
 {
+    /////////////////
+    setlocale(LC_ALL, "Rus");
+    cout << "Enter team num(1-32): ";
+    int size; //кол-во комманд
+    cin >> size;
 
-/////////////////
-setlocale(LC_ALL,"Rus");	
-	cout << "Enter team num(1-32): ";
-	int size; //кол-во комманд
-	cin >> 	size;
-	
-	char** team;
-    	char** rnd2;
-    	int x = 2, c = 1;
+    char** team;
+    char** rnd2;
+    int x = 2, c = 1;
 
-	while (size<1 || size >32) {
-		puts("Uncorrect team count!");
-		puts("Please !");
-		scanf("%d", &size);
-  	}
+    while (size < 1 || size > 32) {
+        puts("Uncorrect team count!");
+        puts("Please !");
+        scanf("%d", &size);
+    }
 
-	team = new char*[size];
-	 
-	//сгенерировать или считать имена комманд
-	cout << "Enter team names? (y/n) \n";
-	char g='0'; //
-	cin >> g;
-	while((g!='y') && (g!='n')){
-		cout << "Yes OR Not?\n";
-		cin >>g;
-	} 
+    team = new char*[size];
 
-	if(g=='y'){ //считываем имена комманд
-		for(int i=0;i<size+1;i++){;
-			team[i] = new char[30];
-			cin.getline(team[i], 30);
-		}
-	}
-	else{ //генерируем имена комманд
-		for(int i=0;i<size+1;i++){
-			team[i] = new char[30];
-			char str[30]="TeamNum";
-			char num[30];
-			sprintf(num,"%d",i);
-			strcat(str,num);
-			strcpy(team[i],str);
-		}
-	}
+    //сгенерировать или считать имена комманд
+    cout << "Enter team names? (y/n) \n";
+    char g = '0'; //
+    cin >> g;
+    while ((g != 'y') && (g != 'n')) {
+        cout << "Yes OR Not?\n";
+        cin >> g;
+    }
 
+    if (g == 'y') { //считываем имена комманд
+        for (int i = 0; i < size + 1; i++) {
+            ;
+            team[i] = new char[30];
+            cin.getline(team[i], 30);
+        }
+    } else { //генерируем имена комманд
+        for (int i = 0; i < size + 1; i++) {
+            team[i] = new char[30];
+            char str[30] = "TeamNum";
+            char num[30];
+            sprintf(num, "%d", i);
+            strcat(str, num);
+            strcpy(team[i], str);
+        }
+    }
 
-//////////////
+    //////////////
 
-    
     int a[size];
     for (int i = 0; i < size; i++)
         a[i] = 0;
 
-
-    
     rnd2 = new char*[size + 1];
     for (int i = 0; i < size + 1; i++) {
         rnd2[i] = new char[30];
@@ -391,8 +386,8 @@ void(draw)(RenderWindow& window, char* team[], Font font, int size)
     }
     //отрисовка 4го столбца--------------------------------
     if (stop == 2) {
-        if ((size % 8 < 8) && (size != 8) && (size != 16) && (size != 24)
-            && (size != 32))
+        if ((size % 8 < 8) && (size != 8) && (size > 4) && (size != 16)
+            && (size != 24) && (size != 32))
             newsize = size / 8 + 1;
         else if (size > 8)
             newsize = size / 8;
