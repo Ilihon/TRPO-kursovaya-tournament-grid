@@ -92,8 +92,6 @@ int main()
     }
 
     //////////////
-<<<<<<< HEAD
-
     int a[size + 1], b[size], c3[size], d[size];
     for (int i = 0; i < size; i++) {
         a[i] = 0;
