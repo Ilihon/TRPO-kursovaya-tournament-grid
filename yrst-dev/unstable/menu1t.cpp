@@ -40,6 +40,7 @@ int main() {
     cin >> g;
   }
 
+<<<<<<< HEAD
   if (g == 'y') { //считываем имена комманд
     for (int i = 0; i < size + 1; i++) {
       team[i] = new char[30];
@@ -53,6 +54,50 @@ int main() {
       sprintf(num, "%d", i);
       strcat(str, num);
       strcpy(team[i], str);
+=======
+    if (g == 'y') { //считываем имена комманд
+        for (int i = 0; i < size + 1; i++) {
+            team[i] = new char[30];
+	    if ( team[i] == NULL ) { 
+		printf("Failed to allocate memory");
+		return 1; // выход по ошибке, код ошибки 1
+ 	    }
+            cin.getline(team[i], 30);
+        }
+    } else { //генерируем имена комманд
+        for (int i = 0; i < size + 1; i++) {
+            team[i] = new char[30];
+            if ( team[i] == NULL ) { 
+		printf("Failed to allocate memory");
+		return 1; // выход по ошибке, код ошибки 1
+ 	    }
+	    char str[30] = "TeamNum";
+            char num[30];
+            sprintf(num, "%d", i);
+            strcat(str, num);
+            strcpy(team[i], str);
+        }
+    }
+
+    //////////////
+
+    int a[size];
+    for (int i = 0; i < size; i++)
+        a[i] = 0;
+
+    rnd2 = new char*[size + 1];
+    if ( rnd2 == NULL ) { 
+	printf("Failed to allocate memory");
+	return 1; // выход по ошибке, код ошибки 1
+    }
+    for (int i = 0; i < size + 1; i++) {
+        rnd2[i] = new char[30];
+        if ( rnd2[i] == NULL ) { 
+		printf("Failed to allocate memory");
+		return 1; // выход по ошибке, код ошибки 1
+ 	}
+        *rnd2[i] = ' ';
+>>>>>>> 765973be23895430f075adde6029444d80c2106d
     }
   }
 
