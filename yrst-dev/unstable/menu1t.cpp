@@ -44,12 +44,20 @@ int main()
     if (g == 'y') { //считываем имена комманд
         for (int i = 0; i < size + 1; i++) {
             team[i] = new char[30];
+	    if ( team[i] == NULL ) { 
+		printf("Failed to allocate memory");
+		return 1; // выход по ошибке, код ошибки 1
+ 	    }
             cin.getline(team[i], 30);
         }
     } else { //генерируем имена комманд
         for (int i = 0; i < size + 1; i++) {
             team[i] = new char[30];
-            char str[30] = "TeamNum";
+            if ( team[i] == NULL ) { 
+		printf("Failed to allocate memory");
+		return 1; // выход по ошибке, код ошибки 1
+ 	    }
+	    char str[30] = "TeamNum";
             char num[30];
             sprintf(num, "%d", i);
             strcat(str, num);
@@ -64,8 +72,16 @@ int main()
         a[i] = 0;
 
     rnd2 = new char*[size + 1];
+    if ( rnd2 == NULL ) { 
+	printf("Failed to allocate memory");
+	return 1; // выход по ошибке, код ошибки 1
+    }
     for (int i = 0; i < size + 1; i++) {
         rnd2[i] = new char[30];
+        if ( rnd2[i] == NULL ) { 
+		printf("Failed to allocate memory");
+		return 1; // выход по ошибке, код ошибки 1
+ 	}
         *rnd2[i] = ' ';
     }
 
