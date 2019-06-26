@@ -23,7 +23,8 @@ int main()
     char** rnd2;
     char** rnd3;
     char** rnd4;
-    int x = 2, c = 1, r2 = 0, r3 = 0, r4 = 0;
+    char** rnd5;
+    int x = 2, c = 1, r2 = 0, r3 = 0, r4 = 0, r5 = 0;
 
     while (size < 1 || size > 32) {
         puts("Uncorrect team count!");
@@ -68,11 +69,12 @@ int main()
 
     //////////////
 
-    int a[size], b[size], c3[size];
+    int a[size], b[size], c3[size], d[size];
     for (int i = 0; i < size; i++) {
         a[i] = 0;
         b[i] = 0;
         c3[i] = 0;
+        d[i] = 0;
     }
 
     rnd2 = new char*[size];
@@ -95,6 +97,14 @@ int main()
 
     /////////////////проверка на выделение памяти
     if (rnd4 == NULL) {
+        printf("Failed to allocate memory");
+        return 1; // выход по ошибке, код ошибки 1
+    }
+
+    rnd5 = new char*[size];
+
+    /////////////////проверка на выделение памяти
+    if (rnd5 == NULL) {
         printf("Failed to allocate memory");
         return 1; // выход по ошибке, код ошибки 1
     }
@@ -124,9 +134,18 @@ int main()
             return 1; // выход по ошибке, код ошибки 1
         }
 
+        rnd5[i] = new char[30];
+
+        /////////////////проверка на выделение памяти
+        if (rnd5[i] == NULL) {
+            printf("Failed to allocate memory");
+            return 1; // выход по ошибке, код ошибки 1
+        }
+
         *rnd2[i] = ' ';
         *rnd3[i] = ' ';
         *rnd4[i] = ' ';
+        *rnd5[i] = ' ';
     }
 
     RenderWindow window(VideoMode(1500, 900), "Menu");
@@ -219,6 +238,20 @@ int main()
                     r4++;
                 }
 
+                // 4th column--------------
+                if ((x > 299) && (x < 318)) {
+                    x = x % 100;
+                    int empty = x, pl = 0;
+                    pl = x;
+                    if (pl % 2 == 0)
+                        pl = pl / 2;
+                    else
+                        pl = (pl / 2) + 1;
+                    printf("%d\n", pl);
+                    d[pl] = x;
+                    r5++;
+                }
+
                 printf("GOTCHA\n");
                 break;
             }
@@ -248,9 +281,6 @@ int main()
                         rnd3[t2] = rnd2[i];
                         printf("%s\n", rnd3[t2]);
                         printf("%d\n", t2);
-                        /*  rnd4[t2] = rnd2[i];
-                          printf("%s 4rd\n", rnd4[t2]);
-                          printf("%d 4rd\n", t2);*/
 
                         window.draw(text);
                         window.display();
@@ -265,7 +295,7 @@ int main()
                     r3 = 1;
 
                 if (r3 == 1) {
-                    window.display();
+                    //  window.display();
 
                     int t = 1, c = 0, x = 0, newsize = size, t2 = 0;
 
@@ -306,7 +336,7 @@ int main()
                     r3 = 2;
                 }
                 if ((r3 == 2) && (r4 > 0)) {
-                    int t = 1, c = 0, x = 0, newsize = size, t2 = 0;
+                    int t = 1, c = 0, x = 0, newsize = size, t2 = 1;
 
                     if ((size % 8 < 8) && (size > 4) && (size != 8)
                         && (size != 16) && (size != 24) && (size != 32))
@@ -326,12 +356,33 @@ int main()
 
                             text.setString(rnd4[c3[i]]);
                             text.setPosition(808, t);
+                            rnd5[t2] = rnd4[b[i]];
+                            printf("%s 55rd\n", rnd5[t2]);
+                            printf("%d 55rd\n", t2);
 
                             window.draw(text);
                             window.display();
 
                             c++;
                             t += 25;
+                            t2++;
+                        }
+                    }
+                    r4 = 2;
+                }
+                if ((r4 == 2) && (r5 > 0)) {
+                    t = 423;
+                    x = 0;
+                    for (int i = 0; i < size; i++) {
+                        if ((d[i] != 0) && (x < size / 2)) {
+                            text.setString(rnd5[d[i]]);
+                            text.setPosition(1008, t);
+
+                            window.draw(text);
+                            window.display();
+
+                            t += 25;
+                            x++;
                         }
                     }
                 }
@@ -630,6 +681,31 @@ int steam(RenderWindow& window, int size)
             if ((IntRect(538, t, 182, 20).contains(Mouse::getPosition(window)))
                 && (size > 1)) {
                 teamnum = i + 201;
+                printf("%d\n", teamnum);
+            }
+
+            c++;
+            t += 25;
+        }
+
+        if ((size % 8 < 8) && (size > 4) && (size != 8) && (size != 16)
+            && (size != 24) && (size != 32))
+            newsize = size / 8 + 1;
+        else if (size > 8)
+            newsize = size / 8;
+        else
+            newsize = size / 8 - 1;
+        c = 0;
+        t = 205;
+        for (int i = 0; i < (newsize); i++) {
+            if (c == 2) {
+                t += 389;
+                c = 0;
+            }
+
+            if ((IntRect(808, t, 182, 20).contains(Mouse::getPosition(window)))
+                && (size > 1)) {
+                teamnum = i + 301;
                 printf("%d\n", teamnum);
             }
 
