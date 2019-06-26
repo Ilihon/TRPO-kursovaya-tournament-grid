@@ -269,25 +269,26 @@ int main()
                     r5++;
                 }
                 draw(window, team, font, size, a);
-                column(window,
-                       team,
-                       font,
-                       size,
-                       rnd2,
-                       rnd3,
-                       rnd4,
-                       rnd5,
-                       a,
-                       b,
-                       c3,
-                       d,
-                       r2,
-                       r3,
-                       r4,
-                       r5);
+
                 printf("GOTCHA\n");
                 break;
             }
+            column(window,
+                   team,
+                   font,
+                   size,
+                   rnd2,
+                   rnd3,
+                   rnd4,
+                   rnd5,
+                   a,
+                   b,
+                   c3,
+                   d,
+                   r2,
+                   r3,
+                   r4,
+                   r5);
         }
     }
 
