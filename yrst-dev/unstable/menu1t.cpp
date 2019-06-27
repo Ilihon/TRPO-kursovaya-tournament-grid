@@ -598,7 +598,7 @@ void(draw)(
     if (stop == 1) {
         if ((size % 4 < 4) && (size != 4) && (size != 8) && (size != 12)
             && (size != 16) && (size != 20) && (size != 24) && (size != 28)
-            && (size != 32))
+            && (size != 32) && (size > 4))
             newsize = size / 4 + 1;
         else if (size > 4)
             newsize = size / 4;
@@ -631,7 +631,7 @@ void(draw)(
     }
     //отрисовка 4го столбца--------------------------------
     if (stop == 2) {
-        if ((size % 8 < 8) && (size > 4) && (size != 8) && (size != 16)
+        if ((size % 8 < 8) && (size > 8) && (size != 8) && (size != 16)
             && (size != 24) && (size != 32))
             newsize = size / 8 + 1;
         else if (size > 8)
