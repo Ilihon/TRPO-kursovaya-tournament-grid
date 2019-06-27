@@ -277,11 +277,10 @@ int main()
                     r5++;
                 }
 
-                draw(window, team, font, size, a, b);
-
                 printf("GOTCHA\n");
                 break;
             }
+            //  draw(window, team, font, size, a, b);
             column(window,
                    team,
                    font,
