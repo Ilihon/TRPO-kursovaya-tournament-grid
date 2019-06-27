@@ -346,6 +346,8 @@ void column(
 
         if (size % 2 == 1)
             newsize = size / 2 + 1;
+        else if (size == 2)
+            newsize = 0;
         else
             newsize = size / 2;
 
@@ -561,8 +563,11 @@ void(draw)(
     if (stop == 0) {
         if (size % 2 == 1)
             newsize = size / 2 + 1;
+        else if (size == 2)
+            newsize = 0;
         else
             newsize = size / 2;
+
         c = 0;
         for (int i = 0; i < (newsize); i++) {
             if (c == 2) {
