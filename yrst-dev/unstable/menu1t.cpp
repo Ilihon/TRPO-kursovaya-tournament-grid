@@ -48,7 +48,7 @@ int main()
     char** rnd3;
     char** rnd4;
     char** rnd5;
-    int x = 2, c = 1, r2 = 0, r3 = 0, r4 = 0, r5 = 0;
+    int x = 2, c = 1, r2 = 0, r3 = 0, r4 = 0, r5 = 0, R = 0;
 
     while (size < 1 || size > 32) {
         puts("Uncorrect team count!");
@@ -293,6 +293,9 @@ int main()
                 break;
             }
             //  draw(window, team, font, size, a, b);
+            for (R = 0; R < 1000; R++)
+                R = R;
+            R = 0;
             column(window,
                    team,
                    font,
@@ -386,7 +389,7 @@ void column(
             text.setFillColor(Color::Red);
             if ((size % 4 < 4) && (size != 4) && (size != 8) && (size != 12)
                 && (size != 16) && (size != 20) && (size != 24) && (size != 28)
-                && (size != 32))
+                && (size != 32) && (size > 4))
                 newsize = size / 4 + 1;
             else if (size > 4)
                 newsize = size / 4;
@@ -426,7 +429,7 @@ void column(
             int t = 1, c = 0, x = 0, newsize = size, t2 = 1;
 
             if ((size % 8 < 8) && (size > 4) && (size != 8) && (size != 16)
-                && (size != 24) && (size != 32))
+                && (size != 24) && (size != 32) && (size > 8))
                 newsize = size / 8 + 1;
             else if (size > 8)
                 newsize = size / 8;
