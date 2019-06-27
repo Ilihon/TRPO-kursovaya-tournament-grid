@@ -235,25 +235,11 @@ int main()
 
                 // 1rst column--------------
                 if (x < 33) {
-                    /*if (x % 2 == 1) {
-                        rnd2[x] = team[x];
-
-                        a[x] = 1;
-                        a[x + 1] = 0;
-                    } else {
-                        rnd2[x] = team[x];
-
-                        a[x] = 1;
-                        a[x - 1] = 0;
-                    }*/
-
-                    x = x % 100;
                     int empty = x, pl = 0;
                     pl = x;
-                    if (pl % 2 == 0)
-                        pl = pl / 2;
-                    else
-                        pl = (pl / 2) + 1;
+
+                    pl = (pl +1)/ 2;
+
                     printf("%d\n", pl);
                     a[pl] = x;
                 }
@@ -261,12 +247,10 @@ int main()
                 // 2nd column--------------
                 if ((x > 99) && (x < 118)) {
                     x = x % 100;
-                    int empty = x, pl = 0;
-                    pl = x;
-                    if (pl % 2 == 0)
-                        pl = pl / 2;
-                    else
-                        pl = (pl / 2) + 1;
+                    int empty = x, pl = x;
+
+                    pl = (pl +1)/ 2;
+
                     printf("%d\n", pl);
                     b[pl] = x;
                     r2++;
@@ -275,12 +259,10 @@ int main()
                 // 3rd column--------------
                 if ((x > 199) && (x < 218)) {
                     x = x % 100;
-                    int empty = x, pl = 0;
-                    pl = x;
-                    if (pl % 2 == 0)
-                        pl = pl / 2;
-                    else
-                        pl = (pl / 2) + 1;
+                    int empty = x, pl = x;
+                   
+		    pl = (pl +1)/ 2;
+
                     printf("%d\n", pl);
                     c3[pl] = x;
                     r4++;
@@ -289,12 +271,10 @@ int main()
                 // 4th column--------------
                 if ((x > 299) && (x < 318)) {
                     x = x % 100;
-                    int empty = x, pl = 0;
-                    pl = x;
-                    if (pl % 2 == 0)
-                        pl = pl / 2;
-                    else
-                        pl = (pl / 2) + 1;
+                    int empty = x, pl = x;
+                    
+		    pl = (pl +1)/ 2;
+
                     printf("%d\n", pl);
                     d[pl] = x;
                     r5++;
@@ -363,7 +343,7 @@ void column(
             newsize = size / 2;
 
         a[0] = 0;
-        for (int i = 1; i < size + 1; i++) {
+        for (int i = 0; i < size; i++) {
             if ((a[i] != 0) && (x < newsize) && (a[i] < 1000) && (a[i] > -1)) {
                 if (c == 2) {
                     t += 61;
@@ -392,7 +372,7 @@ void column(
                 t2++;
             }
         }
-        if (r2 > 0)
+        if (r2 > +0)
             r3 = 1;
 
         if (r3 == 1) {
@@ -411,7 +391,7 @@ void column(
             c = 0;
             t2 = 97;
 
-            for (int i = 1; i < (size); i++) {
+            for (int i = 0; i < size; i++) {
                 if ((b[i] != 0) && (x < newsize)) {
                     if (c == 2) {
                         t2 += 169;
@@ -450,7 +430,7 @@ void column(
                 newsize = size / 8 - 1;
             c = 0;
             t = 205;
-            for (int i = 1; i < (size); i++) {
+            for (int i = 0; i < size; i++) {
                 if ((c3[i] != 0) && (x < newsize)) {
                     if (c == 2) {
                         t += 389;
@@ -485,7 +465,7 @@ void column(
 
             t = 423;
             x = 0;
-            for (int i = 1; i < size; i++) {
+            for (int i = 0; i < size; i++) {
                 if ((d[i] != 0) && (x < newsize)) {
                     for (int j = 1; j < 1000000; j++) {
                         j = j;
@@ -539,7 +519,7 @@ void(draw)(
     rectangle.setFillColor(Color::Black);
 
     // отрисовка 1го столбца------------------------------
-    for (int i = 1; i < size + 1; i++) {
+    for (int i = 0; i < size; i++) {
         if (c == 2) {
             m += 7;
             c = 0;
@@ -579,7 +559,7 @@ void(draw)(
         else
             newsize = size / 2;
         c = 0;
-        for (int i = 0; i < (newsize); i++) {
+        for (int i = 0; i < newsize; i++) {
             if (c == 2) {
                 t += 61;
                 c = 0;
@@ -604,14 +584,6 @@ void(draw)(
         stop = 1;
     }
 
-    /*    rectangle.setFillColor(Color::Yellow);
-        rectangle.setPosition(278, t + 50);
-        text.setString(next);
-        text.setPosition(350, t + 52);
-        window.draw(rectangle);
-        window.draw(text);
-        window.display();*/
-
     //отрисовка 3го столбца--------------------------------
     if (stop == 1) {
         if ((size % 4 < 4) && (size != 4) && (size != 8) && (size != 12)
@@ -624,7 +596,7 @@ void(draw)(
             newsize = size / 4 - 1;
         c = 0;
         t = 97;
-        for (int i = 0; i < (newsize); i++) {
+        for (int i = 0; i < newsize; i++) {
             if (c == 2) {
                 t += 169;
                 c = 0;
@@ -804,13 +776,11 @@ int steam(RenderWindow& window, int size)
             c++;
         }
 
-        if (size % 2 == 1)
-            newsize = size / 2 + 1;
-        else
-            newsize = size / 2;
+        newsize = (size+1) / 2;
+
         c = 0;
 
-        for (int i = 0; i < (newsize); i++) {
+        for (int i = 0; i < newsize; i++) {
             if (c == 2) {
                 t += 61;
                 c = 0;
@@ -836,7 +806,7 @@ int steam(RenderWindow& window, int size)
             newsize = size / 4 - 1;
         c = 0;
         t = 97;
-        for (int i = 0; i < (newsize); i++) {
+        for (int i = 0; i < newsize; i++) {
             if (c == 2) {
                 t += 169;
                 c = 0;
