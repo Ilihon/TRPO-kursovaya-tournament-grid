@@ -52,7 +52,7 @@ int main()
 
     while (size < 1 || size > 32) {
         puts("Uncorrect team count!");
-        puts("Please !");
+        puts("Please enter team num again!");
         scanf("%d", &size);
     }
 
@@ -68,7 +68,7 @@ int main()
     }
 
     if (g == 'y') { //считываем имена комманд
-        for (int i = 0; i < size + 1; i++) {
+        for (int i = 0; i < size; i++) {
             team[i] = new char[30];
             if (team[i] == NULL) {
                 printf("Failed to allocate memory");
@@ -77,7 +77,7 @@ int main()
             cin.getline(team[i], 30);
         }
     } else { //генерируем имена комманд
-        for (int i = 0; i < size + 1; i++) {
+        for (int i = 0; i < size; i++) {
             team[i] = new char[30];
             if (team[i] == NULL) {
                 printf("Failed to allocate memory");
@@ -85,14 +85,13 @@ int main()
             }
             char str[30] = "TeamNum";
             char num[30];
-            sprintf(num, "%d", i);
+            sprintf(num, "%d", i+1);
             strcat(str, num);
             strcpy(team[i], str);
         }
     }
 
     //////////////
-
     int a[size + 1], b[size], c3[size], d[size];
     for (int i = 0; i < size; i++) {
         a[i] = 0;
@@ -133,6 +132,7 @@ int main()
         printf("Failed to allocate memory");
         return 1; // выход по ошибке, код ошибки 1
     }
+
 
     for (int i = 0; i < size; i++) {
         rnd2[i] = new char[30];
@@ -567,7 +567,6 @@ void(draw)(
             newsize = 0;
         else
             newsize = size / 2;
-
         c = 0;
         for (int i = 0; i < (newsize); i++) {
             if (c == 2) {
@@ -779,7 +778,7 @@ int steam(RenderWindow& window, int size)
     int newsize = size;
 
     while (isMenu) {
-        for (int i = 1; i < size + 1; i++) {
+        for (int i = 0; i < size; i++) {
             if (c == 2) {
                 m += 7;
                 c = 0;
