@@ -57,6 +57,12 @@ int main()
     }
 
     team = new char*[size];
+	
+    /////////////////проверка на выделение памяти
+    if (team == NULL) {
+        printf("Failed to allocate memory");
+	return 1; // выход по ошибке, код ошибки 1
+    }
 
     //сгенерировать или считать имена комманд
     cout << "Enter team names? (y/n) \n";
@@ -70,6 +76,8 @@ int main()
     if (g == 'y') { //считываем имена комманд
         for (int i = 0; i < size; i++) {
             team[i] = new char[30];
+	    
+	    /////////////////проверка на выделение памяти
             if (team[i] == NULL) {
                 printf("Failed to allocate memory");
                 return 1; // выход по ошибке, код ошибки 1
@@ -79,10 +87,13 @@ int main()
     } else { //генерируем имена комманд
         for (int i = 0; i < size; i++) {
             team[i] = new char[30];
+
+   	    /////////////////проверка на выделение памяти
             if (team[i] == NULL) {
                 printf("Failed to allocate memory");
                 return 1; // выход по ошибке, код ошибки 1
             }
+
             char str[30] = "TeamNum";
             char num[30];
             sprintf(num, "%d", i+1);
@@ -92,7 +103,7 @@ int main()
     }
 
     //////////////
-    int a[size + 1], b[size], c3[size], d[size];
+    int a[size+1], b[size], c3[size], d[size];
     for (int i = 0; i < size; i++) {
         a[i] = 0;
         b[i] = 0;
