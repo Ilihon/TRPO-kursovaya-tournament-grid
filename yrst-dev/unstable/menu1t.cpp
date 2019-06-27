@@ -380,7 +380,7 @@ void column(
             t2 = 97;
 
             for (int i = 1; i < (size); i++) {
-                if ((b[i] != 0) && (x < newsize + 1)) {
+                if ((b[i] != 0) && (x < newsize)) {
                     if (c == 2) {
                         t2 += 169;
                         c = 0;
@@ -419,7 +419,7 @@ void column(
             c = 0;
             t = 205;
             for (int i = 1; i < (size); i++) {
-                if ((c3[i] != 0) && (x < newsize + 1)) {
+                if ((c3[i] != 0) && (x < newsize)) {
                     if (c == 2) {
                         t += 389;
                         c = 0;
@@ -446,10 +446,15 @@ void column(
             r4 = 2;
         }
         if ((r4 == 2) && (r5 > 0)) {
+            if (size > 16)
+                newsize = 2;
+            else
+                newsize = 0;
+
             t = 423;
             x = 0;
-            for (int i = 0; i < size; i++) {
-                if ((d[i] != 0) && (x < size / 2)) {
+            for (int i = 1; i < size; i++) {
+                if ((d[i] != 0) && (x < newsize)) {
                     for (int j = 1; j < 1000000; j++) {
                         j = j;
                     }
@@ -624,7 +629,7 @@ void(draw)(
             newsize = size / 8 - 1;
         c = 0;
         t = 205;
-        for (int i = 0; i < (newsize); i++) {
+        for (int i = 0; i < newsize; i++) {
             if (c == 2) {
                 t += 389;
                 c = 0;
@@ -648,10 +653,15 @@ void(draw)(
         stop = 3;
     }
     //отрисовка 5го столбца--------------------------------
-    int i = 1;
-    if ((stop == 3) && (i <= (size / 16))) {
+    int i = 0;
+    if (size > 16)
+        newsize = 2;
+    else
+        newsize = 0;
+
+    if ((stop == 3) && (i < newsize)) {
         t = 423;
-        for (int i = 0; i < size / 16; i++) {
+        for (int i = 0; i < newsize; i++) {
             for (int j = 1; j < 1000000; j++) {
                 j = j;
             }
