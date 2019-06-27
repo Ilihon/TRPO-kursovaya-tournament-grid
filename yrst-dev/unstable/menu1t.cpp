@@ -14,7 +14,8 @@ void draw(
         Font font,
         int size,
         int a[],
-        int b[]);
+        int b[],
+        char* rnd2[]);
 int steam(RenderWindow& window, int size);
 void column(
         RenderWindow& window,
@@ -194,7 +195,7 @@ int main()
     window.draw(text);
     window.display();
 
-    int cot = 0;
+    // int cot = 0;
 
     while (window.isOpen()) {
         Event event;
@@ -211,7 +212,7 @@ int main()
                     Text text("", font, 10);
                     text.setFillColor(Color::Red);
 
-                    draw(window, team, font, size, a, b);
+                    draw(window, team, font, size, a, b, rnd2);
                     break;
                 }
 
@@ -222,7 +223,7 @@ int main()
 
                 // 1rst column--------------
                 if (x < 33) {
-                    if (x % 2 == 1) {
+                    /*if (x % 2 == 1) {
                         rnd2[x] = team[x];
 
                         a[x] = 1;
@@ -232,7 +233,17 @@ int main()
 
                         a[x] = 1;
                         a[x - 1] = 0;
-                    }
+                    }*/
+
+                    x = x % 100;
+                    int empty = x, pl = 0;
+                    pl = x;
+                    if (pl % 2 == 0)
+                        pl = pl / 2;
+                    else
+                        pl = (pl / 2) + 1;
+                    printf("%d\n", pl);
+                    a[pl] = x;
                 }
 
                 // 2nd column--------------
@@ -326,7 +337,7 @@ void column(
         Text text("", font, 10);
         text.setFillColor(Color::Red);
         window.clear();
-        draw(window, team, font, size, a, b);
+        draw(window, team, font, size, a, b, rnd2);
         window.display();
 
         if (size % 2 == 1)
@@ -345,9 +356,9 @@ void column(
                     j = j;
                 }
 
-                text.setString(rnd2[i]);
+                text.setString(rnd2[a[i]]);
                 text.setPosition(280, t);
-                rnd3[t2] = rnd2[i];
+                rnd3[t2] = rnd2[a[i]];
                 printf("%s\n", rnd3[t2]);
                 printf("%d\n", t2);
 
@@ -479,7 +490,8 @@ void(draw)(
         Font font,
         int size,
         int a[],
-        int b[])
+        int b[],
+        char* rnd2[])
 {
     window.clear();
 
@@ -518,14 +530,12 @@ void(draw)(
         text.setString(team[i]);
         text.setPosition(20, m);
 
+        rnd2[i] = team[i];
+
         rectangle.setFillColor(Color::Green);
         rectangle.setPosition(18, m);
 
-        if (a[i] != 0)
-            kvad.setFillColor(Color::Red);
-
-        else
-            kvad.setFillColor(Color::Black);
+        kvad.setFillColor(Color::Black);
         kvad.setPosition(200, m);
 
         window.draw(kvad);
@@ -559,11 +569,7 @@ void(draw)(
             rectangle.setFillColor(Color::Green);
             rectangle.setPosition(278, t);
 
-            if (b[i] != 0)
-                kvad.setFillColor(Color::Red);
-            else
-                kvad.setFillColor(Color::Black);
-
+            kvad.setFillColor(Color::Black);
             kvad.setPosition(460, t);
 
             window.draw(kvad);
