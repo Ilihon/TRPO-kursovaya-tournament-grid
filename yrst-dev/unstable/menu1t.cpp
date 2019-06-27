@@ -333,6 +333,10 @@ void column(
                 c = 0;
             }
 
+            for (int j = 1; j < 1000000; j++) {
+                j = j;
+            }
+
             text.setString(rnd2[i]);
             text.setPosition(280, t);
             rnd3[t2] = rnd2[i];
@@ -376,6 +380,10 @@ void column(
                     c = 0;
                 }
 
+                for (int j = 1; j < 1000000; j++) {
+                    j = j;
+                }
+
                 text.setString(rnd3[b[i]]);
                 text.setPosition(540, t2);
                 rnd4[t] = rnd3[b[i]];
@@ -411,6 +419,10 @@ void column(
                     c = 0;
                 }
 
+                for (int j = 1; j < 1000000; j++) {
+                    j = j;
+                }
+
                 text.setString(rnd4[c3[i]]);
                 text.setPosition(808, t);
                 rnd5[t2] = rnd4[c3[i]];
@@ -432,6 +444,10 @@ void column(
         x = 0;
         for (int i = 0; i < size; i++) {
             if ((d[i] != 0) && (x < size / 2)) {
+                for (int j = 1; j < 1000000; j++) {
+                    j = j;
+                }
+
                 text.setString(rnd5[d[i]]);
                 text.setPosition(1008, t);
 
