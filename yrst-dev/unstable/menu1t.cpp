@@ -93,13 +93,14 @@ int main()
 
     //////////////
 
-    int a[size], b[size], c3[size], d[size];
+    int a[size + 1], b[size], c3[size], d[size];
     for (int i = 0; i < size; i++) {
         a[i] = 0;
         b[i] = 0;
         c3[i] = 0;
         d[i] = 0;
     }
+    a[size + 1] = 0;
 
     rnd2 = new char*[size];
 
@@ -345,8 +346,9 @@ void column(
         else
             newsize = size / 2;
 
+        a[0] = 0;
         for (int i = 1; i < size + 1; i++) {
-            if ((a[i] != 0) && (x < newsize)) {
+            if ((a[i] != 0) && (x < newsize) && (a[i] < 1000)) {
                 if (c == 2) {
                     t += 61;
                     c = 0;
@@ -356,6 +358,9 @@ void column(
                     j = j;
                 }
 
+                printf("%d\n AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n",
+                       a[i]);
+                printf("%d\n IIIIIIIIIIIIIIIIIIIIIIIIIII", i);
                 text.setString(rnd2[a[i]]);
                 text.setPosition(280, t);
                 rnd3[t2] = rnd2[a[i]];
