@@ -8,7 +8,13 @@ using namespace sf;
 using namespace std;
 
 void menu(RenderWindow& window);
-void draw(RenderWindow& window, char* team[], Font font, int size, int a[]);
+void draw(
+        RenderWindow& window,
+        char* team[],
+        Font font,
+        int size,
+        int a[],
+        int b[]);
 int steam(RenderWindow& window, int size);
 void column(
         RenderWindow& window,
@@ -168,7 +174,7 @@ int main()
     RenderWindow window(VideoMode(1500, 900), "Menu");
 
     Texture men;
-    men.loadFromFile("images/loading.png");
+    men.loadFromFile("images/loading.jpg");
     Sprite menu1(men);
 
     Font font;
@@ -181,12 +187,14 @@ int main()
     text.setFillColor(Color::Red);
     text.setStyle(Text::Bold);
     text.setString("Press SPACE to start");
-    text.setPosition(400, 200);
+    text.setPosition(900, 200);
 
     window.clear();
     window.draw(menu1);
     window.draw(text);
     window.display();
+
+    int cot = 0;
 
     while (window.isOpen()) {
         Event event;
@@ -203,7 +211,7 @@ int main()
                     Text text("", font, 10);
                     text.setFillColor(Color::Red);
 
-                    draw(window, team, font, size, a);
+                    draw(window, team, font, size, a, b);
                     break;
                 }
 
@@ -268,27 +276,28 @@ int main()
                     d[pl] = x;
                     r5++;
                 }
-                draw(window, team, font, size, a);
-                column(window,
-                       team,
-                       font,
-                       size,
-                       rnd2,
-                       rnd3,
-                       rnd4,
-                       rnd5,
-                       a,
-                       b,
-                       c3,
-                       d,
-                       r2,
-                       r3,
-                       r4,
-                       r5);
+
+                draw(window, team, font, size, a, b);
 
                 printf("GOTCHA\n");
                 break;
             }
+            column(window,
+                   team,
+                   font,
+                   size,
+                   rnd2,
+                   rnd3,
+                   rnd4,
+                   rnd5,
+                   a,
+                   b,
+                   c3,
+                   d,
+                   r2,
+                   r3,
+                   r4,
+                   r5);
         }
     }
 
@@ -313,70 +322,23 @@ void column(
         int r4,
         int r5)
 {
-    //    if (Keyboard::isKeyPressed(Keyboard::Return)) {
-    int t = 36, c = 0, x = 0, newsize = size, t2 = 1;
-    Text text("", font, 10);
-    text.setFillColor(Color::Red);
-    window.clear();
-    draw(window, team, font, size, a);
-    window.display();
-
-    if (size % 2 == 1)
-        newsize = size / 2 + 1;
-    else
-        newsize = size / 2;
-
-    for (int i = 1; i < size + 1; i++) {
-        if ((a[i] != 0) && (x < newsize)) {
-            if (c == 2) {
-                t += 61;
-                c = 0;
-            }
-
-            for (int j = 1; j < 1000000; j++) {
-                j = j;
-            }
-
-            text.setString(rnd2[i]);
-            text.setPosition(280, t);
-            rnd3[t2] = rnd2[i];
-            printf("%s\n", rnd3[t2]);
-            printf("%d\n", t2);
-
-            window.draw(text);
-            window.display();
-
-            t += 25;
-            c++;
-            x++;
-            t2++;
-        }
-    }
-    if (r2 > 0)
-        r3 = 1;
-
-    if (r3 == 1) {
-        //  window.display();
-
-        int t = 1, c = 0, x = 0, newsize = size, t2 = 0;
-
+    if (Keyboard::isKeyPressed(Keyboard::Return)) {
+        int t = 36, c = 0, x = 0, newsize = size, t2 = 1;
         Text text("", font, 10);
         text.setFillColor(Color::Red);
-        if ((size % 4 < 4) && (size != 4) && (size != 8) && (size != 12)
-            && (size != 16) && (size != 20) && (size != 24) && (size != 28)
-            && (size != 32))
-            newsize = size / 4 + 1;
-        else if (size > 4)
-            newsize = size / 4;
-        else
-            newsize = size / 4 - 1;
-        c = 0;
-        t2 = 97;
+        window.clear();
+        draw(window, team, font, size, a, b);
+        window.display();
 
-        for (int i = 1; i < (size); i++) {
-            if ((b[i] != 0) && (x < newsize + 1)) {
+        if (size % 2 == 1)
+            newsize = size / 2 + 1;
+        else
+            newsize = size / 2;
+
+        for (int i = 1; i < size + 1; i++) {
+            if ((a[i] != 0) && (x < newsize)) {
                 if (c == 2) {
-                    t2 += 169;
+                    t += 61;
                     c = 0;
                 }
 
@@ -384,85 +346,136 @@ void column(
                     j = j;
                 }
 
-                text.setString(rnd3[b[i]]);
-                text.setPosition(540, t2);
-                rnd4[t] = rnd3[b[i]];
-                printf("%s 4rd\n", rnd4[t]);
-                printf("%d 4rd\n", t);
+                text.setString(rnd2[i]);
+                text.setPosition(280, t);
+                rnd3[t2] = rnd2[i];
+                printf("%s\n", rnd3[t2]);
+                printf("%d\n", t2);
 
                 window.draw(text);
                 window.display();
 
-                c++;
-                t2 += 25;
-                t++;
-            }
-        }
-        r3 = 2;
-    }
-    if ((r3 == 2) && (r4 > 0)) {
-        int t = 1, c = 0, x = 0, newsize = size, t2 = 1;
-
-        if ((size % 8 < 8) && (size > 4) && (size != 8) && (size != 16)
-            && (size != 24) && (size != 32))
-            newsize = size / 8 + 1;
-        else if (size > 8)
-            newsize = size / 8;
-        else
-            newsize = size / 8 - 1;
-        c = 0;
-        t = 205;
-        for (int i = 1; i < (size); i++) {
-            if ((c3[i] != 0) && (x < newsize + 1)) {
-                if (c == 2) {
-                    t += 389;
-                    c = 0;
-                }
-
-                for (int j = 1; j < 1000000; j++) {
-                    j = j;
-                }
-
-                text.setString(rnd4[c3[i]]);
-                text.setPosition(808, t);
-                rnd5[t2] = rnd4[c3[i]];
-                printf("%s 55rd\n", rnd5[t2]);
-                printf("%d 55rd\n", t2);
-
-                window.draw(text);
-                window.display();
-
-                c++;
                 t += 25;
+                c++;
+                x++;
                 t2++;
             }
         }
-        r4 = 2;
-    }
-    if ((r4 == 2) && (r5 > 0)) {
-        t = 423;
-        x = 0;
-        for (int i = 0; i < size; i++) {
-            if ((d[i] != 0) && (x < size / 2)) {
-                for (int j = 1; j < 1000000; j++) {
-                    j = j;
+        if (r2 > 0)
+            r3 = 1;
+
+        if (r3 == 1) {
+            int t = 1, c = 0, x = 0, newsize = size, t2 = 0;
+
+            Text text("", font, 10);
+            text.setFillColor(Color::Red);
+            if ((size % 4 < 4) && (size != 4) && (size != 8) && (size != 12)
+                && (size != 16) && (size != 20) && (size != 24) && (size != 28)
+                && (size != 32))
+                newsize = size / 4 + 1;
+            else if (size > 4)
+                newsize = size / 4;
+            else
+                newsize = size / 4 - 1;
+            c = 0;
+            t2 = 97;
+
+            for (int i = 1; i < (size); i++) {
+                if ((b[i] != 0) && (x < newsize + 1)) {
+                    if (c == 2) {
+                        t2 += 169;
+                        c = 0;
+                    }
+
+                    for (int j = 1; j < 1000000; j++) {
+                        j = j;
+                    }
+
+                    text.setString(rnd3[b[i]]);
+                    text.setPosition(540, t2);
+                    rnd4[t] = rnd3[b[i]];
+                    printf("%s 4rd\n", rnd4[t]);
+                    printf("%d 4rd\n", t);
+
+                    window.draw(text);
+                    window.display();
+
+                    c++;
+                    t2 += 25;
+                    t++;
                 }
+            }
+            r3 = 2;
+        }
+        if ((r3 == 2) && (r4 > 0)) {
+            int t = 1, c = 0, x = 0, newsize = size, t2 = 1;
 
-                text.setString(rnd5[d[i]]);
-                text.setPosition(1008, t);
+            if ((size % 8 < 8) && (size > 4) && (size != 8) && (size != 16)
+                && (size != 24) && (size != 32))
+                newsize = size / 8 + 1;
+            else if (size > 8)
+                newsize = size / 8;
+            else
+                newsize = size / 8 - 1;
+            c = 0;
+            t = 205;
+            for (int i = 1; i < (size); i++) {
+                if ((c3[i] != 0) && (x < newsize + 1)) {
+                    if (c == 2) {
+                        t += 389;
+                        c = 0;
+                    }
 
-                window.draw(text);
-                window.display();
+                    for (int j = 1; j < 1000000; j++) {
+                        j = j;
+                    }
 
-                t += 25;
-                x++;
+                    text.setString(rnd4[c3[i]]);
+                    text.setPosition(808, t);
+                    rnd5[t2] = rnd4[c3[i]];
+                    printf("%s 55rd\n", rnd5[t2]);
+                    printf("%d 55rd\n", t2);
+
+                    window.draw(text);
+                    window.display();
+
+                    c++;
+                    t += 25;
+                    t2++;
+                }
+            }
+            r4 = 2;
+        }
+        if ((r4 == 2) && (r5 > 0)) {
+            t = 423;
+            x = 0;
+            for (int i = 0; i < size; i++) {
+                if ((d[i] != 0) && (x < size / 2)) {
+                    for (int j = 1; j < 1000000; j++) {
+                        j = j;
+                    }
+
+                    text.setString(rnd5[d[i]]);
+                    text.setPosition(1008, t);
+
+                    window.draw(text);
+                    window.display();
+
+                    t += 25;
+                    x++;
+                }
             }
         }
     }
-    //}
 }
 
-void(draw)(RenderWindow& window, char* team[], Font font, int size, int a[])
+void(draw)(
+        RenderWindow& window,
+        char* team[],
+        Font font,
+        int size,
+        int a[],
+        int b[])
 {
     window.clear();
 
@@ -520,6 +533,7 @@ void(draw)(RenderWindow& window, char* team[], Font font, int size, int a[])
         m += 24;
         c++;
     }
+    //  string next = "NEXT";
 
     // отрисовка 2го столбца------------------------------
     if (stop == 0) {
@@ -540,7 +554,12 @@ void(draw)(RenderWindow& window, char* team[], Font font, int size, int a[])
 
             rectangle.setFillColor(Color::Green);
             rectangle.setPosition(278, t);
-            kvad.setFillColor(Color::Black);
+
+            if (b[i] != 0)
+                kvad.setFillColor(Color::Red);
+            else
+                kvad.setFillColor(Color::Black);
+
             kvad.setPosition(460, t);
 
             window.draw(kvad);
@@ -551,6 +570,14 @@ void(draw)(RenderWindow& window, char* team[], Font font, int size, int a[])
         }
         stop = 1;
     }
+
+    /*    rectangle.setFillColor(Color::Yellow);
+        rectangle.setPosition(278, t + 50);
+        text.setString(next);
+        text.setPosition(350, t + 52);
+        window.draw(rectangle);
+        window.draw(text);
+        window.display();*/
 
     //отрисовка 3го столбца--------------------------------
     if (stop == 1) {
@@ -649,7 +676,16 @@ void menu(RenderWindow& window)
     menuTexture1.loadFromFile("images/1111.png");
     menuTexture2.loadFromFile("images/2222.png");
     menuTexture3.loadFromFile("images/3333.png");
-    menuBackground.loadFromFile("images/Background.jpg");
+    menuBackground.loadFromFile("images/fon.png");
+
+    Font font;
+    font.loadFromFile("ubuntu.ttf");
+
+    Text text("", font, 40), text2("", font, 20);
+    text.setFillColor(Color::Red);
+    text.setStyle(Text::Bold);
+    text.setString("Tournament Grid");
+    text.setPosition(550, 100);
 
     Sprite menu1(menuTexture1), menu2(menuTexture2), menu3(menuTexture3),
             menuBg(menuBackground);
@@ -657,27 +693,27 @@ void menu(RenderWindow& window)
     bool isMenu = 1;
     int menuNum = 0;
 
-    menu1.setPosition(400, 200);
-    menu2.setPosition(400, 250);
-    menu3.setPosition(400, 350);
-    menuBg.setPosition(0, 0);
+    menu1.setPosition(620, 200);
+    menu2.setPosition(620, 250);
+    menu3.setPosition(630, 350);
+    menuBg.setPosition(1200, 710);
 
     while (isMenu) {
         menu1.setColor(Color::White);
         menu2.setColor(Color::White);
         menu3.setColor(Color::White);
         menuNum = 0;
-        window.clear(Color(129, 181, 221));
+        window.clear(Color(8, 186, 222));
 
-        if (IntRect(400, 200, 300, 50).contains(Mouse::getPosition(window))) {
+        if (IntRect(620, 200, 125, 50).contains(Mouse::getPosition(window))) {
             menu1.setColor(Color::Blue);
             menuNum = 1;
         }
-        if (IntRect(400, 250, 300, 50).contains(Mouse::getPosition(window))) {
+        if (IntRect(620, 250, 130, 50).contains(Mouse::getPosition(window))) {
             menu2.setColor(Color::Blue);
             menuNum = 2;
         }
-        if (IntRect(400, 350, 300, 50).contains(Mouse::getPosition(window))) {
+        if (IntRect(630, 350, 110, 50).contains(Mouse::getPosition(window))) {
             menu3.setColor(Color::Blue);
             menuNum = 3;
         }
@@ -698,6 +734,7 @@ void menu(RenderWindow& window)
 
         window.draw(menuBg);
         window.draw(menu1);
+        window.draw(text);
         window.draw(menu2);
         window.draw(menu3);
         window.display();
