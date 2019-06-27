@@ -348,7 +348,7 @@ void column(
 
         a[0] = 0;
         for (int i = 1; i < size + 1; i++) {
-            if ((a[i] != 0) && (x < newsize) && (a[i] < 1000)) {
+            if ((a[i] != 0) && (x < newsize) && (a[i] < 1000) && (a[i] > -1)) {
                 if (c == 2) {
                     t += 61;
                     c = 0;
