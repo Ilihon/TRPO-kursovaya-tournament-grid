@@ -238,9 +238,9 @@ int main()
                 goto Again;
             if (Mouse::isButtonPressed(Mouse::Left)) {
                 x = steam(window, size);
-
+		
                 // 1rst column--------------
-                if (x < 32) {
+                if ((x < 32) &&(x>-1)) {
                     int empty = x, pl = -1;
                     pl = x;
 
