@@ -340,7 +340,7 @@ void column(
         int t = 36, c = 0, x = 0, newsize = size, t2 = 1;
         Text text("", font, 10);
         text.setFillColor(Color::Red);
-        window.clear();
+        // window.clear();
         draw(window, team, font, size, a, b, rnd2);
         window.display();
 
@@ -503,15 +503,7 @@ void(draw)(
         int b[],
         char* rnd2[])
 {
-    window.clear();
-
-    Texture stk;
-    stk.loadFromFile("images/stk.jpg");
-
-    Sprite setk(stk);
-
-    window.draw(setk);
-    window.display();
+    // window.clear();
 
     int m = 10, t = 36; //переменные используемые в отрисовке сетке,
                         //для увелечения дистанции мду элементами
@@ -525,7 +517,7 @@ void(draw)(
     RectangleShape rectangle(Vector2f(182, 20));
     rectangle.setFillColor(Color::Green);
     RectangleShape kvad(Vector2f(20, 20));
-    rectangle.setFillColor(Color::Black);
+    kvad.setFillColor(Color::Black);
 
     // отрисовка 1го столбца------------------------------
     for (int i = 1; i < size + 1; i++) {
@@ -545,10 +537,10 @@ void(draw)(
         rectangle.setFillColor(Color::Green);
         rectangle.setPosition(18, m);
 
-        kvad.setFillColor(Color::Black);
-        kvad.setPosition(200, m);
+        /*  kvad.setFillColor(Color::Black);
+          kvad.setPosition(200, m);
 
-        window.draw(kvad);
+          window.draw(kvad);*/
         window.draw(rectangle);
         window.draw(text);
 
@@ -557,7 +549,6 @@ void(draw)(
         m += 24;
         c++;
     }
-    //  string next = "NEXT";
 
     // отрисовка 2го столбца------------------------------
     if (stop == 0) {
@@ -581,10 +572,10 @@ void(draw)(
             rectangle.setFillColor(Color::Green);
             rectangle.setPosition(278, t);
 
-            kvad.setFillColor(Color::Black);
-            kvad.setPosition(460, t);
+            /*    kvad.setFillColor(Color::Black);
+                kvad.setPosition(460, t);
 
-            window.draw(kvad);
+                window.draw(kvad);*/
             window.draw(rectangle);
             window.display();
             c++;
@@ -592,14 +583,6 @@ void(draw)(
         }
         stop = 1;
     }
-
-    /*    rectangle.setFillColor(Color::Yellow);
-        rectangle.setPosition(278, t + 50);
-        text.setString(next);
-        text.setPosition(350, t + 52);
-        window.draw(rectangle);
-        window.draw(text);
-        window.display();*/
 
     //отрисовка 3го столбца--------------------------------
     if (stop == 1) {
@@ -625,10 +608,10 @@ void(draw)(
 
             rectangle.setFillColor(Color::Green);
             rectangle.setPosition(538, t);
-            kvad.setFillColor(Color::Black);
-            kvad.setPosition(720, t);
+            /*    kvad.setFillColor(Color::Black);
+                kvad.setPosition(720, t);
 
-            window.draw(kvad);
+                window.draw(kvad);*/
             window.draw(rectangle);
             window.display();
             c++;
@@ -659,10 +642,10 @@ void(draw)(
 
             rectangle.setFillColor(Color::Green);
             rectangle.setPosition(808, t);
-            kvad.setFillColor(Color::Black);
-            kvad.setPosition(990, t);
+            /*  kvad.setFillColor(Color::Black);
+              kvad.setPosition(990, t);
 
-            window.draw(kvad);
+              window.draw(kvad);*/
             window.draw(rectangle);
             window.display();
             c++;
@@ -718,7 +701,7 @@ void menu(RenderWindow& window)
             menuBg(menuBackground);
 
     bool isMenu = 1;
-    int menuNum = 0;
+    int menuNum = 0, fon = 0;
 
     menu1.setPosition(620, 200);
     menu2.setPosition(620, 250);
@@ -747,6 +730,8 @@ void menu(RenderWindow& window)
 
         if (Mouse::isButtonPressed(Mouse::Left)) {
             if (menuNum == 1) {
+                fon += 1;
+
                 isMenu = false;
             }
             if (menuNum == 2) {
@@ -765,6 +750,16 @@ void menu(RenderWindow& window)
         window.draw(menu2);
         window.draw(menu3);
         window.display();
+
+        if (fon > 0) {
+            Texture stk;
+            stk.loadFromFile("images/stk.jpg");
+
+            Sprite setk(stk);
+
+            window.draw(setk);
+            window.display();
+        }
     }
 }
 
@@ -777,16 +772,69 @@ int steam(RenderWindow& window, int size)
     int c = 0;
     int newsize = size;
 
+    RectangleShape kvad(Vector2f(20, 20));
+    kvad.setFillColor(Color::Black);
+
     while (isMenu) {
         for (int i = 0; i < size; i++) {
             if (c == 2) {
                 m += 7;
                 c = 0;
             }
-            if ((IntRect(20, m, 182, 20).contains(Mouse::getPosition(window)))
+
+            kvad.setFillColor(Color::Black);
+
+            if ((IntRect(18, m, 182, 22).contains(Mouse::getPosition(window)))
                 && (size > 1)) {
                 teamnum = i;
                 printf("%d\n", teamnum);
+
+                if (c % 2 == 0) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(200, m);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    if (size % 2 == 1) {
+                        if (i != size) {
+                            kvad.setFillColor(Color::Black);
+                            kvad.setPosition(200, m + 24);
+
+                            window.draw(kvad);
+                            window.display();
+                        }
+                    } else {
+                        kvad.setFillColor(Color::Black);
+                        kvad.setPosition(200, m + 24);
+
+                        window.draw(kvad);
+                        window.display();
+                    }
+
+                } else if (c % 2 == 1) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(200, m);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    if (size % 2 == 1) {
+                        if (i != size) {
+                            kvad.setFillColor(Color::Black);
+                            kvad.setPosition(200, m - 24);
+
+                            window.draw(kvad);
+                            window.display();
+                        }
+                    } else {
+                        kvad.setFillColor(Color::Black);
+                        kvad.setPosition(200, m - 24);
+
+                        window.draw(kvad);
+                        window.display();
+                    }
+                }
             }
 
             m += 24;
@@ -805,10 +853,57 @@ int steam(RenderWindow& window, int size)
                 c = 0;
             }
 
-            if ((IntRect(278, t, 182, 20).contains(Mouse::getPosition(window)))
+            if ((IntRect(278, t, 182, 22).contains(Mouse::getPosition(window)))
                 && (size > 1)) {
                 teamnum = i + 101;
                 printf("%d\n", teamnum);
+
+                if (c % 2 == 0) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(460, t);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    if (newsize % 2 == 1) {
+                        if (i != (newsize - 1)) {
+                            kvad.setFillColor(Color::Black);
+                            kvad.setPosition(460, t + 25);
+
+                            window.draw(kvad);
+                            window.display();
+                        }
+                    } else {
+                        kvad.setFillColor(Color::Black);
+                        kvad.setPosition(460, t + 25);
+
+                        window.draw(kvad);
+                        window.display();
+                    }
+
+                } else if (c % 2 == 1) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(460, t);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    if (newsize % 2 == 1) {
+                        if (i != (newsize - 1)) {
+                            kvad.setFillColor(Color::Black);
+                            kvad.setPosition(460, t - 25);
+
+                            window.draw(kvad);
+                            window.display();
+                        }
+                    } else {
+                        kvad.setFillColor(Color::Black);
+                        kvad.setPosition(460, t - 25);
+
+                        window.draw(kvad);
+                        window.display();
+                    }
+                }
             }
 
             c++;
@@ -831,10 +926,57 @@ int steam(RenderWindow& window, int size)
                 c = 0;
             }
 
-            if ((IntRect(538, t, 182, 20).contains(Mouse::getPosition(window)))
+            if ((IntRect(538, t, 182, 22).contains(Mouse::getPosition(window)))
                 && (size > 1)) {
                 teamnum = i + 201;
                 printf("%d\n", teamnum);
+
+                if (c % 2 == 0) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(720, t);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    if (newsize % 2 == 1) {
+                        if (i != (newsize - 1)) {
+                            kvad.setFillColor(Color::Black);
+                            kvad.setPosition(720, t + 25);
+
+                            window.draw(kvad);
+                            window.display();
+                        }
+                    } else {
+                        kvad.setFillColor(Color::Black);
+                        kvad.setPosition(720, t + 25);
+
+                        window.draw(kvad);
+                        window.display();
+                    }
+
+                } else if (c % 2 == 1) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(720, t);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    if (newsize % 2 == 1) {
+                        if (i != (newsize - 1)) {
+                            kvad.setFillColor(Color::Black);
+                            kvad.setPosition(720, t - 25);
+
+                            window.draw(kvad);
+                            window.display();
+                        }
+                    } else {
+                        kvad.setFillColor(Color::Black);
+                        kvad.setPosition(720, t - 25);
+
+                        window.draw(kvad);
+                        window.display();
+                    }
+                }
             }
 
             c++;
@@ -856,15 +998,105 @@ int steam(RenderWindow& window, int size)
                 c = 0;
             }
 
-            if ((IntRect(808, t, 182, 20).contains(Mouse::getPosition(window)))
+            if ((IntRect(808, t, 182, 22).contains(Mouse::getPosition(window)))
                 && (size > 1)) {
                 teamnum = i + 301;
                 printf("%d\n", teamnum);
+
+                if (c % 2 == 0) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(990, t);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    if (newsize % 2 == 1) {
+                        if (i != (newsize - 1)) {
+                            kvad.setFillColor(Color::Black);
+                            kvad.setPosition(990, t + 25);
+
+                            window.draw(kvad);
+                            window.display();
+                        }
+                    } else {
+                        kvad.setFillColor(Color::Black);
+                        kvad.setPosition(990, t + 25);
+
+                        window.draw(kvad);
+                        window.display();
+                    }
+
+                } else if (c % 2 == 1) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(990, t);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    if (newsize % 2 == 1) {
+                        if (i != (newsize - 1)) {
+                            kvad.setFillColor(Color::Black);
+                            kvad.setPosition(990, t - 25);
+
+                            window.draw(kvad);
+                            window.display();
+                        }
+                    } else {
+                        kvad.setFillColor(Color::Black);
+                        kvad.setPosition(990, t - 25);
+
+                        window.draw(kvad);
+                        window.display();
+                    }
+                }
             }
 
             c++;
             t += 25;
         }
+
+        int i = 0;
+        if (size > 16)
+            newsize = 2;
+        else
+            newsize = 0;
+
+        t = 423;
+        c = 0;
+        for (int i = 0; i < newsize; i++) {
+            if ((IntRect(1008, t, 182, 22).contains(Mouse::getPosition(window)))
+                && (size > 1)) {
+                if (c % 2 == 0) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(1190, t);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    kvad.setFillColor(Color::Black);
+                    kvad.setPosition(1190, t + 25);
+
+                    window.draw(kvad);
+                    window.display();
+
+                } else if (c % 2 == 1) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(1190, t);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    kvad.setFillColor(Color::Black);
+                    kvad.setPosition(1190, t - 25);
+
+                    window.draw(kvad);
+                    window.display();
+                }
+            }
+            t += 25;
+            c++;
+        }
+
         if (Mouse::isButtonPressed(Mouse::Left)) {
             isMenu = false;
             return (teamnum);
