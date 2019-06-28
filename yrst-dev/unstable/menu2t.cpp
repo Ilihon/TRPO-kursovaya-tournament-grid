@@ -65,15 +65,15 @@ int main()
     }
 
     //сгенерировать или считать имена комманд
-    cout << "Enter team names? (y/n) \n";
-    char g = '0'; //
+    cout << "Enter team namesf? (y/n) \n";
+    char g[1]; //
     cin >> g;
-    while ((g != 'y') && (g != 'n')) {
+    while ((strcmp(g,"y")!=0) && (strcmp(g,"Y")!=0) && (strcmp(g,"n")!=0) && (strcmp(g,"N")!=0)) {
         cout << "Yes OR Not?\n";
         cin >> g;
     }
 
-    if (g == 'y') { //считываем имена комманд
+    if ((strcmp(g,"y")==0) || (strcmp(g,"Y")==0)){ //считываем имена комманд
         for (int i = 0; i < size; i++) {
             team[i] = new char[30];
 	    
