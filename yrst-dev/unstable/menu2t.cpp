@@ -113,9 +113,9 @@ int main()
     int a[size], b[size], c3[size], d[size];
     for (int i = 0; i < size; i++) {
         a[i] = -1;
-        b[i] = 0;
-        c3[i] = 0;
-        d[i] = 0;
+        b[i] = -1;
+        c3[i] = -1;
+        d[i] = -1;
     }
 
     rnd2 = new char*[size];
@@ -349,7 +349,7 @@ void column(
             newsize = size / 2;
 
         for (int i = 0; i < size; i++) {
-            if ((x < newsize) && (a[i] < 1000) && (a[i] > -1)) {
+            if ((x < newsize) && (a[i] < 1000) && (a[i] != -1)) {
                 if (c == 2) {
                     t += 61;
                     c = 0;
@@ -397,7 +397,7 @@ void column(
             t2 = 97;
 
             for (int i = 0; i < size; i++) {
-                if ((b[i] != 0) && (x < newsize)) {
+                if ((b[i] != -1) && (x < newsize)) {
                     if (c == 2) {
                         t2 += 169;
                         c = 0;
@@ -436,7 +436,7 @@ void column(
             c = 0;
             t = 205;
             for (int i = 0; i < size; i++) {
-                if ((c3[i] != 0) && (x < newsize)) {
+                if ((c3[i] != -1) && (x < newsize)) {
                     if (c == 2) {
                         t += 389;
                         c = 0;
@@ -471,7 +471,7 @@ void column(
             t = 423;
             x = 0;
             for (int i = 0; i < size; i++) {
-                if ((d[i] != 0) && (x < newsize)) {
+                if ((d[i] != -1) && (x < newsize)) {
                     for (int j = 1; j < 1000000; j++) {
                         j = j;
                     }
@@ -760,8 +760,8 @@ int steam(RenderWindow& window, int size)
 {
     bool isMenu = 1;
     int menuNum = 100;
-    int teamnum = 0;
-    int m = 10, t = 36;
+    int teamnum = -1;
+    int m = -10, t = 36;
     int c = 0;
     int newsize = size;
 
@@ -785,7 +785,7 @@ int steam(RenderWindow& window, int size)
 
         c = 0;
 
-        for (int i = 0; i < newsize; i++) {
+        for (int i = -1; i < newsize; i++) {
             if (c == 2) {
                 t += 61;
                 c = 0;
@@ -809,9 +809,10 @@ int steam(RenderWindow& window, int size)
             newsize = size / 4;
         else
             newsize = size / 4 - 1;
+
         c = 0;
         t = 97;
-        for (int i = 0; i < newsize; i++) {
+        for (int i = -1; i < newsize; i++) {
             if (c == 2) {
                 t += 169;
                 c = 0;
@@ -834,15 +835,17 @@ int steam(RenderWindow& window, int size)
             newsize = size / 8;
         else
             newsize = size / 8 - 1;
+
         c = 0;
         t = 205;
+
         for (int i = 0; i < (newsize); i++) {
             if (c == 2) {
                 t += 389;
                 c = 0;
             }
 
-            if ((IntRect(808, t, 182, 20).contains(Mouse::getPosition(window)))
+            if ((IntRect(808, 	t, 182, 20).contains(Mouse::getPosition(window)))
                 && (size > 1)) {
                 teamnum = i + 301;
                 printf("%d\n", teamnum);
@@ -856,5 +859,5 @@ int steam(RenderWindow& window, int size)
             return (teamnum);
         }
     }
-    return 0;
+    return -1;
 }
