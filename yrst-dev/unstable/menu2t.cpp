@@ -761,7 +761,7 @@ int steam(RenderWindow& window, int size)
     bool isMenu = 1;
     int menuNum = 100;
     int teamnum = -1;
-    int m = -10, t = 36;
+    int m = 10, t = 36;
     int c = 0;
     int newsize = size;
 
@@ -785,7 +785,7 @@ int steam(RenderWindow& window, int size)
 
         c = 0;
 
-        for (int i = -1; i < newsize; i++) {
+        for (int i = 0; i < newsize; i++) {
             if (c == 2) {
                 t += 61;
                 c = 0;
@@ -812,7 +812,7 @@ int steam(RenderWindow& window, int size)
 
         c = 0;
         t = 97;
-        for (int i = -1; i < newsize; i++) {
+        for (int i = 0; i < newsize; i++) {
             if (c == 2) {
                 t += 169;
                 c = 0;
