@@ -110,14 +110,13 @@ int main()
     }
 
     //////////////
-    int a[size+1], b[size], c3[size], d[size];
+    int a[size], b[size], c3[size], d[size];
     for (int i = 0; i < size; i++) {
-        a[i] = 0;
+        a[i] = -1;
         b[i] = 0;
         c3[i] = 0;
         d[i] = 0;
     }
-    a[size + 1] = 0;
 
     rnd2 = new char*[size];
 
@@ -241,11 +240,11 @@ int main()
                 x = steam(window, size);
 
                 // 1rst column--------------
-                if (x < 33) {
-                    int empty = x, pl = 0;
+                if (x < 32) {
+                    int empty = x, pl = -1;
                     pl = x;
 
-                    pl = (pl +1)/ 2;
+                    pl = (pl/ 2)+1;
 
                     printf("%d\n", pl);
                     a[pl] = x;
@@ -256,7 +255,7 @@ int main()
                     x = x % 100;
                     int empty = x, pl = x;
 
-                    pl = (pl +1)/ 2;
+                    pl = (pl+1)/ 2;
 
                     printf("%d\n", pl);
                     b[pl] = x;
@@ -349,9 +348,8 @@ void column(
         else
             newsize = size / 2;
 
-        a[0] = 0;
         for (int i = 0; i < size; i++) {
-            if ((a[i] != 0) && (x < newsize) && (a[i] < 1000) && (a[i] > -1)) {
+            if ((x < newsize) && (a[i] < 1000) && (a[i] > -1)) {
                 if (c == 2) {
                     t += 61;
                     c = 0;
