@@ -39,9 +39,14 @@ int main()
 {
     /////////////////
     setlocale(LC_ALL, "Rus");
-    cout << "Enter team num(1-32): ";
+    char sizestring[2];
     int size; //кол-во комманд
-    cin >> size;
+    cout << "Enter team num(1-32): "; 
+    cin >> sizestring;
+    size = atoi(sizestring);
+	
+    
+    //cin >> size;
 
     char** team;
     char** rnd2;
@@ -49,6 +54,8 @@ int main()
     char** rnd4;
     char** rnd5;
     int x = 2, c = 1, r2 = 0, r3 = 0, r4 = 0, r5 = 0, R = 0;
+	
+   
 
     while (size < 1 || size > 32) {
         puts("Uncorrect team count!");
@@ -65,15 +72,15 @@ int main()
     }
 
     //сгенерировать или считать имена комманд
-    cout << "Enter team names? (y/n) \n";
-    char g = '0'; //
+    cout << "Enter team namesf? (y/n) \n";
+    char g[1]; //
     cin >> g;
-    while ((g != 'y') && (g != 'n')) {
+    while ((strcmp(g,"y")!=0) && (strcmp(g,"Y")!=0) && (strcmp(g,"n")!=0) && (strcmp(g,"N")!=0)) {
         cout << "Yes OR Not?\n";
         cin >> g;
     }
 
-    if (g == 'y') { //считываем имена комманд
+    if ((strcmp(g,"y")==0) || (strcmp(g,"Y")==0)){ //считываем имена комманд
         for (int i = 0; i < size; i++) {
             team[i] = new char[30];
 	    
@@ -103,14 +110,13 @@ int main()
     }
 
     //////////////
-    int a[size+1], b[size], c3[size], d[size];
+    int a[size], b[size], c3[size], d[size];
     for (int i = 0; i < size; i++) {
-        a[i] = 0;
+        a[i] = -1;
         b[i] = 0;
         c3[i] = 0;
         d[i] = 0;
     }
-    a[size + 1] = 0;
 
     rnd2 = new char*[size];
 
@@ -234,11 +240,11 @@ int main()
                 x = steam(window, size);
 
                 // 1rst column--------------
-                if (x < 33) {
-                    int empty = x, pl = 0;
+                if (x < 32) {
+                    int empty = x, pl = -1;
                     pl = x;
 
-                    pl = (pl +1)/ 2;
+                    pl = (pl/ 2)+1;
 
                     printf("%d\n", pl);
                     a[pl] = x;
@@ -249,7 +255,7 @@ int main()
                     x = x % 100;
                     int empty = x, pl = x;
 
-                    pl = (pl +1)/ 2;
+                    pl = (pl+1)/ 2;
 
                     printf("%d\n", pl);
                     b[pl] = x;
@@ -342,9 +348,8 @@ void column(
         else
             newsize = size / 2;
 
-        a[0] = 0;
         for (int i = 0; i < size; i++) {
-            if ((a[i] != 0) && (x < newsize) && (a[i] < 1000) && (a[i] > -1)) {
+            if ((x < newsize) && (a[i] < 1000) && (a[i] > -1)) {
                 if (c == 2) {
                     t += 61;
                     c = 0;
