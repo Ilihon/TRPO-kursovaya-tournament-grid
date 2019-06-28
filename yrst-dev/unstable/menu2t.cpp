@@ -39,9 +39,14 @@ int main()
 {
     /////////////////
     setlocale(LC_ALL, "Rus");
-    cout << "Enter team num(1-32): ";
+    char sizestring[2];
     int size; //кол-во комманд
-    cin >> size;
+    cout << "Enter team num(1-32): "; 
+    cin >> sizestring;
+    size = atoi(sizestring);
+	
+    
+    //cin >> size;
 
     char** team;
     char** rnd2;
@@ -49,6 +54,8 @@ int main()
     char** rnd4;
     char** rnd5;
     int x = 2, c = 1, r2 = 0, r3 = 0, r4 = 0, r5 = 0, R = 0;
+	
+   
 
     while (size < 1 || size > 32) {
         puts("Uncorrect team count!");
