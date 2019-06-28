@@ -13,8 +13,8 @@ void draw(
         char* team[],
         Font font,
         int size,
-        int a[],
-        int b[],
+        int a1[],
+        int b2[],
         char* rnd2[]);
 int steam(RenderWindow& window, int size);
 void column(
@@ -26,10 +26,10 @@ void column(
         char* rnd3[],
         char* rnd4[],
         char* rnd5[],
-        int a[],
-        int b[],
+        int a1[],
+        int b2[],
         int c3[],
-        int d[],
+        int d4[],
         int r2,
         int r3,
         int r4,
@@ -110,12 +110,12 @@ int main()
     }
 
     //////////////
-    int a[size], b[size], c3[size], d[size];
+    int a1[size], b2[size], c3[size], d4[size];
     for (int i = 0; i < size; i++) {
-        a[i] = -1;
-        b[i] = -1;
+        a1[i] = -1;
+        b2[i] = -1;
         c3[i] = -1;
-        d[i] = -1;
+        d4[i] = -1;
     }
 
     rnd2 = new char*[size];
@@ -230,7 +230,7 @@ int main()
                     Text text("", font, 10);
                     text.setFillColor(Color::Red);
 
-                    draw(window, team, font, size, a, b, rnd2);
+                    draw(window, team, font, size, a1, b2, rnd2);
                     break;
                 }
 
@@ -247,7 +247,7 @@ int main()
                     pl = (pl/ 2)+1;
 
                     printf("%d\n", pl);
-                    a[pl] = x;
+                    a1[pl] = x;
                 }
 
                 // 2nd column--------------
@@ -258,7 +258,7 @@ int main()
                     pl = (pl+1)/ 2;
 
                     printf("%d\n", pl);
-                    b[pl] = x;
+                    b2[pl] = x;
                     r2++;
                 }
 
@@ -282,7 +282,7 @@ int main()
 		    pl = (pl +1)/ 2;
 
                     printf("%d\n", pl);
-                    d[pl] = x;
+                    d4[pl] = x;
                     r5++;
                 }
 
@@ -292,7 +292,7 @@ int main()
             //  draw(window, team, font, size, a, b);
             for (R = 0; R < 1000; R++)
                 R = R;
-            R = 0;
+
             column(window,
                    team,
                    font,
@@ -301,10 +301,10 @@ int main()
                    rnd3,
                    rnd4,
                    rnd5,
-                   a,
-                   b,
+                   a1,
+                   b2,
                    c3,
-                   d,
+                   d4,
                    r2,
                    r3,
                    r4,
@@ -324,10 +324,10 @@ void column(
         char* rnd3[],
         char* rnd4[],
         char* rnd5[],
-        int a[],
-        int b[],
+        int a1[],
+        int b2[],
         int c3[],
-        int d[],
+        int d4[],
         int r2,
         int r3,
         int r4,
@@ -338,7 +338,7 @@ void column(
         Text text("", font, 10);
         text.setFillColor(Color::Red);
         window.clear();
-        draw(window, team, font, size, a, b, rnd2);
+        draw(window, team, font, size, a1, b2, rnd2);
         window.display();
 
         if (size % 2 == 1)
@@ -349,7 +349,7 @@ void column(
             newsize = size / 2;
 
         for (int i = 0; i < size; i++) {
-            if ((x < newsize) && (a[i] < 1000) && (a[i] != -1)) {
+            if ((x < newsize) && (a1[i] != -1)) {
                 if (c == 2) {
                     t += 61;
                     c = 0;
@@ -360,11 +360,11 @@ void column(
                 }
 
                 printf("%d\n AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n",
-                       a[i]);
+                       a1[i]);
                 printf("%d\n IIIIIIIIIIIIIIIIIIIIIIIIIII", i);
-                text.setString(rnd2[a[i]]);
+                text.setString(rnd2[a1[i]]);
                 text.setPosition(280, t);
-                rnd3[t2] = rnd2[a[i]];
+                rnd3[t2] = rnd2[a1[i]];
                 printf("%s\n", rnd3[t2]);
                 printf("%d\n", t2);
 
@@ -397,7 +397,7 @@ void column(
             t2 = 97;
 
             for (int i = 0; i < size; i++) {
-                if ((b[i] != -1) && (x < newsize)) {
+                if ((b2[i] != -1) && (x < newsize)) {
                     if (c == 2) {
                         t2 += 169;
                         c = 0;
@@ -407,9 +407,9 @@ void column(
                         j = j;
                     }
 
-                    text.setString(rnd3[b[i]]);
+                    text.setString(rnd3[b2[i]]);
                     text.setPosition(540, t2);
-                    rnd4[t] = rnd3[b[i]];
+                    rnd4[t] = rnd3[b2[i]];
                     printf("%s 4rd\n", rnd4[t]);
                     printf("%d 4rd\n", t);
 
@@ -471,12 +471,12 @@ void column(
             t = 423;
             x = 0;
             for (int i = 0; i < size; i++) {
-                if ((d[i] != -1) && (x < newsize)) {
+                if ((d4[i] != -1) && (x < newsize)) {
                     for (int j = 1; j < 1000000; j++) {
                         j = j;
                     }
 
-                    text.setString(rnd5[d[i]]);
+                    text.setString(rnd5[d4[i]]);
                     text.setPosition(1008, t);
 
                     window.draw(text);
@@ -495,8 +495,8 @@ void(draw)(
         char* team[],
         Font font,
         int size,
-        int a[],
-        int b[],
+        int a1[],
+        int b2[],
         char* rnd2[])
 {
     window.clear();
@@ -553,16 +553,13 @@ void(draw)(
         m += 24;
         c++;
     }
-    //  string next = "NEXT";
-
     // отрисовка 2го столбца------------------------------
     if (stop == 0) {
-        if (size % 2 == 1)
-            newsize = size / 2 + 1;
-        else if (size == 2)
-            newsize = 0;
-        else
-            newsize = size / 2;
+
+        newsize = (size+1) / 2;
+        if (size == 2)
+           newsize = 0;
+
         c = 0;
         for (int i = 0; i < newsize; i++) {
             if (c == 2) {
@@ -591,9 +588,7 @@ void(draw)(
 
     //отрисовка 3го столбца--------------------------------
     if (stop == 1) {
-        if ((size % 4 < 4) && (size != 4) && (size != 8) && (size != 12)
-            && (size != 16) && (size != 20) && (size != 24) && (size != 28)
-            && (size != 32) && (size > 4))
+        if ((size % 4 != 0)&& (size > 4))
             newsize = size / 4 + 1;
         else if (size > 4)
             newsize = size / 4;
@@ -626,8 +621,7 @@ void(draw)(
     }
     //отрисовка 4го столбца--------------------------------
     if (stop == 2) {
-        if ((size % 8 < 8) && (size > 8) && (size != 8) && (size != 16)
-            && (size != 24) && (size != 32))
+        if ((size % 8 !=0) && (size > 8))
             newsize = size / 8 + 1;
         else if (size > 8)
             newsize = size / 8;
@@ -765,99 +759,348 @@ int steam(RenderWindow& window, int size)
     int c = 0;
     int newsize = size;
 
+    RectangleShape kvad(Vector2f(20, 20));
+    kvad.setFillColor(Color::Black);
+
     while (isMenu) {
         for (int i = 0; i < size; i++) {
             if (c == 2) {
                 m += 7;
                 c = 0;
             }
-            if ((IntRect(20, m, 182, 20).contains(Mouse::getPosition(window)))
+
+            kvad.setFillColor(Color::Black);
+
+            if ((IntRect(18, m, 182, 22).contains(Mouse::getPosition(window)))
                 && (size > 1)) {
                 teamnum = i;
                 printf("%d\n", teamnum);
+
+                if (c % 2 == 0) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(200, m);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    if (size % 2 == 1) {
+                        if (i != size) {
+                            kvad.setFillColor(Color::Black);
+                            kvad.setPosition(200, m + 24);
+
+                            window.draw(kvad);
+                            window.display();
+                        }
+                    } else {
+                        kvad.setFillColor(Color::Black);
+                        kvad.setPosition(200, m + 24);
+
+                        window.draw(kvad);
+                        window.display();
+                    }
+
+                } else if (c % 2 == 1) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(200, m);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    if (size % 2 == 1) {
+                        if (i != size) {
+                            kvad.setFillColor(Color::Black);
+                            kvad.setPosition(200, m - 24);
+
+                            window.draw(kvad);
+                            window.display();
+                        }
+                    } else {
+                        kvad.setFillColor(Color::Black);
+                        kvad.setPosition(200, m - 24);
+
+                        window.draw(kvad);
+                        window.display();
+                    }
+                }
+		if (Mouse::isButtonPressed(Mouse::Left)) {
+            		isMenu = false;
+            	return (teamnum);
+        }
             }
 
             m += 24;
             c++;
         }
 
-        newsize = (size+1) / 2;
-
+        if (size % 2 == 1)
+            newsize = size / 2 + 1;
+        else
+            newsize = size / 2;
         c = 0;
 
-        for (int i = 0; i < newsize; i++) {
+        for (int i = 0; i < (newsize); i++) {
             if (c == 2) {
                 t += 61;
                 c = 0;
             }
 
-            if ((IntRect(278, t, 182, 20).contains(Mouse::getPosition(window)))
+            if ((IntRect(278, t, 182, 22).contains(Mouse::getPosition(window)))
                 && (size > 1)) {
                 teamnum = i + 101;
                 printf("%d\n", teamnum);
+
+                if (c % 2 == 0) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(460, t);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    if (newsize % 2 == 1) {
+                        if (i != (newsize - 1)) {
+                            kvad.setFillColor(Color::Black);
+                            kvad.setPosition(460, t + 25);
+
+                            window.draw(kvad);
+                            window.display();
+                        }
+                    } else {
+                        kvad.setFillColor(Color::Black);
+                        kvad.setPosition(460, t + 25);
+
+                        window.draw(kvad);
+                        window.display();
+                    }
+
+                } else if (c % 2 == 1) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(460, t);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    if (newsize % 2 == 1) {
+                        if (i != (newsize - 1)) {
+                            kvad.setFillColor(Color::Black);
+                            kvad.setPosition(460, t - 25);
+
+                            window.draw(kvad);
+                            window.display();
+                        }
+                    } else {
+                        kvad.setFillColor(Color::Black);
+                        kvad.setPosition(460, t - 25);
+
+                        window.draw(kvad);
+                        window.display();
+                    }
+                }
+		if (Mouse::isButtonPressed(Mouse::Left)) {
+            		isMenu = false;
+            	return (teamnum);
             }
 
             c++;
             t += 25;
         }
 
-        if ((size % 4 < 4) && (size != 4) && (size != 8) && (size != 12)
-            && (size != 16) && (size != 20) && (size != 24) && (size != 28)
-            && (size != 32))
+        if (size % 4 !=0)
             newsize = size / 4 + 1;
         else if (size > 4)
             newsize = size / 4;
         else
             newsize = size / 4 - 1;
-
         c = 0;
         t = 97;
-        for (int i = 0; i < newsize; i++) {
+        for (int i = 0; i < (newsize); i++) {
             if (c == 2) {
                 t += 169;
                 c = 0;
             }
 
-            if ((IntRect(538, t, 182, 20).contains(Mouse::getPosition(window)))
+            if ((IntRect(538, t, 182, 22).contains(Mouse::getPosition(window)))
                 && (size > 1)) {
                 teamnum = i + 201;
                 printf("%d\n", teamnum);
+
+                if (c % 2 == 0) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(720, t);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    if (newsize % 2 == 1) {
+                        if (i != (newsize - 1)) {
+                            kvad.setFillColor(Color::Black);
+                            kvad.setPosition(720, t + 25);
+
+                            window.draw(kvad);
+                            window.display();
+                        }
+                    } else {
+                        kvad.setFillColor(Color::Black);
+                        kvad.setPosition(720, t + 25);
+
+                        window.draw(kvad);
+                        window.display();
+                    }
+
+                } else if (c % 2 == 1) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(720, t);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    if (newsize % 2 == 1) {
+                        if (i != (newsize - 1)) {
+                            kvad.setFillColor(Color::Black);
+                            kvad.setPosition(720, t - 25);
+
+                            window.draw(kvad);
+                            window.display();
+                        }
+                    } else {
+                        kvad.setFillColor(Color::Black);
+                        kvad.setPosition(720, t - 25);
+
+                        window.draw(kvad);
+                        window.display();
+                    }
+                }
+		if (Mouse::isButtonPressed(Mouse::Left)) {
+            		isMenu = false;
+            		return (teamnum);
+	 	}
             }
 
             c++;
             t += 25;
         }
 
-        if ((size % 8 < 8) && (size > 4) && (size != 8) && (size != 16)
-            && (size != 24) && (size != 32))
+        if ((size % 8 !=0) && (size > 4))
             newsize = size / 8 + 1;
         else if (size > 8)
             newsize = size / 8;
         else
             newsize = size / 8 - 1;
-
         c = 0;
         t = 205;
-
         for (int i = 0; i < (newsize); i++) {
             if (c == 2) {
                 t += 389;
                 c = 0;
             }
 
-            if ((IntRect(808, 	t, 182, 20).contains(Mouse::getPosition(window)))
+            if ((IntRect(808, t, 182, 22).contains(Mouse::getPosition(window)))
                 && (size > 1)) {
                 teamnum = i + 301;
                 printf("%d\n", teamnum);
+
+                if (c % 2 == 0) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(990, t);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    if (newsize % 2 == 1) {
+                        if (i != (newsize - 1)) {
+                            kvad.setFillColor(Color::Black);
+                            kvad.setPosition(990, t + 25);
+
+                            window.draw(kvad);
+                            window.display();
+                        }
+                    } else {
+                        kvad.setFillColor(Color::Black);
+                        kvad.setPosition(990, t + 25);
+
+                        window.draw(kvad);
+                        window.display();
+                    }
+
+                } else if (c % 2 == 1) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(990, t);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    if (newsize % 2 == 1) {
+                        if (i != (newsize - 1)) {
+                            kvad.setFillColor(Color::Black);
+                            kvad.setPosition(990, t - 25);
+
+                            window.draw(kvad);
+                            window.display();
+                        }
+                    } else {
+                        kvad.setFillColor(Color::Black);
+                        kvad.setPosition(990, t - 25);
+
+                        window.draw(kvad);
+                        window.display();
+                    }
+                }
+		if (Mouse::isButtonPressed(Mouse::Left)) {
+            		isMenu = false;
+            		return (teamnum);
+		}
+		}
             }
 
             c++;
             t += 25;
         }
-        if (Mouse::isButtonPressed(Mouse::Left)) {
-            isMenu = false;
-            return (teamnum);
+
+        int i = 0;
+        if (size > 16)
+            newsize = 2;
+        else
+            newsize = 0;
+
+        t = 423;
+        c = 0;
+        for (int i = 0; i < newsize; i++) {
+            if ((IntRect(1008, t, 182, 22).contains(Mouse::getPosition(window)))
+                && (size > 1)) {
+                if (c % 2 == 0) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(1190, t);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    kvad.setFillColor(Color::Black);
+                    kvad.setPosition(1190, t + 25);
+
+                    window.draw(kvad);
+                    window.display();
+
+                } else if (c % 2 == 1) {
+                    kvad.setFillColor(Color::Red);
+                    kvad.setPosition(1190, t);
+
+                    window.draw(kvad);
+                    window.display();
+
+                    kvad.setFillColor(Color::Black);
+                    kvad.setPosition(1190, t - 25);
+
+                    window.draw(kvad);
+                    window.display();
+                }
+            }
+            t += 25;
+            c++;
         }
+
+        if (Mouse::isButtonPressed(Mouse::Left)) {
+         	isMenu = false;
+         	return (teamnum);
+	}
     }
     return -1;
 }
