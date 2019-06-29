@@ -259,7 +259,7 @@ int main()
                 if ((x >= 200) && (x <= 207)) {
                     	x = x % 100;
                     	int pl;
-                    	pl = pl /2;
+                    	pl = x /2;
 
                     	printf("%d\n", pl);
                     	c3[pl] = x;
@@ -270,7 +270,7 @@ int main()
                 if ((x >= 300) && (x <= 303)) {
                     	x = x % 100;
                     	int pl;
-		    	pl = pl/2;
+		    	pl = x/2;
 
                     	printf("%d\n", pl);
                     	d4[pl] = x;
@@ -369,7 +369,7 @@ void column(
 	//--------------------------------------------
 	
 	int oldsize=newsize;
-	newsize = (size+1) / 2;
+	newsize = (newsize+1) / 2;
         if (oldsize <= 2)
             newsize = 0;
 
@@ -407,72 +407,83 @@ void column(
 		}
         }
 	//--------------------------------------------
-	newsize = (size+1) / 2;
+	
+	oldsize=newsize;
+	newsize = (newsize+1) / 2;
         if (oldsize <= 2)
-            newsize = 0;	
+            newsize = 0;
 
-        if ((r3 == 2) && (r4 > 0)) {
-            int t = 1, c = 0, x = 0, newsize = size, t2 = 1;
+	//3ий раунд -> 4ый раунд----------------------
+        if ((newsize>0) && (r4 = 1)) {
+            	t = 205; c = 0;
+            	for (int i = 0; i < size; i++) {
+                	if (c == 2) {
+                       		t += 389;
+                        	c = 0;
+                    	}
 
-            if ((size % 8 != 0) && (size > 8))
-                newsize = size / 8 + 1;
-            else if (size > 8)
-                newsize = size / 8;
-            else
-                newsize = size / 8 - 1;
-            c = 0;
-            t = 205;
-            for (int i = 0; i < size; i++) {
-                if ((c3[i] != -1) && (0 < newsize)) {
-                    if (c == 2) {
-                        t += 389;
-                        c = 0;
-                    }
+                    	for (int j = 1; j < 1000000; j++) {
+                        	j = j;
+                    	}
 
-                    for (int j = 1; j < 1000000; j++) {
-                        j = j;
-                    }
+			if(c3[i] != -1){
+				printf("%d\n 3AAAAAAAAAAAAAAAAAAAAAAAAAA\n", c3[i]);
+		        	printf("%d\n 3IIIIIIIIIIIIIIIIIIIIIIIIII\n", i);
+				strcpy(rnd4[i],rnd3[c3[i]]);
+		        	printf("%s\n", rnd4[i]);
+			}
+			else{
+				strcpy(rnd4[i]," ");	
+			}
+			
+			text.setString(rnd4[i]);
+			text.setPosition(808, t);
+		        window.draw(text);
+		        window.display();
 
-                    text.setString(rnd3[c3[i]]);
-                    text.setPosition(808, t);
-                    rnd4[t2] = rnd3[c3[i]];
-                    printf("%s 55rd\n", rnd4[t2]);
-                    printf("%d 55rd\n", t2);
+                    	t += 25;
+                    	c++;
+            	}
+        }
+	//--------------------------------------------
 
-                    window.draw(text);
-                    window.display();
+	
+        oldsize=newsize;
+	newsize = (newsize+1) / 2;
+        if (oldsize <= 2)
+            newsize = 0;
 
-                    c++;
-                    t += 25;
-                    t2++;
-                }
+
+	//4ый раунд -> 5ый раунд----------------------
+        if ((newsize>0) && (r5 = 1)) {
+            	t = 423;
+            	for (int i = 0; i < oldsize; i++) {
+
+                    	for (int j = 1; j < 1000000; j++) {
+                        	j = j;
+                    	}
+
+			if(d4[i] != -1){
+				printf("%d\n 4AAAAAAAAAAAAAAAAAAAAAAAAAA\n", d4[i]);
+		        	printf("%d\n 4IIIIIIIIIIIIIIIIIIIIIIIIII\n", i);
+				strcpy(rnd5[i],rnd4[d4[i]]);
+		        	printf("%s\n", rnd5[i]);
+			}
+			else{
+				strcpy(rnd5[i]," ");	
+			}
+			
+			text.setString(rnd5[i]);
+			text.setPosition(1008, t);
+		        window.draw(text);
+		        window.display();
+
+                    	t += 25;
+
             }
         }
+	//--------------------------------------------
 
-/*
-        if ((r4 == 2) && (r5 > 0)) {
-            if (size > 16)
-                newsize = 2;
-            else
-                newsize = 0;
-
-            t = 423;
-            for (int i = 0; i < size; i++) {
-                if ((d4[i] != -1) && (0 < newsize)) {
-                    for (int j = 1; j < 1000000; j++) {
-                        j = j;
-                    }
-
-                    text.setString(rnd4[d4[i]]);
-                    text.setPosition(1008, t);
-
-                    window.draw(text);
-                    window.display();
-
-                    t += 25;
-                }
-            }
-        }*/
     }
 }
 
@@ -841,7 +852,7 @@ int steam(RenderWindow& window, int size)
         t = 97;
 
 	//проверка 3го столбца-------------------------------
-        for (int i = 0; i < (newsize); i++) {
+        for (int i = 0; i < newsize; i++) {
             if (c == 2) {
                 t += 169;
                 c = 0;
@@ -942,7 +953,7 @@ int steam(RenderWindow& window, int size)
         t = 423;
         c = 0;
 
-	//проверка 4го столбца-------------------------------
+	//проверка 5го столбца-------------------------------
         for (int i = 0; i < newsize; i++) {
             if (IntRect(1008, t, 182, 22).contains(Mouse::getPosition(window))) {
 		teamnum = i + 400;
