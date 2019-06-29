@@ -53,7 +53,7 @@ sno:
     int x = 2, c = 1, r2 = 0, r3 = 0, r4 = 0, r5 = 0, R = 0;
 
     string buffer = "";
-    cin >> size;
+    //  cin >> size;
 
     while (true) {
         getline(cin, buffer);
@@ -242,39 +242,27 @@ yes:
 
                 // 1rst column--------------
                 if (x < 33) {
-                    /*if (x % 2 == 1) {
-                        rnd2[x] = team[x];
-
-                        a[x] = 1;
-                        a[x + 1] = 0;
-                    } else {
-                        rnd2[x] = team[x];
-
-                        a[x] = 1;
-                        a[x - 1] = 0;
-                    }*/
-
                     x = x % 100;
-                    int empty = x, pl = 0;
+                    int pl = 0;
                     pl = x;
                     if (pl % 2 == 0)
                         pl = pl / 2;
                     else
                         pl = (pl / 2) + 1;
-                    printf("%d\n", pl);
+
                     a[pl] = x;
                 }
 
                 // 2nd column--------------
                 if ((x > 99) && (x < 118)) {
                     x = x % 100;
-                    int empty = x, pl = 0;
+                    int pl = 0;
                     pl = x;
                     if (pl % 2 == 0)
                         pl = pl / 2;
                     else
                         pl = (pl / 2) + 1;
-                    printf("%d\n", pl);
+
                     b[pl] = x;
                     r2++;
                 }
@@ -282,13 +270,13 @@ yes:
                 // 3rd column--------------
                 if ((x > 199) && (x < 218)) {
                     x = x % 100;
-                    int empty = x, pl = 0;
+                    int pl = 0;
                     pl = x;
                     if (pl % 2 == 0)
                         pl = pl / 2;
                     else
                         pl = (pl / 2) + 1;
-                    printf("%d\n", pl);
+
                     c3[pl] = x;
                     r4++;
                 }
@@ -296,21 +284,19 @@ yes:
                 // 4th column--------------
                 if ((x > 299) && (x < 318)) {
                     x = x % 100;
-                    int empty = x, pl = 0;
+                    int pl = 0;
                     pl = x;
                     if (pl % 2 == 0)
                         pl = pl / 2;
                     else
                         pl = (pl / 2) + 1;
-                    printf("%d\n", pl);
+
                     d[pl] = x;
                     r5++;
                 }
 
-                printf("GOTCHA\n");
                 break;
             }
-            //  draw(window, team, font, size, a, b);
             for (R = 0; R < 1000; R++)
                 R = R;
             R = 0;
@@ -358,8 +344,7 @@ void column(
         int t = 36, c = 0, x = 0, newsize = size, t2 = 1;
         Text text("", font, 10);
         text.setFillColor(Color::Red);
-        // window.clear();
-        draw(window, team, font, size, a, b, rnd2);
+        // window.clear();        draw(window, team, font, size, a, b, rnd2);
         window.display();
 
         if (size % 2 == 1)
@@ -381,14 +366,9 @@ void column(
                     j = j;
                 }
 
-                printf("%d\n AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n",
-                       a[i]);
-                printf("%d\n IIIIIIIIIIIIIIIIIIIIIIIIIII", i);
                 text.setString(rnd2[a[i]]);
                 text.setPosition(280, t);
                 rnd3[t2] = rnd2[a[i]];
-                printf("%s\n", rnd3[t2]);
-                printf("%d\n", t2);
 
                 window.draw(text);
                 window.display();
@@ -432,8 +412,6 @@ void column(
                     text.setString(rnd3[b[i]]);
                     text.setPosition(540, t2);
                     rnd4[t] = rnd3[b[i]];
-                    printf("%s 4rd\n", rnd4[t]);
-                    printf("%d 4rd\n", t);
 
                     window.draw(text);
                     window.display();
@@ -471,8 +449,6 @@ void column(
                     text.setString(rnd4[c3[i]]);
                     text.setPosition(808, t);
                     rnd5[t2] = rnd4[c3[i]];
-                    printf("%s 55rd\n", rnd5[t2]);
-                    printf("%d 55rd\n", t2);
 
                     window.draw(text);
                     window.display();
@@ -650,10 +626,7 @@ void(draw)(
 
             rectangle.setFillColor(Color::Green);
             rectangle.setPosition(808, t);
-            /*  kvad.setFillColor(Color::Black);
-              kvad.setPosition(990, t);
 
-              window.draw(kvad);*/
             window.draw(rectangle);
             window.display();
             c++;
@@ -828,7 +801,6 @@ int steam(RenderWindow& window, int size)
             if ((IntRect(18, m, 182, 22).contains(Mouse::getPosition(window)))
                 && (size > 1)) {
                 teamnum = i;
-                printf("%d\n", teamnum);
 
                 if (c % 2 == 0) {
                     kvad.setFillColor(Color::Red);
@@ -899,7 +871,6 @@ int steam(RenderWindow& window, int size)
             if ((IntRect(278, t, 182, 22).contains(Mouse::getPosition(window)))
                 && (size > 1)) {
                 teamnum = i + 101;
-                printf("%d\n", teamnum);
 
                 if (c % 2 == 0) {
                     kvad.setFillColor(Color::Red);
@@ -974,7 +945,6 @@ int steam(RenderWindow& window, int size)
             if ((IntRect(538, t, 182, 22).contains(Mouse::getPosition(window)))
                 && (size > 1)) {
                 teamnum = i + 201;
-                printf("%d\n", teamnum);
 
                 if (c % 2 == 0) {
                     kvad.setFillColor(Color::Red);
@@ -1048,7 +1018,6 @@ int steam(RenderWindow& window, int size)
             if ((IntRect(808, t, 182, 22).contains(Mouse::getPosition(window)))
                 && (size > 1)) {
                 teamnum = i + 301;
-                printf("%d\n", teamnum);
 
                 if (c % 2 == 0) {
                     kvad.setFillColor(Color::Red);
