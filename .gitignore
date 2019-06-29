@@ -2,3 +2,6 @@ sfml-app
 sfml2-app
 Ilihon-develop/main
 Ilihon-develop/*.txt
+*.o
+bin/main
+src/menu1t.cpp
