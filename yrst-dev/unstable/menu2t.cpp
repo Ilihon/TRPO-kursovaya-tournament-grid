@@ -37,91 +37,49 @@ int main()
 {
     /////////////////
     setlocale(LC_ALL, "Rus");
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
     char sizestring[2];
     int size; //кол-во комманд
-    cout << "Enter team num(1-32): "; 
+    cout << "Enter team num(1-32): ";
     cin >> sizestring;
     size = atoi(sizestring);
-	
-    
-    //cin >> size;
-=======
 
-    cout << "Enter team num(1-32): ";
-sno:
-    int size = 0; //кол-во комманд
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
+    while (size < 1 || size > 32) {
+        puts("Uncorrect team count!");
+        puts("Please enter team num again!");
+        cin >> sizestring;
+        size = atoi(sizestring);
+    }
 
     char** team;
     char** rnd2;
     char** rnd3;
     char** rnd4;
     char** rnd5;
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
-	
-   
-=======
-    int x = 2, /*c = 1, */ r2 = 0, r3 = 0, r4 = 0, r5 = 0, R = 0;
 
-    string buffer = "";
-    //  cin >> size;
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
 
-    while (true) {
-        getline(cin, buffer);
-
-        // Безопасный перевод из строки в число.
-        stringstream myStream(buffer);
-        if ((myStream >> size))
-            break;
-        // cout << "Неверный ввод, повторите..." << endl;
-        puts("Uncorrect team count!");
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
-        puts("Please enter team num again!");
-        scanf("%d", &size);
-=======
-        puts("Please try again!");
-    }
-
-    if (size < 2 || size > 32) {
-        puts("Uncorrect team count!");
-        puts("Please try again!");
-        goto sno;
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
-    }
 
     team = new char*[size];
-	
+
     /////////////////проверка на выделение памяти
     if (team == NULL) {
         printf("Failed to allocate memory");
-	return 1; // выход по ошибке, код ошибки 1
+  return 1; // выход по ошибке, код ошибки 1
     }
 
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
     //сгенерировать или считать имена комманд
     cout << "Enter team namesf? (y/n) \n";
     char g[1]; //
     cin >> g;
     while ((strcmp(g,"y")!=0) && (strcmp(g,"Y")!=0) && (strcmp(g,"n")!=0) && (strcmp(g,"N")!=0)) {
-=======
-//сгенерировать или считать имена комманд
-yes:
-    cout << "Enter team names? (y/n) \n";
-    char g = '0'; //
-    cin >> g;
-    if ((g != 'y') && (g != 'n')) {
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
         cout << "Yes OR Not?\n";
-        goto yes;
+        cin>>g;
     }
 
     if ((strcmp(g,"y")==0) || (strcmp(g,"Y")==0)){ //считываем имена комманд
         for (int i = 0; i < size; i++) {
             team[i] = new char[30];
-	    
-	    /////////////////проверка на выделение памяти
+
+      /////////////////проверка на выделение памяти
             if (team[i] == NULL) {
                 printf("Failed to allocate memory");
                 return 1; // выход по ошибке, код ошибки 1
@@ -132,7 +90,7 @@ yes:
         for (int i = 0; i < size; i++) {
             team[i] = new char[30];
 
-   	    /////////////////проверка на выделение памяти
+        /////////////////проверка на выделение памяти
             if (team[i] == NULL) {
                 printf("Failed to allocate memory");
                 return 1; // выход по ошибке, код ошибки 1
@@ -250,7 +208,7 @@ yes:
     window.draw(text);
     window.display();
 
-	
+
     int r2 = 0, r3 = 0, r4 = 0, r5 = 0;
     while (window.isOpen()) {
         Event event;
@@ -274,119 +232,55 @@ yes:
             if (Keyboard::isKeyPressed(Keyboard::Escape))
                 goto Again;
             if (Mouse::isButtonPressed(Mouse::Left)) {
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
-               	int x = steam(window, size);	
-       	       	// 1rst column--------------
-               	if ((x>=0) && (x <= 31)) {
-          		int pl;
-			pl = x/2;
+                int x = steam(window, size);
+                // 1rst column--------------
+                if ((x>=0) && (x <= 31)) {
+              int pl;
+      pl = x/2;
 
-	                printf("%d\n", pl);
-         	        a1[pl] = x;
-		 	r2=1;
+                  printf("%d\n", pl);
+                  a1[pl] = x;
+      r2=1;
                 }
 
                 // 2nd column--------------
                 if ((x >= 100) && (x <= 115)) {
-		        x = x % 100;
-		        int pl;
-		        pl = x/2;
+            x = x % 100;
+            int pl;
+            pl = x/2;
 
-		        printf("%d\n", pl);
-		        b2[pl] = x;
-		        r3=1;
+            printf("%d\n", pl);
+            b2[pl] = x;
+            r3=1;
                 }
 
                 // 3rd column--------------
                 if ((x >= 200) && (x <= 207)) {
-                    	x = x % 100;
-                    	int pl;
-                    	pl = x /2;
+                      x = x % 100;
+                      int pl;
+                      pl = x /2;
 
-                    	printf("%d\n", pl);
-                    	c3[pl] = x;
-                    	r4=1;
+                      printf("%d\n", pl);
+                      c3[pl] = x;
+                      r4=1;
                 }
 
                 // 4th column--------------
                 if ((x >= 300) && (x <= 303)) {
-                    	x = x % 100;
-                    	int pl;
-		    	pl = x/2;
+                      x = x % 100;
+                      int pl;
+          pl = x/2;
 
-                    	printf("%d\n", pl);
-                    	d4[pl] = x;
-                    	r5=1;
-=======
-                x = steam(window, size);
-
-                // 1rst column--------------
-                if (x < 33) {
-                    x = x % 100;
-                    int pl = 0;
-                    pl = x;
-                    if (pl % 2 == 0)
-                        pl = pl / 2;
-                    else
-                        pl = (pl / 2) + 1;
-
-                    a[pl] = x;
-                }
-
-                // 2nd column--------------
-                if ((x > 99) && (x < 118)) {
-                    x = x % 100;
-                    int pl = 0;
-                    pl = x;
-                    if (pl % 2 == 0)
-                        pl = pl / 2;
-                    else
-                        pl = (pl / 2) + 1;
-
-                    b[pl] = x;
-                    r2++;
-                }
-
-                // 3rd column--------------
-                if ((x > 199) && (x < 218)) {
-                    x = x % 100;
-                    int pl = 0;
-                    pl = x;
-                    if (pl % 2 == 0)
-                        pl = pl / 2;
-                    else
-                        pl = (pl / 2) + 1;
-
-                    c3[pl] = x;
-                    r4++;
-                }
-
-                // 4th column--------------
-                if ((x > 299) && (x < 318)) {
-                    x = x % 100;
-                    int pl = 0;
-                    pl = x;
-                    if (pl % 2 == 0)
-                        pl = pl / 2;
-                    else
-                        pl = (pl / 2) + 1;
-
-                    d[pl] = x;
-                    r5++;
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
+                      printf("%d\n", pl);
+                      d4[pl] = x;
+                      r5=1;
                 }
 
                 break;
             }
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
             for (int j = 0; j < 1000; j++)
                 j = j;
 
-=======
-            for (R = 0; R < 1000; R++)
-                R = R;
-            R = 0;
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
             column(window,
                    team,
                    font,
@@ -430,237 +324,161 @@ void column(
     if (Keyboard::isKeyPressed(Keyboard::Return)) {
         Text text("", font, 10);
         text.setFillColor(Color::Red);
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
-        window.clear();
+        // window.clear();
         draw(window, team, font, size);
-=======
-        // window.clear();        draw(window, team, font, size, a, b, rnd2);
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
         window.display();
-	
-	int t, c, newsize;
+
+  int t, c, newsize;
         newsize = (size+1) / 2;
         if (size <= 2)
             newsize = 0;
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
-	//1ый раунд -> 2ой раунд----------------------
-        if ((newsize>0) && (r2==1)) { 
-        	t = 36, c = 0;
-		for (int i = 0; i < size; i++) {
-		        if (c == 2) {
-		            t += 61;
-		            c = 0;
-		        }
+  //1ый раунд -> 2ой раунд----------------------
+        if ((newsize>0) && (r2==1)) {
+          t = 36, c = 0;
+    for (int i = 0; i < size; i++) {
+            if (c == 2) {
+                t += 61;
+                c = 0;
+            }
 
-		        for (int j = 1; j < 100000; j++) {
-		            j = j;
-		        }
+            for (int j = 1; j < 100000; j++) {
+                j = j;
+            }
 
-		        if(a1[i] != -1){
-				printf("%d\n 1AAAAAAAAAAAAAAAAAAAAAAAAAA\n", a1[i]);
-		        	printf("%d\n 1IIIIIIIIIIIIIIIIIIIIIIIIII\n", i);
-				strcpy(rnd2[i],team[a1[i]]);
-		        	printf("%s\n", rnd2[i]);
-			}
-			else{
-				strcpy(rnd2[i]," ");	
-			}
+            if(a1[i] != -1){
+        printf("%d\n 1AAAAAAAAAAAAAAAAAAAAAAAAAA\n", a1[i]);
+              printf("%d\n 1IIIIIIIIIIIIIIIIIIIIIIIIII\n", i);
+        strcpy(rnd2[i],team[a1[i]]);
+              printf("%s\n", rnd2[i]);
+      }
+      else{
+        strcpy(rnd2[i]," ");
+      }
 
-		        text.setString(rnd2[i]);
-		        text.setPosition(280, t);
-		        window.draw(text);
-		        window.display();
+            text.setString(rnd2[i]);
+            text.setPosition(280, t);
+            window.draw(text);
+            window.display();
 
-		        t += 25;
-		        c++;
-            	}
+            t += 25;
+            c++;
+              }
         }
-	//--------------------------------------------
-	
-	int oldsize=newsize;
-	newsize = (newsize+1) / 2;
+  //--------------------------------------------
+
+  int oldsize=newsize;
+  newsize = (newsize+1) / 2;
         if (oldsize <= 2)
             newsize = 0;
-=======
-        else
-            newsize = size / 2;
 
-        a[0] = 0;
-        for (int i = 1; i < size + 1; i++) {
-            if ((a[i] != 0) && (x < newsize) && (a[i] < 1000) && (a[i] > -1)) {
-                if (c == 2) {
-                    t += 61;
-                    c = 0;
-                }
-
-                for (int j = 1; j < 1000000; j++) {
-                    j = j;
-                }
-
-                text.setString(rnd2[a[i]]);
-                text.setPosition(280, t);
-                rnd3[t2] = rnd2[a[i]];
-
-                window.draw(text);
-                window.display();
-
-                t += 25;
-                c++;
-                x++;
-                t2++;
-            }
-        }
-        if (r2 > 0)
-            r3 = 1;
-
-        if (r3 == 1) {
-            int t = 1, c = 0, x = 0, newsize = size, t2 = 0;
-
-            Text text("", font, 10);
-            text.setFillColor(Color::Red);
-            if ((size % 4 < 4) && (size != 4) && (size != 8) && (size != 12)
-                && (size != 16) && (size != 20) && (size != 24) && (size != 28)
-                && (size != 32) && (size > 4))
-                newsize = size / 4 + 1;
-            else if (size > 4)
-                newsize = size / 4;
-            else
-                newsize = size / 4 - 1;
-            c = 0;
-            t2 = 97;
-
-            for (int i = 1; i < (size); i++) {
-                if ((b[i] != 0) && (x < newsize)) {
-                    if (c == 2) {
-                        t2 += 169;
-                        c = 0;
-                    }
-
-                    for (int j = 1; j < 1000000; j++) {
-                        j = j;
-                    }
-
-                    text.setString(rnd3[b[i]]);
-                    text.setPosition(540, t2);
-                    rnd4[t] = rnd3[b[i]];
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
-
-	//2ой раунд -> 3ий раунд----------------------
+  //2ой раунд -> 3ий раунд----------------------
         if ((newsize>0) && (r3 == 1)) {
-            	t = 97, c = 0;
-            	for (int i = 0; i < oldsize; i++) {
-                	if (c == 2) {
-                	        t += 169;
-                		c = 0;
-                	}
+              t = 97, c = 0;
+              for (int i = 0; i < oldsize; i++) {
+                  if (c == 2) {
+                          t += 169;
+                    c = 0;
+                  }
 
-                	for (int j = 1; j < 1000000; j++) {
-                		j = j;
-                	}
-			
-			if(b2[i] != -1){
-				printf("%d\n 2AAAAAAAAAAAAAAAAAAAAAAAAAA\n", b2[i]);
-		        	printf("%d\n 2IIIIIIIIIIIIIIIIIIIIIIIIII\n", i);
-				strcpy(rnd3[i],rnd2[b2[i]]);
-		        	printf("%s\n", rnd3[i]);
-			}
-			else{
-				strcpy(rnd3[i]," ");	
-			}
+                  for (int j = 1; j < 1000000; j++) {
+                    j = j;
+                  }
 
-                	text.setString(rnd3[i]);
-		        text.setPosition(540, t);
-		        window.draw(text);
-		        window.display();
+      if(b2[i] != -1){
+        printf("%d\n 2AAAAAAAAAAAAAAAAAAAAAAAAAA\n", b2[i]);
+              printf("%d\n 2IIIIIIIIIIIIIIIIIIIIIIIIII\n", i);
+        strcpy(rnd3[i],rnd2[b2[i]]);
+              printf("%s\n", rnd3[i]);
+      }
+      else{
+        strcpy(rnd3[i]," ");
+      }
 
-	
-	                t += 25; 
-	                c++;               
-		}
+                  text.setString(rnd3[i]);
+            text.setPosition(540, t);
+            window.draw(text);
+            window.display();
+
+
+                  t += 25;
+                  c++;
+    }
         }
-	//--------------------------------------------
-	
-	oldsize=newsize;
-	newsize = (newsize+1) / 2;
+  //--------------------------------------------
+
+  oldsize=newsize;
+  newsize = (newsize+1) / 2;
         if (oldsize <= 2)
             newsize = 0;
 
-	//3ий раунд -> 4ый раунд----------------------
+  //3ий раунд -> 4ый раунд----------------------
         if ((newsize>0) && (r4 = 1)) {
-            	t = 205; c = 0;
-            	for (int i = 0; i < size; i++) {
-                	if (c == 2) {
-                       		t += 389;
-                        	c = 0;
-                    	}
+              t = 205; c = 0;
+              for (int i = 0; i < size; i++) {
+                  if (c == 2) {
+                          t += 389;
+                          c = 0;
+                      }
 
-                    	for (int j = 1; j < 1000000; j++) {
-                        	j = j;
-                    	}
+                      for (int j = 1; j < 1000000; j++) {
+                          j = j;
+                      }
 
-			if(c3[i] != -1){
-				printf("%d\n 3AAAAAAAAAAAAAAAAAAAAAAAAAA\n", c3[i]);
-		        	printf("%d\n 3IIIIIIIIIIIIIIIIIIIIIIIIII\n", i);
-				strcpy(rnd4[i],rnd3[c3[i]]);
-		        	printf("%s\n", rnd4[i]);
-			}
-			else{
-				strcpy(rnd4[i]," ");	
-			}
-			
-			text.setString(rnd4[i]);
-			text.setPosition(808, t);
-		        window.draw(text);
-		        window.display();
+      if(c3[i] != -1){
+        printf("%d\n 3AAAAAAAAAAAAAAAAAAAAAAAAAA\n", c3[i]);
+              printf("%d\n 3IIIIIIIIIIIIIIIIIIIIIIIIII\n", i);
+        strcpy(rnd4[i],rnd3[c3[i]]);
+              printf("%s\n", rnd4[i]);
+      }
+      else{
+        strcpy(rnd4[i]," ");
+      }
 
-                    	t += 25;
-                    	c++;
-            	}
+      text.setString(rnd4[i]);
+      text.setPosition(808, t);
+            window.draw(text);
+            window.display();
+
+                      t += 25;
+                      c++;
+              }
         }
-	//--------------------------------------------
+  //--------------------------------------------
 
-	
         oldsize=newsize;
-	newsize = (newsize+1) / 2;
+  newsize = (newsize+1) / 2;
         if (oldsize <= 2)
             newsize = 0;
 
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
-=======
-                    text.setString(rnd4[c3[i]]);
-                    text.setPosition(808, t);
-                    rnd5[t2] = rnd4[c3[i]];
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
-
-	//4ый раунд -> 5ый раунд----------------------
+  //4ый раунд -> 5ый раунд----------------------
         if ((newsize>0) && (r5 = 1)) {
-            	t = 423;
-            	for (int i = 0; i < oldsize; i++) {
+              t = 423;
+              for (int i = 0; i < oldsize; i++) {
 
-                    	for (int j = 1; j < 1000000; j++) {
-                        	j = j;
-                    	}
+                      for (int j = 1; j < 1000000; j++) {
+                          j = j;
+                      }
 
-			if(d4[i] != -1){
-				printf("%d\n 4AAAAAAAAAAAAAAAAAAAAAAAAAA\n", d4[i]);
-		        	printf("%d\n 4IIIIIIIIIIIIIIIIIIIIIIIIII\n", i);
-				strcpy(rnd5[i],rnd4[d4[i]]);
-		        	printf("%s\n", rnd5[i]);
-			}
-			else{
-				strcpy(rnd5[i]," ");	
-			}
-			
-			text.setString(rnd5[i]);
-			text.setPosition(1008, t);
-		        window.draw(text);
-		        window.display();
+      if(d4[i] != -1){
+        printf("%d\n 4AAAAAAAAAAAAAAAAAAAAAAAAAA\n", d4[i]);
+              printf("%d\n 4IIIIIIIIIIIIIIIIIIIIIIIIII\n", i);
+        strcpy(rnd5[i],rnd4[d4[i]]);
+              printf("%s\n", rnd5[i]);
+      }
+      else{
+        strcpy(rnd5[i]," ");
+      }
 
-                    	t += 25;
+      text.setString(rnd5[i]);
+      text.setPosition(1008, t);
+            window.draw(text);
+            window.display();
+
+                      t += 25;
 
             }
         }
-	//--------------------------------------------
+  //--------------------------------------------
 
     }
 }
@@ -694,8 +512,8 @@ void(draw)(
     rectangle.setFillColor(Color::Green);
     RectangleShape kvad(Vector2f(20, 20));
     rectangle.setFillColor(Color::Black);
-	
-   
+
+
     // отрисовка 1го столбца------------------------------
     for (int i = 0; i < size; i++) {
         if (c == 2) {
@@ -712,13 +530,12 @@ void(draw)(
         rectangle.setFillColor(Color::Green);
         rectangle.setPosition(18, m);
 
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
+        /*
         kvad.setFillColor(Color::Black);
         kvad.setPosition(200, m);
-
         window.draw(kvad);
-=======
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
+        */
+
         window.draw(rectangle);
         window.draw(text);
 
@@ -747,13 +564,12 @@ void(draw)(
             rectangle.setFillColor(Color::Green);
             rectangle.setPosition(278, t);
 
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
+            /*
             kvad.setFillColor(Color::Black);
             kvad.setPosition(460, t);
-
             window.draw(kvad);
-=======
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
+            */
+
             window.draw(rectangle);
             window.display();
             c++;
@@ -764,7 +580,7 @@ void(draw)(
 
     //отрисовка 3го столбца--------------------------------
     if (newsize<=2)
-	newsize=0;
+  newsize=0;
     newsize = (newsize+1)/2;
     if (stop == 1) {
         c = 0;
@@ -781,14 +597,13 @@ void(draw)(
 
             rectangle.setFillColor(Color::Green);
             rectangle.setPosition(538, t);
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
+
+            /*
             kvad.setFillColor(Color::Black);
             kvad.setPosition(720, t);
-
             window.draw(kvad);
-=======
+            */
 
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
             window.draw(rectangle);
             window.display();
             c++;
@@ -799,7 +614,7 @@ void(draw)(
 
     //отрисовка 4го столбца--------------------------------
     if (newsize<=2)
-	newsize=0;
+  newsize=0;
     newsize=(newsize+1)/2;
     if (stop == 2) {
         c = 0;
@@ -816,14 +631,13 @@ void(draw)(
 
             rectangle.setFillColor(Color::Green);
             rectangle.setPosition(808, t);
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
+
+            /*
             kvad.setFillColor(Color::Black);
             kvad.setPosition(990, t);
-
             window.draw(kvad);
-=======
+            */
 
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
             window.draw(rectangle);
             window.display();
             c++;
@@ -834,7 +648,7 @@ void(draw)(
 
     //отрисовка 5го столбца--------------------------------
     if ((stop == 3)&&(newsize>2)) {
-	newsize=(newsize+1)/2;
+  newsize=(newsize+1)/2;
         t = 423;
         for (int i = 0; i < newsize; i++) {
             for (int j = 1; j < 1000000; j++) {
@@ -843,10 +657,13 @@ void(draw)(
 
             rectangle.setFillColor(Color::Green);
             rectangle.setPosition(1008, t);
-	    kvad.setFillColor(Color::Black);
-            kvad.setPosition(1190, t);
 
-            window.draw(kvad);
+              /*
+             kvad.setFillColor(Color::Black);
+             kvad.setPosition(1190, t);
+             window.draw(kvad);
+             */
+
             window.draw(rectangle);
             window.display();
             t += 25;
@@ -887,9 +704,7 @@ void menu(RenderWindow& window)
             "order to advance the teams to the next round, it is necessary to "
             "press the enter key.\nThe menu is returned by pressing the ESC "
             "key.\n \n                             "
-            "IMPORTANT!!\n\nBefore you advance the team "
-            "further - make sure that you have selected all the winners in the "
-            "current column,\n only in this case you can press the enter key.");
+            "IMPORTANT!!\n\nBefore you advance the team ");
     text3.setString("Creators:\n IP-813 Stoyak Yuri\n IP-813 Burdukovsky Ilya");
     text4.setString(" - Start's the grid generator.");
     text5.setString(" - Read the info about programm first.");
@@ -964,14 +779,9 @@ void menu(RenderWindow& window)
 int steam(RenderWindow& window, int size)
 {
     bool isMenu = 1;
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
     int menuNum = 100;
     int teamnum = -1;
     int t = 10;
-=======
-    int teamnum = 0;
-    int m = 10, t = 36;
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
     int c = 0;
     int newsize = size;
 
@@ -979,32 +789,32 @@ int steam(RenderWindow& window, int size)
     kvad.setFillColor(Color::Black);
 
     while (isMenu) {
-	
-	//проверка 1го столбца-------------------------------
+
+  //проверка 1го столбца-------------------------------
         for (int i = 0; i < size; i++) {
             if (c == 2) {
-                t += 7;
-                c = 0;
-            }
+                  t += 7;
+                  c = 0;
+              }
 
-            if (IntRect(18, t, 182, 22).contains(Mouse::getPosition(window))) {
-                teamnum = i;
+              if (IntRect(18, t, 182, 22).contains(Mouse::getPosition(window))) {
+                  teamnum = i;
 
-                if (c == 0) { // первый опонент
-                    
-		    kvad.setFillColor(Color::Red);
-                    kvad.setPosition(200, t);
-                    window.draw(kvad);
-                    window.display();
+                  if (c == 0) { // первый опонент
 
-                    if (i != size-1) {
-                        kvad.setFillColor(Color::Black);
-                        kvad.setPosition(200, t + 24);
+                        kvad.setFillColor(Color::Red);
+                        kvad.setPosition(200, t);
                         window.draw(kvad);
-                    	window.display();
-		    }
+                        window.display();
 
-                } else if (c == 1) { // второй опонент
+                      if (i != size-1) {
+                            kvad.setFillColor(Color::Black);
+                            kvad.setPosition(200, t + 24);
+                            window.draw(kvad);
+                             window.display();
+          }
+
+                  } else if (c == 1) { // второй опонент
 
                     kvad.setFillColor(Color::Red);
                     kvad.setPosition(200, t);
@@ -1017,38 +827,28 @@ int steam(RenderWindow& window, int size)
                     window.display();
                 }
                 isMenu = false;
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
-            	return (teamnum);
-=======
-                return (teamnum);
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
+              return (teamnum);
             }
 
             t += 24;
             c++;
         }
-	//--------------------------------------------------
+  //--------------------------------------------------
 
         t = 36;
         newsize = (size+1) / 2;
         c = 0;
 
-	//проверка 2го столбца-------------------------------
+  //проверка 2го столбца-------------------------------
         for (int i = 0; i < newsize; i++) {
             if (c == 2) {
                 t += 61;
                 c = 0;
             }
 
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
             if (IntRect(278, t, 182, 22).contains(Mouse::getPosition(window))) {
                 teamnum = i + 100;
                 printf("%d\n", teamnum);
-=======
-            if ((IntRect(278, t, 182, 22).contains(Mouse::getPosition(window)))
-                && (size > 1)) {
-                teamnum = i + 101;
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
 
                 if (c == 0) {
 
@@ -1058,10 +858,10 @@ int steam(RenderWindow& window, int size)
                     window.display();
 
                     if (i != newsize - 1) {
-                    	kvad.setFillColor(Color::Black);
-                    	kvad.setPosition(460, t + 25);
-		   	window.draw(kvad);
-                    	window.display();
+                      kvad.setFillColor(Color::Black);
+                      kvad.setPosition(460, t + 25);
+        window.draw(kvad);
+                      window.display();
                     }
 
                 } else if (c == 1) {
@@ -1075,42 +875,31 @@ int steam(RenderWindow& window, int size)
                     kvad.setPosition(460, t - 25);
                     window.draw(kvad);
                     window.display();
-                    
+
                 }
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
-            	isMenu = false;
-            	return (teamnum);
-=======
-                isMenu = false;
-                return (teamnum);
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
+              isMenu = false;
+              return (teamnum);
             }
 
             t += 25;
             c++;
         }
-	//--------------------------------------------------
+  //--------------------------------------------------
 
         newsize = (newsize+1) / 2;
         c = 0;
         t = 97;
 
-	//проверка 3го столбца-------------------------------
+  //проверка 3го столбца-------------------------------
         for (int i = 0; i < newsize; i++) {
             if (c == 2) {
                 t += 169;
                 c = 0;
             }
 
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
             if (IntRect(538, t, 182, 22).contains(Mouse::getPosition(window))) {
                 teamnum = i + 200;
                 printf("%d\n", teamnum);
-=======
-            if ((IntRect(538, t, 182, 22).contains(Mouse::getPosition(window)))
-                && (size > 1)) {
-                teamnum = i + 201;
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
 
                 if (c == 0) {
 
@@ -1122,8 +911,8 @@ int steam(RenderWindow& window, int size)
                     if (i != newsize - 1) {
                         kvad.setFillColor(Color::Black);
                         kvad.setPosition(720, t + 25);
-                    	window.draw(kvad);
-                    	window.display();
+                      window.draw(kvad);
+                      window.display();
                     }
 
                 } else if (c == 1) {
@@ -1139,40 +928,29 @@ int steam(RenderWindow& window, int size)
                     window.display();
 
                 }
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
-            	isMenu = false;
-            	return (teamnum);
-=======
-                isMenu = false;
-                return (teamnum);
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
+              isMenu = false;
+              return (teamnum);
             }
 
             c++;
             t += 25;
         }
-	//--------------------------------------------------
+  //--------------------------------------------------
 
         newsize = (newsize+1)/2;
         c = 0;
         t = 205;
 
-	//проверка 4го столбца-------------------------------
+  //проверка 4го столбца-------------------------------
         for (int i = 0; i < newsize; i++) {
             if (c == 2) {
                 t += 389;
                 c = 0;
             }
 
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
             if (IntRect(808, t, 182, 22).contains(Mouse::getPosition(window))) {
                 teamnum = i + 300;
                 printf("%d\n", teamnum);
-=======
-            if ((IntRect(808, t, 182, 22).contains(Mouse::getPosition(window)))
-                && (size > 1)) {
-                teamnum = i + 301;
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
 
                 if (c == 0) {
 
@@ -1182,7 +960,7 @@ int steam(RenderWindow& window, int size)
                     window.display();
 
                     if (i != (newsize - 1)) {
-                    	kvad.setFillColor(Color::Black);
+                      kvad.setFillColor(Color::Black);
                         kvad.setPosition(990, t + 25);
                         window.draw(kvad);
                         window.display();
@@ -1195,45 +973,29 @@ int steam(RenderWindow& window, int size)
                     window.draw(kvad);
                     window.display();
 
-                    
+
                     kvad.setFillColor(Color::Black);
                     kvad.setPosition(990, t - 25);
                     window.draw(kvad);
                     window.display();
 
                 }
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
-            	isMenu = false;
-            	return (teamnum);
-	   }
+              isMenu = false;
+              return (teamnum);
+     }
             c++;
             t += 25;
         }
-	//--------------------------------------------------
-	
+  //--------------------------------------------------
+
         newsize = (newsize+1)/2;
-=======
-                isMenu = false;
-                return (teamnum);
-            }
-
-            c++;
-            t += 25;
-        }
-
-        if (size > 16)
-            newsize = 2;
-        else
-            newsize = 0;
-
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
         t = 423;
         c = 0;
 
-	//проверка 5го столбца-------------------------------
+  //проверка 5го столбца-------------------------------
         for (int i = 0; i < newsize; i++) {
             if (IntRect(1008, t, 182, 22).contains(Mouse::getPosition(window))) {
-		teamnum = i + 400;
+    teamnum = i + 400;
                 printf("%d\n", teamnum);
                 if (c == 0) {
 
@@ -1259,22 +1021,17 @@ int steam(RenderWindow& window, int size)
                     window.draw(kvad);
                     window.display();
                 }
-<<<<<<< HEAD:yrst-dev/unstable/menu2t.cpp
-		isMenu = false;
-         	return (teamnum);
-=======
-                isMenu = false;
-                return (teamnum);
->>>>>>> yrst-dev:yrst-dev/unstable/menu1t.cpp
+    isMenu = false;
+          return (teamnum);
             }
             t += 25;
             c++;
         }
 
         if (Mouse::isButtonPressed(Mouse::Left)) {
-        	isMenu = false;
-        	return (teamnum);	
-	}
+          isMenu = false;
+          return (teamnum);
+  }
     }
     return -1;
 }
