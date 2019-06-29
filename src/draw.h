@@ -11,6 +11,13 @@
 using namespace sf;
 using namespace std;
 
-void draw(RenderWindow& window, char* team[], Font font, int size, int a[], int b[], char* rnd2[]);
+void draw(
+        RenderWindow& window,
+        char* team[],
+        Font font,
+        int size,
+        int a[],
+        int b[],
+        char* rnd2[]);
 
 #endif

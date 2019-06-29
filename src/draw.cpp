@@ -1,6 +1,13 @@
 #include "draw.h"
 
-void draw(RenderWindow& window, char* team[], Font font, int size, int a[], int b[], char* rnd2[])
+void draw(
+        RenderWindow& window,
+        char* team[],
+        Font font,
+        int size,
+        int a[],
+        int b[],
+        char* rnd2[])
 {
     int m = 10, t = 36; //переменные используемые в отрисовке сетке,
                         //для увелечения дистанции мду элементами

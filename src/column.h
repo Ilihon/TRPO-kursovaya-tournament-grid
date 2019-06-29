@@ -1,13 +1,13 @@
 #ifndef COLUMN_H
 #define COLUMN_H
 
+#include "draw.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <sstream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "draw.h"
 
 using namespace sf;
 using namespace std;
