@@ -20,7 +20,7 @@ int draw(
   RectangleShape kvad(Vector2f(20, 20));
   rectangle.setFillColor(Color::Black);
 
-
+  
   // отрисовка 1го столбца------------------------------
   for (int i = 0; i < size; i++) {
       if (c == 2) {
@@ -50,9 +50,6 @@ int draw(
 
       t += 24;
       c++;
-  }
-  else{
-    return 1;
   }
 
   // отрисовка 2го столбца------------------------------
@@ -193,5 +190,5 @@ int draw(
             return 5;
           }
           //конец---отрисовки----------------------------------------
-      return 6;
+      return 1;
       }
