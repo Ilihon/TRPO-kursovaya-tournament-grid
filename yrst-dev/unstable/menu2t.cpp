@@ -240,22 +240,22 @@ int main()
                 x = steam(window, size);
 		
                 // 1rst column--------------
-                if ((x>-1) && (x < 32)) {
+                if ((x>=0) && (x <= 31)) {
                     int empty = x, pl = -1;
                     pl = x;
 
-                    pl = (pl/ 2)+1;
+                    pl = pl/2;
 
                     printf("%d\n", pl);
                     a1[pl] = x;
                 }
 
                 // 2nd column--------------
-                if ((x > 99) && (x < 117)) {
+                if ((x >= 100) && (x <= 115)) {
                     x = x % 100;
                     int empty = x, pl = x;
 
-                    pl = (pl+1)/ 2;
+                    pl = pl/2;
 
                     printf("%d\n", pl);
                     b2[pl] = x;
@@ -263,11 +263,11 @@ int main()
                 }
 
                 // 3rd column--------------
-                if ((x > 199) && (x < 218)) {
+                if ((x >= 200) && (x <= 207)) {
                     x = x % 100;
                     int empty = x, pl = x;
                    
-		    pl = (pl +1)/ 2;
+		    pl = pl /2;
 
                     printf("%d\n", pl);
                     c3[pl] = x;
@@ -275,11 +275,11 @@ int main()
                 }
 
                 // 4th column--------------
-                if ((x > 299) && (x < 318)) {
+                if ((x >= 300) && (x <= 303)) {
                     x = x % 100;
                     int empty = x, pl = x;
                     
-		    pl = (pl +1)/ 2;
+		    pl = pl/2;
 
                     printf("%d\n", pl);
                     d4[pl] = x;
@@ -341,15 +341,12 @@ void column(
         draw(window, team, font, size, a1, b2, rnd2);
         window.display();
 
-        if (size % 2 == 1)
-            newsize = size / 2 + 1;
-        else if (size == 2)
+        newsize = (size+1) / 2;
+        if (size == 2)
             newsize = 0;
-        else
-            newsize = size / 2;
 
         for (int i = 0; i < size; i++) {
-            if ((x < newsize) && (a1[i] != -1)) {
+            if ((newsize>0) && (a1[i] != -1)) {
                 if (c == 2) {
                     t += 61;
                     c = 0;
@@ -553,6 +550,7 @@ void(draw)(
         m += 24;
         c++;
     }
+
     // отрисовка 2го столбца------------------------------
     if (stop == 0) {
 
@@ -588,12 +586,7 @@ void(draw)(
 
     //отрисовка 3го столбца--------------------------------
     if (stop == 1) {
-        if ((size % 4 != 0)&& (size > 4))
-            newsize = size / 4 + 1;
-        else if (size > 4)
-            newsize = size / 4;
-        else
-            newsize = size / 4 - 1;
+        newsize = (newsize+1)/2;
         c = 0;
         t = 97;
         for (int i = 0; i < newsize; i++) {
@@ -621,12 +614,7 @@ void(draw)(
     }
     //отрисовка 4го столбца--------------------------------
     if (stop == 2) {
-        if ((size % 8 !=0) && (size > 8))
-            newsize = size / 8 + 1;
-        else if (size > 8)
-            newsize = size / 8;
-        else
-            newsize = size / 8 - 1;
+        newsize=(newsize+1)/2;
         c = 0;
         t = 205;
         for (int i = 0; i < newsize; i++) {
@@ -652,14 +640,10 @@ void(draw)(
         }
         stop = 3;
     }
-    //отрисовка 5го столбца--------------------------------
-    int i = 0;
-    if (size > 16)
-        newsize = 2;
-    else
-        newsize = 0;
 
-    if ((stop == 3) && (i < newsize)) {
+    //отрисовка 5го столбца--------------------------------
+    if (stop == 3) {
+	newsize=(newsize+1)/2;
         t = 423;
         for (int i = 0; i < newsize; i++) {
             for (int j = 1; j < 1000000; j++) {
@@ -668,7 +652,10 @@ void(draw)(
 
             rectangle.setFillColor(Color::Green);
             rectangle.setPosition(1008, t);
+	    kvad.setFillColor(Color::Black);
+            kvad.setPosition(1190, t);
 
+            window.draw(kvad);
             window.draw(rectangle);
             window.display();
             t += 25;
