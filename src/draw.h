@@ -11,7 +11,7 @@
 using namespace sf;
 using namespace std;
 
-void draw(
+int draw(
         RenderWindow& window,
         char* team[],
         Font font,
