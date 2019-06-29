@@ -52,7 +52,7 @@ int main()
 
     while (size < 1 || size > 32) {
         puts("Uncorrect team count!");
-        puts("Please !");
+        puts("Please try again!");
         scanf("%d", &size);
     }
 
@@ -537,10 +537,6 @@ void(draw)(
         rectangle.setFillColor(Color::Green);
         rectangle.setPosition(18, m);
 
-        /*  kvad.setFillColor(Color::Black);
-          kvad.setPosition(200, m);
-
-          window.draw(kvad);*/
         window.draw(rectangle);
         window.draw(text);
 
@@ -573,10 +569,6 @@ void(draw)(
             rectangle.setFillColor(Color::Green);
             rectangle.setPosition(278, t);
 
-            /*    kvad.setFillColor(Color::Black);
-                kvad.setPosition(460, t);
-
-                window.draw(kvad);*/
             window.draw(rectangle);
             window.display();
             c++;
@@ -609,10 +601,7 @@ void(draw)(
 
             rectangle.setFillColor(Color::Green);
             rectangle.setPosition(538, t);
-            /*    kvad.setFillColor(Color::Black);
-                kvad.setPosition(720, t);
 
-                window.draw(kvad);*/
             window.draw(rectangle);
             window.display();
             c++;
@@ -692,10 +681,32 @@ void menu(RenderWindow& window)
     Font font;
     font.loadFromFile("ubuntu.ttf");
 
-    Text text("", font, 40), text2("", font, 20);
+    Text text("", font, 40), text2("", font, 20), text3("", font, 20),
+            text4("", font, 20), text5("", font, 20);
     text.setFillColor(Color::Red);
+    text2.setFillColor(Color::Red);
     text.setStyle(Text::Bold);
+    text3.setFillColor(Color::Red);
+    text4.setFillColor(Color::Red);
+    text5.setFillColor(Color::Red);
+
     text.setString("Tournament Grid");
+    text2.setString(
+            "                             ABOUT PROGRAMM\n\n This program is "
+            "an "
+            "Olympic tournament grid "
+            "generator.\n Control is carried out by pressing the LMB on the "
+            "chase with the command that you want to advance further.\nIn "
+            "order to advance the teams to the next round, it is necessary to "
+            "press the enter key.\nThe menu is returned by pressing the ESC "
+            "key.\n \n                             "
+            "IMPORTANT!!\n\nBefore you advance the team "
+            "further - make sure that you have selected all the winners in the "
+            "current column,\n only in this case you can press the enter key.");
+    text3.setString("Creators:\n IP-813 Stoyak Yuri\n IP-813 Burdukovsky Ilya");
+    text4.setString(" - Start's the grid generator.");
+    text5.setString(" - Read the info about programm first.");
+
     text.setPosition(550, 100);
 
     Sprite menu1(menuTexture1), menu2(menuTexture2), menu3(menuTexture3),
@@ -708,6 +719,9 @@ void menu(RenderWindow& window)
     menu2.setPosition(620, 250);
     menu3.setPosition(630, 350);
     menuBg.setPosition(1200, 710);
+
+    text4.setPosition(750, 205);
+    text5.setPosition(755, 255);
 
     while (isMenu) {
         menu1.setColor(Color::White);
@@ -736,8 +750,14 @@ void menu(RenderWindow& window)
                 isMenu = false;
             }
             if (menuNum == 2) {
-                while (!Keyboard::isKeyPressed(Keyboard::Escape))
-                    window.display();
+                text2.setPosition(100, 250);
+                text3.setPosition(1200, 800);
+                window.draw(text2);
+                window.draw(text3);
+                window.display();
+                while (!Keyboard::isKeyPressed(Keyboard::Escape)) {
+                }
+                window.clear();
             }
             if (menuNum == 3) {
                 window.close();
@@ -748,6 +768,8 @@ void menu(RenderWindow& window)
         window.draw(menuBg);
         window.draw(menu1);
         window.draw(text);
+        window.draw(text4);
+        window.draw(text5);
         window.draw(menu2);
         window.draw(menu3);
         window.display();
@@ -836,6 +858,8 @@ int steam(RenderWindow& window, int size)
                         window.display();
                     }
                 }
+                isMenu = false;
+                return (teamnum);
             }
 
             m += 24;
@@ -905,6 +929,8 @@ int steam(RenderWindow& window, int size)
                         window.display();
                     }
                 }
+                isMenu = false;
+                return (teamnum);
             }
 
             c++;
@@ -978,6 +1004,8 @@ int steam(RenderWindow& window, int size)
                         window.display();
                     }
                 }
+                isMenu = false;
+                return (teamnum);
             }
 
             c++;
@@ -1050,6 +1078,8 @@ int steam(RenderWindow& window, int size)
                         window.display();
                     }
                 }
+                isMenu = false;
+                return (teamnum);
             }
 
             c++;
@@ -1093,6 +1123,8 @@ int steam(RenderWindow& window, int size)
                     window.draw(kvad);
                     window.display();
                 }
+                isMenu = false;
+                return (teamnum);
             }
             t += 25;
             c++;
