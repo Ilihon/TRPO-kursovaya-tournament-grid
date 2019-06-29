@@ -499,7 +499,7 @@ void(draw)(
     window.draw(setk);
     window.display();
 
-    int m = 10, t = 36; //переменные используемые в отрисовке сетке,
+    int t = 10; //переменнfz используемая в отрисовке сетке,
                         //для увелечения дистанции мду элементами
 
     int c = 0, newsize = size; // счетчик, оторые исп для рисования ячеек
@@ -517,7 +517,7 @@ void(draw)(
     // отрисовка 1го столбца------------------------------
     for (int i = 0; i < size; i++) {
         if (c == 2) {
-            m += 7;
+            t += 7;
             c = 0;
         }
         for (int j = 1; j < 1000000; j++) {
@@ -525,14 +525,14 @@ void(draw)(
         }
 
         text.setString(team[i]);
-        text.setPosition(20, m);
+        text.setPosition(20, t);
 
         rectangle.setFillColor(Color::Green);
-        rectangle.setPosition(18, m);
+        rectangle.setPosition(18, t);
 
         /*
         kvad.setFillColor(Color::Black);
-        kvad.setPosition(200, m);
+        kvad.setPosition(200, t);
         window.draw(kvad);
         */
 
@@ -541,7 +541,7 @@ void(draw)(
 
         window.display();
 
-        m += 24;
+        t += 24;
         c++;
     }
 
@@ -551,6 +551,7 @@ void(draw)(
            newsize = 0;
     if (stop == 0) {
         c = 0;
+        t = 36;
         for (int i = 0; i < newsize; i++) {
             if (c == 2) {
                 t += 61;
@@ -703,8 +704,7 @@ void menu(RenderWindow& window)
             "chase with the command that you want to advance further.\nIn "
             "order to advance the teams to the next round, it is necessary to "
             "press the enter key.\nThe menu is returned by pressing the ESC "
-            "key.\n \n                             "
-            "IMPORTANT!!\n\nBefore you advance the team ");
+            "key.\n \n");
     text3.setString("Creators:\n IP-813 Stoyak Yuri\n IP-813 Burdukovsky Ilya");
     text4.setString(" - Start's the grid generator.");
     text5.setString(" - Read the info about programm first.");
@@ -779,7 +779,6 @@ void menu(RenderWindow& window)
 int steam(RenderWindow& window, int size)
 {
     bool isMenu = 1;
-    int menuNum = 100;
     int teamnum = -1;
     int t = 10;
     int c = 0;

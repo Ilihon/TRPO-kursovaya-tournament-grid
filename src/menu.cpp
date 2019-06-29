@@ -31,10 +31,7 @@ void menu(RenderWindow& window)
             "chase with the command that you want to advance further.\nIn "
             "order to advance the teams to the next round, it is necessary to "
             "press the enter key.\nThe menu is returned by pressing the ESC "
-            "key.\n \n                             "
-            "IMPORTANT!!\n\nBefore you advance the team "
-            "further - make sure that you have selected all the winners in the "
-            "current column,\n only in this case you can press the enter key.");
+            "key.\n \n");
     text3.setString("Creators:\n IP-813 Stoyak Yuri\n IP-813 Burdukovsky Ilya");
     text4.setString(" - Start's the grid generator.");
     text5.setString(" - Read the info about programm first.");
