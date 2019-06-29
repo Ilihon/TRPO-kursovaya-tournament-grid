@@ -50,7 +50,7 @@ sno:
     char** rnd3;
     char** rnd4;
     char** rnd5;
-    int x = 2, c = 1, r2 = 0, r3 = 0, r4 = 0, r5 = 0, R = 0;
+    int x = 2, /*c = 1, */ r2 = 0, r3 = 0, r4 = 0, r5 = 0, R = 0;
 
     string buffer = "";
     //  cin >> size;
@@ -67,7 +67,7 @@ sno:
         puts("Please try again!");
     }
 
-    if (size < 1 || size > 32) {
+    if (size < 2 || size > 32) {
         puts("Uncorrect team count!");
         puts("Please try again!");
         goto sno;
@@ -780,7 +780,6 @@ void menu(RenderWindow& window)
 int steam(RenderWindow& window, int size)
 {
     bool isMenu = 1;
-    int menuNum = 100;
     int teamnum = 0;
     int m = 10, t = 36;
     int c = 0;
@@ -1073,7 +1072,6 @@ int steam(RenderWindow& window, int size)
             t += 25;
         }
 
-        int i = 0;
         if (size > 16)
             newsize = 2;
         else
