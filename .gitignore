@@ -1,3 +1,5 @@
 sfml-app
 Ilihon-develop/main
 Ilihon-develop/*.txt
+*.o
+bin/main

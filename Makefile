@@ -15,4 +15,8 @@ $(DIR_BUILD)/menu.o: $(DIR_SRC)/menu.cpp
 
 run: all
 	$(DIR_BIN)/main
+
+clean:
+	rm -f $(DIR_BIN)/main
+	rm -f $(DIR_BUILD)/*.o
 	
