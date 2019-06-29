@@ -1,4 +1,4 @@
-#include "menu.h"
+#include "draw.h"
 
 void draw(RenderWindow& window, char* team[], Font font, int size, int a[], int b[], char* rnd2[])
 {
