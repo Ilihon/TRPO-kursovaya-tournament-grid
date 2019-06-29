@@ -2,7 +2,7 @@ DIR_BIN = ./bin
 DIR_BUILD = ./build
 DIR_SRC = ./src
 
-.PHONY: clean formtat 
+.PHONY: clean format all run
 
 all: $(DIR_BIN)/main
 
