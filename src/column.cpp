@@ -1,6 +1,6 @@
 #include "column.h"
 
-void column(
+int column(
         RenderWindow& window,
         char* team[],
         Font font,
@@ -27,8 +27,10 @@ void column(
 
     int t, c, newsize;
     newsize = (size + 1) / 2;
-    if (size <= 2)
+    if (size <= 2){
         newsize = 0;
+        return 0;
+    }
     // 1ый раунд -> 2ой раунд----------------------
     if ((newsize > 0) && (r2 == 1)) {
         t = 36, c = 0;
@@ -57,11 +59,14 @@ void column(
             c++;
         }
     }
+
     //--------------------------------------------
     int oldsize = newsize;
     newsize = (newsize + 1) / 2;
-    if (oldsize <= 2)
+    if (oldsize <= 2){
         newsize = 0;
+        return 1;
+    }
 
     // 2ой раунд -> 3ий раунд----------------------
     if ((newsize > 0) && (r3 == 1)) {
@@ -95,8 +100,10 @@ void column(
 
     oldsize = newsize;
     newsize = (newsize + 1) / 2;
-    if (oldsize <= 2)
+    if (oldsize <= 2){
         newsize = 0;
+        return 2;
+    }
 
     // 3ий раунд -> 4ый раунд----------------------
     if ((newsize > 0) && (r4 = 1)) {
@@ -131,8 +138,10 @@ void column(
 
     oldsize = newsize;
     newsize = (newsize + 1) / 2;
-    if (oldsize <= 2)
+    if (oldsize <= 2){
         newsize = 0;
+        return 3;
+    }
 
     // 4ый раунд -> 5ый раунд----------------------
     if ((newsize > 0) && (r5 = 1)) {
@@ -158,4 +167,5 @@ void column(
     }
     //--------------------------------------------
     //  }
+    return 4;
 }
