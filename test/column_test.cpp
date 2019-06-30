@@ -48,7 +48,6 @@ int column(
 
             text.setString(rnd2[i]);
             text.setPosition(280, t);
-            window.draw(text);
 
             t += 25;
             c++;
@@ -84,7 +83,6 @@ int column(
 
             text.setString(rnd3[i]);
             text.setPosition(540, t);
-            window.draw(text);
 
             t += 25;
             c++;
@@ -121,7 +119,6 @@ int column(
 
             text.setString(rnd4[i]);
             text.setPosition(808, t);
-            window.draw(text);
 
             t += 25;
             c++;
@@ -148,7 +145,6 @@ int column(
 
             text.setString(rnd5[i]);
             text.setPosition(1008, t);
-            window.draw(text);
 
             t += 25;
         }
