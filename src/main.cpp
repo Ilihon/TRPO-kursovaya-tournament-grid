@@ -251,23 +251,24 @@ int main()
             }
             for (int j = 0; j < 1000; j++)
                 j = j;
-
-            column(window,
-                   team,
-                   font,
-                   size,
-                   rnd2,
-                   rnd3,
-                   rnd4,
-                   rnd5,
-                   a1,
-                   b2,
-                   c3,
-                   d4,
-                   r2,
-                   r3,
-                   r4,
-                   r5);
+            if (Keyboard::isKeyPressed(Keyboard::Return)) {
+                column(window,
+                       team,
+                       font,
+                       size,
+                       rnd2,
+                       rnd3,
+                       rnd4,
+                       rnd5,
+                       a1,
+                       b2,
+                       c3,
+                       d4,
+                       r2,
+                       r3,
+                       r4,
+                       r5);
+            }
         }
     }
 
