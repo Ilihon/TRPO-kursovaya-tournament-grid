@@ -1605,6 +1605,10 @@ TEST(Column, TeamNum2)
     char** rnd5;
 
     team = new char*[size];
+    rnd2 = new char*[size];
+    rnd3 = new char*[size];
+    rnd4 = new char*[size];
+    rnd5 = new char*[size];
     for (int i = 0; i < size; i++) {
         team[i] = new char[30];
         char str[30] = "TeamNum";
@@ -1670,6 +1674,10 @@ TEST(Column, TeamNum4)
     char** rnd5;
 
     team = new char*[size];
+    rnd2 = new char*[size];
+    rnd3 = new char*[size];
+    rnd4 = new char*[size];
+    rnd5 = new char*[size];
     for (int i = 0; i < size; i++) {
         team[i] = new char[30];
         char str[30] = "TeamNum";
@@ -1735,6 +1743,10 @@ TEST(Column, TeamNum8)
     char** rnd5;
 
     team = new char*[size];
+    rnd2 = new char*[size];
+    rnd3 = new char*[size];
+    rnd4 = new char*[size];
+    rnd5 = new char*[size];
     for (int i = 0; i < size; i++) {
         team[i] = new char[30];
         char str[30] = "TeamNum";
@@ -1800,6 +1812,10 @@ TEST(Column, TeamNum16)
     char** rnd5;
 
     team = new char*[size];
+    rnd2 = new char*[size];
+    rnd3 = new char*[size];
+    rnd4 = new char*[size];
+    rnd5 = new char*[size];
     for (int i = 0; i < size; i++) {
         team[i] = new char[30];
         char str[30] = "TeamNum";
@@ -1865,6 +1881,10 @@ TEST(Column, TeamNum32)
     char** rnd5;
 
     team = new char*[size];
+    rnd2 = new char*[size];
+    rnd3 = new char*[size];
+    rnd4 = new char*[size];
+    rnd5 = new char*[size];
     for (int i = 0; i < size; i++) {
         team[i] = new char[30];
         char str[30] = "TeamNum";
