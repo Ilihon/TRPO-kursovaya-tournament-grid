@@ -687,13 +687,26 @@ TEST(Draw, TeamNum32)
 //--------------------------------------------------
 
 
-//Steam---------------------------------------------
+//Steam1---------------------------------------------
+
+TEST(Steam, Background)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(1, 1);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = -1;
+    EXPECT_EQ(expected, result);
+}
+
 TEST(Steam, Round1_TeamNum1)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
     int size=32;
     Vector2i position = Vector2i(100, 20);
     int result = steam(window, size, position);
+    window.close();
     int expected = 0;
     EXPECT_EQ(expected, result);
 }
@@ -704,6 +717,7 @@ TEST(Steam, Round1_TeamNum2)
     int size=32;
     Vector2i position = Vector2i(100, 50);
     int result = steam(window, size, position);
+    window.close();
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -714,6 +728,7 @@ TEST(Steam, Round1_TeamNum3)
     int size=32;
     Vector2i position = Vector2i(100, 80);
     int result = steam(window, size, position);
+    window.close();
     int expected = 2;
     EXPECT_EQ(expected, result);
 }
@@ -724,6 +739,7 @@ TEST(Steam, Round1_TeamNum4)
     int size=32;
     Vector2i position = Vector2i(100, 110);
     int result = steam(window, size, position);
+    window.close();
     int expected = 3;
     EXPECT_EQ(expected, result);
 }
@@ -734,6 +750,7 @@ TEST(Steam, Round1_TeamNum5)
     int size=32;
     Vector2i position = Vector2i(100,140);
     int result = steam(window, size, position);
+    window.close();
     int expected = 4;
     EXPECT_EQ(expected, result);
 }
@@ -744,6 +761,7 @@ TEST(Steam, Round1_TeamNum6)
     int size=32;
     Vector2i position = Vector2i(100, 160);
     int result = steam(window, size, position);
+    window.close();
     int expected = 5;
     EXPECT_EQ(expected, result);
 }
@@ -754,6 +772,7 @@ TEST(Steam, Round1_TeamNum7)
     int size=32;
     Vector2i position = Vector2i(100, 190);
     int result = steam(window, size, position);
+    window.close();
     int expected = 6;
     EXPECT_EQ(expected, result);
 }
@@ -764,6 +783,7 @@ TEST(Steam, Round1_TeamNum8)
     int size=32;
     Vector2i position = Vector2i(100, 220);
     int result = steam(window, size, position);
+    window.close();
     int expected = 7;
     EXPECT_EQ(expected, result);
 }
@@ -774,6 +794,7 @@ TEST(Steam, Round1_TeamNum9)
     int size=32;
     Vector2i position = Vector2i(100, 250);
     int result = steam(window, size, position);
+    window.close();
     int expected = 8;
     EXPECT_EQ(expected, result);
 }
@@ -784,6 +805,7 @@ TEST(Steam, Round1_TeamNum10)
     int size=32;
     Vector2i position = Vector2i(100, 270);
     int result = steam(window, size, position);
+    window.close();
     int expected = 9;
     EXPECT_EQ(expected, result);
 }
@@ -794,6 +816,7 @@ TEST(Steam, Round1_TeamNum11)
     int size=32;
     Vector2i position = Vector2i(100, 300);
     int result = steam(window, size, position);
+    window.close();
     int expected = 10;
     EXPECT_EQ(expected, result);
 }
@@ -804,6 +827,7 @@ TEST(Steam, Round1_TeamNum12)
     int size=32;
     Vector2i position = Vector2i(100, 330);
     int result = steam(window, size, position);
+    window.close();
     int expected = 11;
     EXPECT_EQ(expected, result);
 }
@@ -814,6 +838,7 @@ TEST(Steam, Round1_TeamNum13)
     int size=32;
     Vector2i position = Vector2i(100, 360);
     int result = steam(window, size, position);
+    window.close();
     int expected = 12;
     EXPECT_EQ(expected, result);
 }
@@ -824,6 +849,7 @@ TEST(Steam, Round1_TeamNum14)
     int size=32;
     Vector2i position = Vector2i(100, 380);
     int result = steam(window, size, position);
+    window.close();
     int expected = 13;
     EXPECT_EQ(expected, result);
 }
@@ -834,6 +860,7 @@ TEST(Steam, Round1_TeamNum15)
     int size=32;
     Vector2i position = Vector2i(100, 410);
     int result = steam(window, size, position);
+    window.close();
     int expected = 14;
     EXPECT_EQ(expected, result);
 }
@@ -844,6 +871,7 @@ TEST(Steam, Round1_TeamNum16)
     int size=32;
     Vector2i position = Vector2i(100, 440);
     int result = steam(window, size, position);
+    window.close();
     int expected = 15;
     EXPECT_EQ(expected, result);
 }
@@ -854,6 +882,7 @@ TEST(Steam, Round1_TeamNum17)
     int size=32;
     Vector2i position = Vector2i(100, 470);
     int result = steam(window, size, position);
+    window.close();
     int expected = 16;
     EXPECT_EQ(expected, result);
 }
@@ -864,6 +893,7 @@ TEST(Steam, Round1_TeamNum18)
     int size=32;
     Vector2i position = Vector2i(100, 490);
     int result = steam(window, size, position);
+    window.close();
     int expected = 17;
     EXPECT_EQ(expected, result);
 }
@@ -874,6 +904,7 @@ TEST(Steam, Round1_TeamNum19)
     int size=32;
     Vector2i position = Vector2i(100, 520);
     int result = steam(window, size, position);
+    window.close();
     int expected = 18;
     EXPECT_EQ(expected, result);
 }
@@ -884,6 +915,7 @@ TEST(Steam, Round1_TeamNum20)
     int size=32;
     Vector2i position = Vector2i(100, 550);
     int result = steam(window, size, position);
+    window.close();
     int expected = 19;
     EXPECT_EQ(expected, result);
 }
@@ -894,6 +926,7 @@ TEST(Steam, Round1_TeamNum21)
     int size=32;
     Vector2i position = Vector2i(100, 580);
     int result = steam(window, size, position);
+    window.close();
     int expected = 20;
     EXPECT_EQ(expected, result);
 }
@@ -904,6 +937,7 @@ TEST(Steam, Round1_TeamNum22)
     int size=32;
     Vector2i position = Vector2i(100, 600);
     int result = steam(window, size, position);
+    window.close();
     int expected = 21;
     EXPECT_EQ(expected, result);
 }
@@ -914,6 +948,7 @@ TEST(Steam, Round1_TeamNum23)
     int size=32;
     Vector2i position = Vector2i(100, 630);
     int result = steam(window, size, position);
+    window.close();
     int expected = 22;
     EXPECT_EQ(expected, result);
 }
@@ -924,6 +959,7 @@ TEST(Steam, Round1_TeamNum24)
     int size=32;
     Vector2i position = Vector2i(100, 660);
     int result = steam(window, size, position);
+    window.close();
     int expected = 23;
     EXPECT_EQ(expected, result);
 }
@@ -934,6 +970,7 @@ TEST(Steam, Round1_TeamNum25)
     int size=32;
     Vector2i position = Vector2i(100, 690);
     int result = steam(window, size, position);
+    window.close();
     int expected = 24;
     EXPECT_EQ(expected, result);
 }
@@ -944,6 +981,7 @@ TEST(Steam, Round1_TeamNum26)
     int size=32;
     Vector2i position = Vector2i(100, 710);
     int result = steam(window, size, position);
+    window.close();
     int expected = 25;
     EXPECT_EQ(expected, result);
 }
@@ -954,6 +992,7 @@ TEST(Steam, Round1_TeamNum27)
     int size=32;
     Vector2i position = Vector2i(100, 740);
     int result = steam(window, size, position);
+    window.close();
     int expected = 26;
     EXPECT_EQ(expected, result);
 }
@@ -964,6 +1003,7 @@ TEST(Steam, Round1_TeamNum28)
     int size=32;
     Vector2i position = Vector2i(100, 770);
     int result = steam(window, size, position);
+    window.close();
     int expected = 27;
     EXPECT_EQ(expected, result);
 }
@@ -974,6 +1014,7 @@ TEST(Steam, Round1_TeamNum29)
     int size=32;
     Vector2i position = Vector2i(100, 800);
     int result = steam(window, size, position);
+    window.close();
     int expected = 28;
     EXPECT_EQ(expected, result);
 }
@@ -984,6 +1025,7 @@ TEST(Steam, Round1_TeamNum30)
     int size=32;
     Vector2i position = Vector2i(100, 820);
     int result = steam(window, size, position);
+    window.close();
     int expected = 29;
     EXPECT_EQ(expected, result);
 }
@@ -994,6 +1036,7 @@ TEST(Steam, Round1_TeamNum31)
     int size=32;
     Vector2i position = Vector2i(100, 850);
     int result = steam(window, size, position);
+    window.close();
     int expected = 30;
     EXPECT_EQ(expected, result);
 }
@@ -1004,9 +1047,196 @@ TEST(Steam, Round1_TeamNum32)
     int size=32;
     Vector2i position = Vector2i(100, 880);
     int result = steam(window, size, position);
+    window.close();
     int expected = 31;
     EXPECT_EQ(expected, result);
 }
+//--------------------------------------------------
+
+
+//Steam2---------------------------------------------
+
+TEST(Steam, Round2_TeamNum1)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(290, 50);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 100;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round2_TeamNum2)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(290, 80);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 101;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round2_TeamNum3)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(290, 160);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 102;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round2_TeamNum4)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(290, 180);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 103;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round2_TeamNum5)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(290, 270);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 104;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round2_TeamNum6)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(290, 300);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 105;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round2_TeamNum7)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(290, 370);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 106;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round2_TeamNum8)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(290, 400);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 107;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round2_TeamNum9)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(290, 480);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 108;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round2_TeamNum10)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(290, 520);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 109;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round2_TeamNum11)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(290, 600);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 110;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round2_TeamNum1)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(290, 50);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 100;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round2_TeamNum1)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(290, 50);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 100;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round2_TeamNum1)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(290, 50);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 100;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round2_TeamNum1)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(290, 50);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 100;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round2_TeamNum1)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(290, 50);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 100;
+    EXPECT_EQ(expected, result);
+}
+
+
+
+
+
+
 
 
 int main(int argc, char** argv)
