@@ -1582,10 +1582,313 @@ TEST(Steam, Round5_TeamNum2)
 }
 //--------------------------------------------------
 
+//Column---------------------------------------------
+TEST(Column, TeamNum2)
+{
+    int size=2;
+    int a1[size], b2[size], c3[size], d4[size];
+    for (int i = 0; i < size; i++) {
+        a1[i] = -1;
+        b2[i] = -1;
+        c3[i] = -1;
+        d4[i] = -1;
+    }
+
+    char** team;
+    char** rnd2;
+    char** rnd3;
+    char** rnd4;
+    char** rnd5;
+
+    team = new char*[size];
+    for (int i = 0; i < size; i++) {
+        team[i] = new char[30];
+        char str[30] = "TeamNum";
+        char num[30];
+        sprintf(num, "%d", i+1);
+        strcat(str, num);
+        strcpy(team[i], str);
+    }
+    for (int i = 0; i < size; i++) {
+        rnd2[i] = new char[30];
+        rnd3[i] = new char[30];
+        rnd4[i] = new char[30];
+        rnd5[i] = new char[30];
+
+        *rnd2[i] = ' ';
+        *rnd3[i] = ' ';
+        *rnd4[i] = ' ';
+        *rnd5[i] = ' ';
+    }
+
+
+    int r2 = 1, r3 = 1, r4 = 1, r5 = 1;
+    Font font;
+    font.loadFromFile("font/ubuntu.ttf");
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+
+
+    int result = column(window,team,font,size,rnd2,rnd3,rnd4,rnd5,a1,b2,c3,d4,r2,r3,r4,r5);
+
+    window.close();
+    for(int i=0;i<size;i++){
+      free (team[i]);
+      free (rnd2[i]);
+      free (rnd3[i]);
+      free (rnd4[i]);
+      free (rnd5[i]);
+    }
+    int expected = 0;
+
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Column, TeamNum4)
+{
+    int size=4;
+    int a1[size], b2[size], c3[size], d4[size];
+    for (int i = 0; i < size; i++) {
+        a1[i] = -1;
+        b2[i] = -1;
+        c3[i] = -1;
+        d4[i] = -1;
+    }
+
+    char** team;
+    char** rnd2;
+    char** rnd3;
+    char** rnd4;
+    char** rnd5;
+
+    team = new char*[size];
+    for (int i = 0; i < size; i++) {
+        team[i] = new char[30];
+        char str[30] = "TeamNum";
+        char num[30];
+        sprintf(num, "%d", i+1);
+        strcat(str, num);
+        strcpy(team[i], str);
+    }
+    for (int i = 0; i < size; i++) {
+        rnd2[i] = new char[30];
+        rnd3[i] = new char[30];
+        rnd4[i] = new char[30];
+        rnd5[i] = new char[30];
+
+        *rnd2[i] = ' ';
+        *rnd3[i] = ' ';
+        *rnd4[i] = ' ';
+        *rnd5[i] = ' ';
+    }
+
+
+    int r2 = 1, r3 = 1, r4 = 1, r5 = 1;
+    Font font;
+    font.loadFromFile("font/ubuntu.ttf");
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+
+
+    int result = column(window,team,font,size,rnd2,rnd3,rnd4,rnd5,a1,b2,c3,d4,r2,r3,r4,r5);
+
+    window.close();
+    for(int i=0;i<size;i++){
+      free (team[i]);
+      free (rnd2[i]);
+      free (rnd3[i]);
+      free (rnd4[i]);
+      free (rnd5[i]);
+    }
+    int expected = 1;
+
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Column, TeamNum8)
+{
+    int size=8;
+    int a1[size], b2[size], c3[size], d4[size];
+    for (int i = 0; i < size; i++) {
+        a1[i] = -1;
+        b2[i] = -1;
+        c3[i] = -1;
+        d4[i] = -1;
+    }
+
+    char** team;
+    char** rnd2;
+    char** rnd3;
+    char** rnd4;
+    char** rnd5;
+
+    team = new char*[size];
+    for (int i = 0; i < size; i++) {
+        team[i] = new char[30];
+        char str[30] = "TeamNum";
+        char num[30];
+        sprintf(num, "%d", i+1);
+        strcat(str, num);
+        strcpy(team[i], str);
+    }
+    for (int i = 0; i < size; i++) {
+        rnd2[i] = new char[30];
+        rnd3[i] = new char[30];
+        rnd4[i] = new char[30];
+        rnd5[i] = new char[30];
+
+        *rnd2[i] = ' ';
+        *rnd3[i] = ' ';
+        *rnd4[i] = ' ';
+        *rnd5[i] = ' ';
+    }
+
+
+    int r2 = 1, r3 = 1, r4 = 1, r5 = 1;
+    Font font;
+    font.loadFromFile("font/ubuntu.ttf");
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+
+
+    int result = column(window,team,font,size,rnd2,rnd3,rnd4,rnd5,a1,b2,c3,d4,r2,r3,r4,r5);
+
+    window.close();
+    for(int i=0;i<size;i++){
+      free (team[i]);
+      free (rnd2[i]);
+      free (rnd3[i]);
+      free (rnd4[i]);
+      free (rnd5[i]);
+    }
+    int expected = 2;
+
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Column, TeamNum16)
+{
+    int size=16;
+    int a1[size], b2[size], c3[size], d4[size];
+    for (int i = 0; i < size; i++) {
+        a1[i] = -1;
+        b2[i] = -1;
+        c3[i] = -1;
+        d4[i] = -1;
+    }
+
+    char** team;
+    char** rnd2;
+    char** rnd3;
+    char** rnd4;
+    char** rnd5;
+
+    team = new char*[size];
+    for (int i = 0; i < size; i++) {
+        team[i] = new char[30];
+        char str[30] = "TeamNum";
+        char num[30];
+        sprintf(num, "%d", i+1);
+        strcat(str, num);
+        strcpy(team[i], str);
+    }
+    for (int i = 0; i < size; i++) {
+        rnd2[i] = new char[30];
+        rnd3[i] = new char[30];
+        rnd4[i] = new char[30];
+        rnd5[i] = new char[30];
+
+        *rnd2[i] = ' ';
+        *rnd3[i] = ' ';
+        *rnd4[i] = ' ';
+        *rnd5[i] = ' ';
+    }
+
+
+    int r2 = 1, r3 = 1, r4 = 1, r5 = 1;
+    Font font;
+    font.loadFromFile("font/ubuntu.ttf");
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+
+
+    int result = column(window,team,font,size,rnd2,rnd3,rnd4,rnd5,a1,b2,c3,d4,r2,r3,r4,r5);
+
+    window.close();
+    for(int i=0;i<size;i++){
+      free (team[i]);
+      free (rnd2[i]);
+      free (rnd3[i]);
+      free (rnd4[i]);
+      free (rnd5[i]);
+    }
+    int expected = 3;
+
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Column, TeamNum32)
+{
+    int size=32;
+    int a1[size], b2[size], c3[size], d4[size];
+    for (int i = 0; i < size; i++) {
+        a1[i] = -1;
+        b2[i] = -1;
+        c3[i] = -1;
+        d4[i] = -1;
+    }
+
+    char** team;
+    char** rnd2;
+    char** rnd3;
+    char** rnd4;
+    char** rnd5;
+
+    team = new char*[size];
+    for (int i = 0; i < size; i++) {
+        team[i] = new char[30];
+        char str[30] = "TeamNum";
+        char num[30];
+        sprintf(num, "%d", i+1);
+        strcat(str, num);
+        strcpy(team[i], str);
+    }
+    for (int i = 0; i < size; i++) {
+        rnd2[i] = new char[30];
+        rnd3[i] = new char[30];
+        rnd4[i] = new char[30];
+        rnd5[i] = new char[30];
+
+        *rnd2[i] = ' ';
+        *rnd3[i] = ' ';
+        *rnd4[i] = ' ';
+        *rnd5[i] = ' ';
+    }
+
+
+    int r2 = 1, r3 = 1, r4 = 1, r5 = 1;
+    Font font;
+    font.loadFromFile("font/ubuntu.ttf");
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+
+
+    int result = column(window,team,font,size,rnd2,rnd3,rnd4,rnd5,a1,b2,c3,d4,r2,r3,r4,r5);
+
+    window.close();
+    for(int i=0;i<size;i++){
+      free (team[i]);
+      free (rnd2[i]);
+      free (rnd3[i]);
+      free (rnd4[i]);
+      free (rnd5[i]);
+    }
+    int expected = 4;
+
+    EXPECT_EQ(expected, result);
+}
 
 
 
 
+
+
+//--------------------------------------------------
 */
 
 
