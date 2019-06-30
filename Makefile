@@ -1,6 +1,6 @@
 .PHONY=addDir all clean remake test testlib
 
-CC=g++
+CPP=g++
 CFLAGS=-Wall -c -I SFML/include -std=c++11
 EFLAGS=-L SFML/lib -lsfml-system -lsfml-window -lsfml-graphics
 
@@ -47,22 +47,22 @@ all: $(EXECUTABLE)
 remake: clean all
 
 $(EXECUTABLE): $(OBJ1) $(OBJ2) $(OBJ3) $(OBJ4) $(OBJ5) 
-	$(CC) $^ $(EFLAGS) -o $@
+	$(CPP) $^ $(EFLAGS) -o $@
 
 $(OBJ1): $(SOURCE1)
-	$(CC) $^ $(CFLAGS) -o $@
+	$(CPP) $^ $(CFLAGS) -o $@
 
 $(OBJ2): $(SOURCE2)
-	$(CC) $^ $(CFLAGS) -o $@
+	$(CPP) $^ $(CFLAGS) -o $@
 
 $(OBJ3): $(SOURCE3)
-	$(CC) $^ $(CFLAGS) -o $@
+	$(CPP) $^ $(CFLAGS) -o $@
 
 $(OBJ4): $(SOURCE4)
-	$(CC) $^ $(CFLAGS) -o $@
+	$(CPP) $^ $(CFLAGS) -o $@
 
 $(OBJ5): $(SOURCE5)
-	$(CC) $^ $(CFLAGS) -o $@
+	$(CPP) $^ $(CFLAGS) -o $@
 
 
 clean:
@@ -74,13 +74,13 @@ testlib: $(TESTLIBO)
 	ar -rv $(TESTLIBA) $(TESTLIBO)
 
 $(TESTLIBO):
-	$(CC) -std=c++11 -isystem ${GTEST_DIR}/include -I${GTEST_DIR} \
+	$(CPP) -std=c++11 -isystem ${GTEST_DIR}/include -I${GTEST_DIR} \
     -pthread -c ${GTEST_DIR}/src/gtest-all.cc -o $@
 
 $(TESTEXE): $(TESTOBJ) $(OBJ2) $(OBJ3) $(OBJ4) $(OBJ5) 
-	$(CC) -std=c++11 -isystem ${GTEST_DIR}/include -pthread \
+	$(CPP) -std=c++11 -isystem ${GTEST_DIR}/include -pthread \
 	$^ build/test/libgtest.a \
 	$(EFLAGS) -o $@
 
 $(TESTOBJ): $(TESTSOURCE)
-	$(CC) $(CFLAGS) $^ -I $(GTEST_DIR)/include -o $@
+	$(CPP) $(CFLAGS) $^ -I $(GTEST_DIR)/include -o $@

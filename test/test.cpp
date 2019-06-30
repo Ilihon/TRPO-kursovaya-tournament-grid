@@ -3,6 +3,10 @@
 #include "../src/steam.h"
 #include "../src/column.h"
 #include "gtest/gtest.h"
+int svit=0;
+int winner_pos=0;
+char winner[30]=" ";
+
 
 //Draw-----------------------------------------------------
 TEST(Draw, TeamNum1)
@@ -31,7 +35,7 @@ TEST(Draw, TeamNum1)
     int expected = 2;
     EXPECT_EQ(expected, result);
 }
-/*
+
 TEST(Draw, TeamNum2)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
@@ -1515,7 +1519,7 @@ TEST(Steam, Round4_TeamNum1)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
     int size=32;
-    Vector2i position = Vector2i(600, 220);
+    Vector2i position = Vector2i(820, 220);
     int result = steam(window, size, position);
     window.close();
     int expected = 300;
@@ -1526,7 +1530,7 @@ TEST(Steam, Round4_TeamNum2)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
     int size=32;
-    Vector2i position = Vector2i(600, 240);
+    Vector2i position = Vector2i(820, 240);
     int result = steam(window, size, position);
     window.close();
     int expected = 301;
@@ -1537,7 +1541,7 @@ TEST(Steam, Round4_TeamNum3)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
     int size=32;
-    Vector2i position = Vector2i(600, 660);
+    Vector2i position = Vector2i(820, 660);
     int result = steam(window, size, position);
     window.close();
     int expected = 302;
@@ -1548,7 +1552,7 @@ TEST(Steam, Round4_TeamNum4)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
     int size=32;
-    Vector2i position = Vector2i(600, 680);
+    Vector2i position = Vector2i(820, 680);
     int result = steam(window, size, position);
     window.close();
     int expected = 303;
@@ -1563,7 +1567,7 @@ TEST(Steam, Round5_TeamNum1)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
     int size=32;
-    Vector2i position = Vector2i(600, 430);
+    Vector2i position = Vector2i(1020, 430);
     int result = steam(window, size, position);
     window.close();
     int expected = 400;
@@ -1574,7 +1578,7 @@ TEST(Steam, Round5_TeamNum2)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
     int size=32;
-    Vector2i position = Vector2i(600, 450);
+    Vector2i position = Vector2i(1020, 450);
     int result = steam(window, size, position);
     window.close();
     int expected = 401;
@@ -1914,7 +1918,7 @@ TEST(Column, TeamNum32)
 
 
 //--------------------------------------------------
-*/
+
 
 
 
