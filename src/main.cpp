@@ -16,16 +16,16 @@ int main()
 {
     //////////////////
     setlocale(LC_ALL, "Rus");
-    char sizestring[2];
+    char sizestring[256];
     int size; //кол-во комманд
     cout << "Enter team num(2-32): ";
-    cin >> sizestring;
+    cin.getline(sizestring,256);
     size = atoi(sizestring);
 
     while (size < 2 || size > 32) {
         puts("Uncorrect team count!");
-        puts("Please enter team num again!");
-        cin >> sizestring;
+        cout <<"Please enter team num again: ";
+        cin.getline(sizestring,256);
         size = atoi(sizestring);
     }
 
@@ -44,18 +44,18 @@ int main()
     }
 
     //сгенерировать или считать имена комманд
-    cout << "Enter team namesf? (y/n) \n";
-    char g[1]; //
-    cin >> g;
+    cout << "Enter team namesf? (y/n) ";
+    char g[256]; //
+    cin.getline(g,256);
 
     while ((strcmp(g, "y") != 0) && (strcmp(g, "Y") != 0)
            && (strcmp(g, "n") != 0) && (strcmp(g, "N") != 0)) {
-        cout << "Yes OR Not?\n";
-        cin >>g;
+        cout << "Uncorrect answer, only Yes or Not: ";
+        cin.getline(g,256);
     }
 
     if ((strcmp(g, "y") == 0) || (strcmp(g, "Y") == 0)) { //считываем имена комманд
-        cin.getline(g,1);
+      puts("You can enter yout team names:");
         for (int i = 0; i < size; i++) {
             team[i] = new char[30];
 
@@ -64,7 +64,12 @@ int main()
                 printf("Failed to allocate memory");
                 return 1; // выход по ошибке, код ошибки 1
             }
-            cin.getline(team[i], 30);
+            cin.getline(sizestring, 256);
+            while(strlen(sizestring)>30){
+                puts("Please, enter team name with 30 or less characters");
+                cin.getline(sizestring, 256);
+            }
+            strcpy(team[i],sizestring);
         }
     } else { //генерируем имена комманд
         for (int i = 0; i < size; i++) {
@@ -211,10 +216,8 @@ int main()
 
             if (event.type == Event::KeyPressed)
                 if (event.key.code == Keyboard::Space) {
-                Again:
+                Again:{
                     menu(window);
-
-
                     r2 = 0, r3 = 0, r4 = 0, r5 = 0;
                     for (int i = 0; i < size; i++) {
                       *rnd2[i] = ' ';
@@ -225,6 +228,7 @@ int main()
                       b2[i]=-1;
                       c3[i]=-1;
                       d4[i]=-1;
+                    }
                   }
 
                     Text text("", font, 10);
