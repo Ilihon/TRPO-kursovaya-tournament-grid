@@ -13,8 +13,6 @@ $(DIR_BIN)/main: $(DIR_BUILD)/main.o $(DIR_BUILD)/menu.o $(DIR_BUILD)/draw.o $(D
 	g++ -Wall -Werror -I SFML/include -L SFML/lib -o $(DIR_BIN)/main $(DIR_BUILD)/main.o $(DIR_BUILD)/menu.o $(DIR_BUILD)/draw.o $(DIR_BUILD)/steam.o $(DIR_BUILD)/column.o -lsfml-graphics -lsfml-window -lsfml-system
 $(DIR_BUILD)/main.o: $(DIR_SRC)/main.cpp
 	g++ -Wall -Werror -I SFML/include -L SFML/lib -o $(DIR_BUILD)/main.o -c $(DIR_SRC)/main.cpp -lsfml-graphics -lsfml-window -lsfml-system
-
->>>>>>> test-cover
 $(DIR_BUILD)/menu.o: $(DIR_SRC)/menu.cpp
 	g++ -Wall -Werror -I SFML/include -L SFML/lib -o $(DIR_BUILD)/menu.o -c $(DIR_SRC)/menu.cpp -lsfml-graphics -lsfml-window -lsfml-system
 $(DIR_BUILD)/draw.o: $(DIR_SRC)/draw.cpp
