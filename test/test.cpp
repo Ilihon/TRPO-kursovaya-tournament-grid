@@ -1414,6 +1414,177 @@ TEST(Steam, Round2_TeamNum16)
     int expected = 115;
     EXPECT_EQ(expected, result);
 }
+//--------------------------------------------------
+
+
+//Steam3---------------------------------------------
+
+TEST(Steam, Round3_TeamNum1)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(600, 110);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 200;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round3_TeamNum2)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(600, 130);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 201;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round3_TeamNum3)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(600, 320);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 202;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round3_TeamNum4)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(600, 350);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 203;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round3_TeamNum5)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(600, 550);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 204;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round3_TeamNum6)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(600, 570);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 205;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round3_TeamNum7)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(600, 770);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 206;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round3_TeamNum8)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(600, 790);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 207;
+    EXPECT_EQ(expected, result);
+}
+//--------------------------------------------------
+
+
+//Steam4---------------------------------------------
+
+TEST(Steam, Round4_TeamNum1)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(600, 220);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 300;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round4_TeamNum2)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(600, 240);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 301;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round4_TeamNum3)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(600, 660);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 302;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round4_TeamNum4)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(600, 680);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 303;
+    EXPECT_EQ(expected, result);
+}
+//--------------------------------------------------
+
+
+//Steam5---------------------------------------------
+
+TEST(Steam, Round5_TeamNum1)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(600, 430);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 400;
+    EXPECT_EQ(expected, result);
+}
+
+TEST(Steam, Round5_TeamNum2)
+{
+    RenderWindow window(VideoMode(1500, 900), "Menu");
+    int size=32;
+    Vector2i position = Vector2i(600, 450);
+    int result = steam(window, size, position);
+    window.close();
+    int expected = 401;
+    EXPECT_EQ(expected, result);
+}
+//--------------------------------------------------
+
+
+
+
 
 */
 
