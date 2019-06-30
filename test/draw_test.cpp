@@ -23,21 +23,12 @@ int draw(int size)
           t += 7;
           c = 0;
       }
-      for (int j = 1; j < 1000000; j++) {
-          j = j;
-      }
 
       text.setString(team[i]);
       text.setPosition(20, t);
 
       rectangle.setFillColor(sf::Color(133,250,165));
       rectangle.setPosition(18, t);
-
-      /*
-      kvad.setFillColor(Color::Black);
-      kvad.setPosition(200, t);
-      window.draw(kvad);
-      */
 
       window.draw(rectangle);
       window.draw(text);
@@ -58,21 +49,10 @@ int draw(int size)
               c = 0;
           }
 
-          for (int j = 1; j < 1000000; j++) {
-              j = j;
-          }
-
           rectangle.setFillColor(sf::Color(133,250,165));
           rectangle.setPosition(278, t);
 
-          /*
-          kvad.setFillColor(Color::Black);
-          kvad.setPosition(460, t);
-          window.draw(kvad);
-          */
-
           window.draw(rectangle);
-          window.display();
           c++;
           t += 25;
       }
@@ -94,22 +74,10 @@ int draw(int size)
               t += 169;
               c = 0;
           }
-
-          for (int j = 1; j < 1000000; j++) {
-              j = j;
-          }
-
           rectangle.setFillColor(sf::Color(133,250,165));
           rectangle.setPosition(538, t);
 
-          /*
-          kvad.setFillColor(Color::Black);
-          kvad.setPosition(720, t);
-          window.draw(kvad);
-          */
-
           window.draw(rectangle);
-          window.display();
           c++;
           t += 25;
       }
@@ -132,21 +100,10 @@ int draw(int size)
                   c = 0;
               }
 
-              for (int j = 1; j < 1000000; j++) {
-                  j = j;
-              }
-
               rectangle.setFillColor(sf::Color(133,250,165));
               rectangle.setPosition(808, t);
 
-              /*
-              kvad.setFillColor(Color::Black);
-              kvad.setPosition(990, t);
-              window.draw(kvad);
-              */
-
               window.draw(rectangle);
-              window.display();
               c++;
               t += 25;
           }
@@ -161,18 +118,9 @@ int draw(int size)
             newsize=(newsize+1)/2;
               t = 423;
               for (int i = 0; i < newsize; i++) {
-                  for (int j = 1; j < 1000000; j++) {
-                      j = j;
-                  }
 
                   rectangle.setFillColor(sf::Color(133,250,165));
                   rectangle.setPosition(1008, t);
-
-                    /*
-                   kvad.setFillColor(Color::Black);
-                   kvad.setPosition(1190, t);
-                   window.draw(kvad);
-                   */
 
                   window.draw(rectangle);
                   window.display();
