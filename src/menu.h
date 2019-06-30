@@ -8,6 +8,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+extern int svit;
+
 using namespace sf;
 using namespace std;
 

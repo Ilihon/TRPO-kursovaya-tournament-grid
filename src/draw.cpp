@@ -30,7 +30,7 @@ int draw(RenderWindow& window, char* team[], Font font, int size)
       text.setString(team[i]);
       text.setPosition(20, t);
 
-      rectangle.setFillColor(Color::Green);
+      rectangle.setFillColor(sf::Color(133,250,165));
       rectangle.setPosition(18, t);
 
       /*
@@ -65,7 +65,7 @@ int draw(RenderWindow& window, char* team[], Font font, int size)
               j = j;
           }
 
-          rectangle.setFillColor(Color::Green);
+          rectangle.setFillColor(sf::Color(133,250,165));
           rectangle.setPosition(278, t);
 
           /*
@@ -102,7 +102,7 @@ int draw(RenderWindow& window, char* team[], Font font, int size)
               j = j;
           }
 
-          rectangle.setFillColor(Color::Green);
+          rectangle.setFillColor(sf::Color(133,250,165));
           rectangle.setPosition(538, t);
 
           /*
@@ -139,7 +139,7 @@ int draw(RenderWindow& window, char* team[], Font font, int size)
                   j = j;
               }
 
-              rectangle.setFillColor(Color::Green);
+              rectangle.setFillColor(sf::Color(133,250,165));
               rectangle.setPosition(808, t);
 
               /*
@@ -168,7 +168,7 @@ int draw(RenderWindow& window, char* team[], Font font, int size)
                       j = j;
                   }
 
-                  rectangle.setFillColor(Color::Green);
+                  rectangle.setFillColor(sf::Color(133,250,165));
                   rectangle.setPosition(1008, t);
 
                     /*
