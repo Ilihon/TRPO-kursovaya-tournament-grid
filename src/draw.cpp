@@ -23,14 +23,11 @@ int draw(RenderWindow& window, char* team[], Font font, int size)
           t += 7;
           c = 0;
       }
-      for (int j = 1; j < 1000000; j++) {
-          j = j;
-      }
 
       text.setString(team[i]);
       text.setPosition(20, t);
 
-      rectangle.setFillColor(Color::Green);
+      rectangle.setFillColor(sf::Color(133,250,165));
       rectangle.setPosition(18, t);
 
       /*
@@ -61,11 +58,7 @@ int draw(RenderWindow& window, char* team[], Font font, int size)
               c = 0;
           }
 
-          for (int j = 1; j < 1000000; j++) {
-              j = j;
-          }
-
-          rectangle.setFillColor(Color::Green);
+          rectangle.setFillColor(sf::Color(133,250,165));
           rectangle.setPosition(278, t);
 
           /*
@@ -98,11 +91,7 @@ int draw(RenderWindow& window, char* team[], Font font, int size)
               c = 0;
           }
 
-          for (int j = 1; j < 1000000; j++) {
-              j = j;
-          }
-
-          rectangle.setFillColor(Color::Green);
+          rectangle.setFillColor(sf::Color(133,250,165));
           rectangle.setPosition(538, t);
 
           /*
@@ -135,11 +124,7 @@ int draw(RenderWindow& window, char* team[], Font font, int size)
                   c = 0;
               }
 
-              for (int j = 1; j < 1000000; j++) {
-                  j = j;
-              }
-
-              rectangle.setFillColor(Color::Green);
+              rectangle.setFillColor(sf::Color(133,250,165));
               rectangle.setPosition(808, t);
 
               /*
@@ -164,11 +149,8 @@ int draw(RenderWindow& window, char* team[], Font font, int size)
             newsize=(newsize+1)/2;
               t = 423;
               for (int i = 0; i < newsize; i++) {
-                  for (int j = 1; j < 1000000; j++) {
-                      j = j;
-                  }
 
-                  rectangle.setFillColor(Color::Green);
+                  rectangle.setFillColor(sf::Color(133,250,165));
                   rectangle.setPosition(1008, t);
 
                     /*

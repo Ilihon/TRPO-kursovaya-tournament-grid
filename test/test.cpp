@@ -1,14 +1,13 @@
-#include "../src/menu.h"
-#include "../src/draw.h"
-#include "../src/steam.h"
-#include "../src/column.h"
+#include "column_test.h"
+#include "draw_test.h"
+#include "steam_test.h"
 #include "gtest/gtest.h"
 
-//Draw-----------------------------------------------------
+// Draw-----------------------------------------------------
 TEST(Draw, TeamNum1)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=1;
+    int size = 1;
     char** team;
     team = new char*[size];
 
@@ -16,7 +15,7 @@ TEST(Draw, TeamNum1)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -24,18 +23,18 @@ TEST(Draw, TeamNum1)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 2;
     EXPECT_EQ(expected, result);
 }
-/*
+
 TEST(Draw, TeamNum2)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=2;
+    int size = 2;
     char** team;
     team = new char*[size];
 
@@ -43,7 +42,7 @@ TEST(Draw, TeamNum2)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -51,10 +50,10 @@ TEST(Draw, TeamNum2)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 2;
     EXPECT_EQ(expected, result);
 }
@@ -62,7 +61,7 @@ TEST(Draw, TeamNum2)
 TEST(Draw, TeamNum3)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=3;
+    int size = 3;
     char** team;
     team = new char*[size];
 
@@ -70,7 +69,7 @@ TEST(Draw, TeamNum3)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -78,10 +77,10 @@ TEST(Draw, TeamNum3)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 3;
     EXPECT_EQ(expected, result);
 }
@@ -89,7 +88,7 @@ TEST(Draw, TeamNum3)
 TEST(Draw, TeamNum4)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=4;
+    int size = 4;
     char** team;
     team = new char*[size];
 
@@ -97,7 +96,7 @@ TEST(Draw, TeamNum4)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -105,10 +104,10 @@ TEST(Draw, TeamNum4)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 3;
     EXPECT_EQ(expected, result);
 }
@@ -116,7 +115,7 @@ TEST(Draw, TeamNum4)
 TEST(Draw, TeamNum5)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=5;
+    int size = 5;
     char** team;
     team = new char*[size];
 
@@ -124,7 +123,7 @@ TEST(Draw, TeamNum5)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -132,10 +131,10 @@ TEST(Draw, TeamNum5)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 4;
     EXPECT_EQ(expected, result);
 }
@@ -143,7 +142,7 @@ TEST(Draw, TeamNum5)
 TEST(Draw, TeamNum6)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=6;
+    int size = 6;
     char** team;
     team = new char*[size];
 
@@ -151,7 +150,7 @@ TEST(Draw, TeamNum6)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -159,10 +158,10 @@ TEST(Draw, TeamNum6)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 4;
     EXPECT_EQ(expected, result);
 }
@@ -170,7 +169,7 @@ TEST(Draw, TeamNum6)
 TEST(Draw, TeamNum7)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=7;
+    int size = 7;
     char** team;
     team = new char*[size];
 
@@ -178,7 +177,7 @@ TEST(Draw, TeamNum7)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -186,10 +185,10 @@ TEST(Draw, TeamNum7)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 4;
     EXPECT_EQ(expected, result);
 }
@@ -197,7 +196,7 @@ TEST(Draw, TeamNum7)
 TEST(Draw, TeamNum8)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=8;
+    int size = 8;
     char** team;
     team = new char*[size];
 
@@ -205,7 +204,7 @@ TEST(Draw, TeamNum8)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -213,10 +212,10 @@ TEST(Draw, TeamNum8)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 4;
     EXPECT_EQ(expected, result);
 }
@@ -224,7 +223,7 @@ TEST(Draw, TeamNum8)
 TEST(Draw, TeamNum9)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=9;
+    int size = 9;
     char** team;
     team = new char*[size];
 
@@ -232,7 +231,7 @@ TEST(Draw, TeamNum9)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -240,10 +239,10 @@ TEST(Draw, TeamNum9)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 5;
     EXPECT_EQ(expected, result);
 }
@@ -251,7 +250,7 @@ TEST(Draw, TeamNum9)
 TEST(Draw, TeamNum10)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=10;
+    int size = 10;
     char** team;
     team = new char*[size];
 
@@ -259,7 +258,7 @@ TEST(Draw, TeamNum10)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -267,10 +266,10 @@ TEST(Draw, TeamNum10)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 5;
     EXPECT_EQ(expected, result);
 }
@@ -278,7 +277,7 @@ TEST(Draw, TeamNum10)
 TEST(Draw, TeamNum11)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=11;
+    int size = 11;
     char** team;
     team = new char*[size];
 
@@ -286,7 +285,7 @@ TEST(Draw, TeamNum11)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -294,10 +293,10 @@ TEST(Draw, TeamNum11)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 5;
     EXPECT_EQ(expected, result);
 }
@@ -305,7 +304,7 @@ TEST(Draw, TeamNum11)
 TEST(Draw, TeamNum12)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=12;
+    int size = 12;
     char** team;
     team = new char*[size];
 
@@ -313,7 +312,7 @@ TEST(Draw, TeamNum12)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -321,10 +320,10 @@ TEST(Draw, TeamNum12)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 5;
     EXPECT_EQ(expected, result);
 }
@@ -332,7 +331,7 @@ TEST(Draw, TeamNum12)
 TEST(Draw, TeamNum13)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=13;
+    int size = 13;
     char** team;
     team = new char*[size];
 
@@ -340,7 +339,7 @@ TEST(Draw, TeamNum13)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -348,10 +347,10 @@ TEST(Draw, TeamNum13)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 5;
     EXPECT_EQ(expected, result);
 }
@@ -359,7 +358,7 @@ TEST(Draw, TeamNum13)
 TEST(Draw, TeamNum14)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=14;
+    int size = 14;
     char** team;
     team = new char*[size];
 
@@ -367,7 +366,7 @@ TEST(Draw, TeamNum14)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -375,10 +374,10 @@ TEST(Draw, TeamNum14)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 5;
     EXPECT_EQ(expected, result);
 }
@@ -386,7 +385,7 @@ TEST(Draw, TeamNum14)
 TEST(Draw, TeamNum15)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=15;
+    int size = 15;
     char** team;
     team = new char*[size];
 
@@ -394,7 +393,7 @@ TEST(Draw, TeamNum15)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -402,10 +401,10 @@ TEST(Draw, TeamNum15)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 5;
     EXPECT_EQ(expected, result);
 }
@@ -413,7 +412,7 @@ TEST(Draw, TeamNum15)
 TEST(Draw, TeamNum16)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=16;
+    int size = 16;
     char** team;
     team = new char*[size];
 
@@ -421,7 +420,7 @@ TEST(Draw, TeamNum16)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -429,10 +428,10 @@ TEST(Draw, TeamNum16)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 5;
     EXPECT_EQ(expected, result);
 }
@@ -440,7 +439,7 @@ TEST(Draw, TeamNum16)
 TEST(Draw, TeamNum17)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=17;
+    int size = 17;
     char** team;
     team = new char*[size];
 
@@ -448,7 +447,7 @@ TEST(Draw, TeamNum17)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -456,10 +455,10 @@ TEST(Draw, TeamNum17)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -467,7 +466,7 @@ TEST(Draw, TeamNum17)
 TEST(Draw, TeamNum18)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=18;
+    int size = 18;
     char** team;
     team = new char*[size];
 
@@ -475,7 +474,7 @@ TEST(Draw, TeamNum18)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -483,10 +482,10 @@ TEST(Draw, TeamNum18)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -494,7 +493,7 @@ TEST(Draw, TeamNum18)
 TEST(Draw, TeamNum19)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=19;
+    int size = 19;
     char** team;
     team = new char*[size];
 
@@ -502,7 +501,7 @@ TEST(Draw, TeamNum19)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -510,10 +509,11 @@ TEST(Draw, TeamNum19)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);;
+    delete (team);
+    ;
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -521,7 +521,7 @@ TEST(Draw, TeamNum19)
 TEST(Draw, TeamNum20)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=20;
+    int size = 20;
     char** team;
     team = new char*[size];
 
@@ -529,7 +529,7 @@ TEST(Draw, TeamNum20)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -537,10 +537,10 @@ TEST(Draw, TeamNum20)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -548,7 +548,7 @@ TEST(Draw, TeamNum20)
 TEST(Draw, TeamNum21)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=21;
+    int size = 21;
     char** team;
     team = new char*[size];
 
@@ -556,7 +556,7 @@ TEST(Draw, TeamNum21)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -564,10 +564,10 @@ TEST(Draw, TeamNum21)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -575,7 +575,7 @@ TEST(Draw, TeamNum21)
 TEST(Draw, TeamNum22)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=22;
+    int size = 22;
     char** team;
     team = new char*[size];
 
@@ -583,7 +583,7 @@ TEST(Draw, TeamNum22)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -591,10 +591,10 @@ TEST(Draw, TeamNum22)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -602,7 +602,7 @@ TEST(Draw, TeamNum22)
 TEST(Draw, TeamNum23)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=23;
+    int size = 23;
     char** team;
     team = new char*[size];
 
@@ -610,7 +610,7 @@ TEST(Draw, TeamNum23)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -618,10 +618,10 @@ TEST(Draw, TeamNum23)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -629,7 +629,7 @@ TEST(Draw, TeamNum23)
 TEST(Draw, TeamNum24)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=24;
+    int size = 24;
     char** team;
     team = new char*[size];
 
@@ -637,7 +637,7 @@ TEST(Draw, TeamNum24)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -645,10 +645,10 @@ TEST(Draw, TeamNum24)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -656,7 +656,7 @@ TEST(Draw, TeamNum24)
 TEST(Draw, TeamNum25)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=25;
+    int size = 25;
     char** team;
     team = new char*[size];
 
@@ -664,7 +664,7 @@ TEST(Draw, TeamNum25)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -672,17 +672,17 @@ TEST(Draw, TeamNum25)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
 TEST(Draw, TeamNum26)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=26;
+    int size = 26;
     char** team;
     team = new char*[size];
 
@@ -690,7 +690,7 @@ TEST(Draw, TeamNum26)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -698,10 +698,10 @@ TEST(Draw, TeamNum26)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -709,7 +709,7 @@ TEST(Draw, TeamNum26)
 TEST(Draw, TeamNum27)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=27;
+    int size = 27;
     char** team;
     team = new char*[size];
 
@@ -717,7 +717,7 @@ TEST(Draw, TeamNum27)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -725,10 +725,10 @@ TEST(Draw, TeamNum27)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -736,7 +736,7 @@ TEST(Draw, TeamNum27)
 TEST(Draw, TeamNum28)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=28;
+    int size = 28;
     char** team;
     team = new char*[size];
 
@@ -744,7 +744,7 @@ TEST(Draw, TeamNum28)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -752,10 +752,10 @@ TEST(Draw, TeamNum28)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -763,7 +763,7 @@ TEST(Draw, TeamNum28)
 TEST(Draw, TeamNum29)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=29;
+    int size = 29;
     char** team;
     team = new char*[size];
 
@@ -771,7 +771,7 @@ TEST(Draw, TeamNum29)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -779,10 +779,10 @@ TEST(Draw, TeamNum29)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -790,7 +790,7 @@ TEST(Draw, TeamNum29)
 TEST(Draw, TeamNum30)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=30;
+    int size = 30;
     char** team;
     team = new char*[size];
 
@@ -798,7 +798,7 @@ TEST(Draw, TeamNum30)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -806,10 +806,10 @@ TEST(Draw, TeamNum30)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -817,7 +817,7 @@ TEST(Draw, TeamNum30)
 TEST(Draw, TeamNum31)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=31;
+    int size = 31;
     char** team;
     team = new char*[size];
 
@@ -825,7 +825,7 @@ TEST(Draw, TeamNum31)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -833,10 +833,10 @@ TEST(Draw, TeamNum31)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -844,7 +844,7 @@ TEST(Draw, TeamNum31)
 TEST(Draw, TeamNum32)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     char** team;
     team = new char*[size];
 
@@ -852,7 +852,7 @@ TEST(Draw, TeamNum32)
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -860,22 +860,21 @@ TEST(Draw, TeamNum32)
     font.loadFromFile("font/ubuntu.ttf");
     int result = draw(window, team, font, size);
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
     }
-    free(team);
+    delete (team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
 //--------------------------------------------------
 
-
-//Steam1---------------------------------------------
+// Steam1---------------------------------------------
 
 TEST(Steam, Background)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(1, 1);
     int result = steam(window, size, position);
     window.close();
@@ -886,7 +885,7 @@ TEST(Steam, Background)
 TEST(Steam, Round1_TeamNum1)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 20);
     int result = steam(window, size, position);
     window.close();
@@ -897,7 +896,7 @@ TEST(Steam, Round1_TeamNum1)
 TEST(Steam, Round1_TeamNum2)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 50);
     int result = steam(window, size, position);
     window.close();
@@ -908,7 +907,7 @@ TEST(Steam, Round1_TeamNum2)
 TEST(Steam, Round1_TeamNum3)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 80);
     int result = steam(window, size, position);
     window.close();
@@ -919,7 +918,7 @@ TEST(Steam, Round1_TeamNum3)
 TEST(Steam, Round1_TeamNum4)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 110);
     int result = steam(window, size, position);
     window.close();
@@ -930,8 +929,8 @@ TEST(Steam, Round1_TeamNum4)
 TEST(Steam, Round1_TeamNum5)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
-    Vector2i position = Vector2i(100,140);
+    int size = 32;
+    Vector2i position = Vector2i(100, 140);
     int result = steam(window, size, position);
     window.close();
     int expected = 4;
@@ -941,7 +940,7 @@ TEST(Steam, Round1_TeamNum5)
 TEST(Steam, Round1_TeamNum6)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 160);
     int result = steam(window, size, position);
     window.close();
@@ -952,7 +951,7 @@ TEST(Steam, Round1_TeamNum6)
 TEST(Steam, Round1_TeamNum7)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 190);
     int result = steam(window, size, position);
     window.close();
@@ -963,7 +962,7 @@ TEST(Steam, Round1_TeamNum7)
 TEST(Steam, Round1_TeamNum8)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 220);
     int result = steam(window, size, position);
     window.close();
@@ -974,7 +973,7 @@ TEST(Steam, Round1_TeamNum8)
 TEST(Steam, Round1_TeamNum9)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 250);
     int result = steam(window, size, position);
     window.close();
@@ -985,7 +984,7 @@ TEST(Steam, Round1_TeamNum9)
 TEST(Steam, Round1_TeamNum10)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 270);
     int result = steam(window, size, position);
     window.close();
@@ -996,7 +995,7 @@ TEST(Steam, Round1_TeamNum10)
 TEST(Steam, Round1_TeamNum11)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 300);
     int result = steam(window, size, position);
     window.close();
@@ -1007,7 +1006,7 @@ TEST(Steam, Round1_TeamNum11)
 TEST(Steam, Round1_TeamNum12)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 330);
     int result = steam(window, size, position);
     window.close();
@@ -1018,7 +1017,7 @@ TEST(Steam, Round1_TeamNum12)
 TEST(Steam, Round1_TeamNum13)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 360);
     int result = steam(window, size, position);
     window.close();
@@ -1029,7 +1028,7 @@ TEST(Steam, Round1_TeamNum13)
 TEST(Steam, Round1_TeamNum14)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 380);
     int result = steam(window, size, position);
     window.close();
@@ -1040,7 +1039,7 @@ TEST(Steam, Round1_TeamNum14)
 TEST(Steam, Round1_TeamNum15)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 410);
     int result = steam(window, size, position);
     window.close();
@@ -1051,7 +1050,7 @@ TEST(Steam, Round1_TeamNum15)
 TEST(Steam, Round1_TeamNum16)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 440);
     int result = steam(window, size, position);
     window.close();
@@ -1062,7 +1061,7 @@ TEST(Steam, Round1_TeamNum16)
 TEST(Steam, Round1_TeamNum17)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 470);
     int result = steam(window, size, position);
     window.close();
@@ -1073,7 +1072,7 @@ TEST(Steam, Round1_TeamNum17)
 TEST(Steam, Round1_TeamNum18)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 490);
     int result = steam(window, size, position);
     window.close();
@@ -1084,7 +1083,7 @@ TEST(Steam, Round1_TeamNum18)
 TEST(Steam, Round1_TeamNum19)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 520);
     int result = steam(window, size, position);
     window.close();
@@ -1095,7 +1094,7 @@ TEST(Steam, Round1_TeamNum19)
 TEST(Steam, Round1_TeamNum20)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 550);
     int result = steam(window, size, position);
     window.close();
@@ -1106,7 +1105,7 @@ TEST(Steam, Round1_TeamNum20)
 TEST(Steam, Round1_TeamNum21)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 580);
     int result = steam(window, size, position);
     window.close();
@@ -1117,7 +1116,7 @@ TEST(Steam, Round1_TeamNum21)
 TEST(Steam, Round1_TeamNum22)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 600);
     int result = steam(window, size, position);
     window.close();
@@ -1128,7 +1127,7 @@ TEST(Steam, Round1_TeamNum22)
 TEST(Steam, Round1_TeamNum23)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 630);
     int result = steam(window, size, position);
     window.close();
@@ -1139,7 +1138,7 @@ TEST(Steam, Round1_TeamNum23)
 TEST(Steam, Round1_TeamNum24)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 660);
     int result = steam(window, size, position);
     window.close();
@@ -1150,7 +1149,7 @@ TEST(Steam, Round1_TeamNum24)
 TEST(Steam, Round1_TeamNum25)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 690);
     int result = steam(window, size, position);
     window.close();
@@ -1161,7 +1160,7 @@ TEST(Steam, Round1_TeamNum25)
 TEST(Steam, Round1_TeamNum26)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 710);
     int result = steam(window, size, position);
     window.close();
@@ -1172,7 +1171,7 @@ TEST(Steam, Round1_TeamNum26)
 TEST(Steam, Round1_TeamNum27)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 740);
     int result = steam(window, size, position);
     window.close();
@@ -1183,7 +1182,7 @@ TEST(Steam, Round1_TeamNum27)
 TEST(Steam, Round1_TeamNum28)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 770);
     int result = steam(window, size, position);
     window.close();
@@ -1194,7 +1193,7 @@ TEST(Steam, Round1_TeamNum28)
 TEST(Steam, Round1_TeamNum29)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 800);
     int result = steam(window, size, position);
     window.close();
@@ -1205,7 +1204,7 @@ TEST(Steam, Round1_TeamNum29)
 TEST(Steam, Round1_TeamNum30)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 820);
     int result = steam(window, size, position);
     window.close();
@@ -1216,7 +1215,7 @@ TEST(Steam, Round1_TeamNum30)
 TEST(Steam, Round1_TeamNum31)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 850);
     int result = steam(window, size, position);
     window.close();
@@ -1227,7 +1226,7 @@ TEST(Steam, Round1_TeamNum31)
 TEST(Steam, Round1_TeamNum32)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(100, 880);
     int result = steam(window, size, position);
     window.close();
@@ -1236,13 +1235,12 @@ TEST(Steam, Round1_TeamNum32)
 }
 //--------------------------------------------------
 
-
-//Steam2---------------------------------------------
+// Steam2---------------------------------------------
 
 TEST(Steam, Round2_TeamNum1)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(290, 50);
     int result = steam(window, size, position);
     window.close();
@@ -1253,7 +1251,7 @@ TEST(Steam, Round2_TeamNum1)
 TEST(Steam, Round2_TeamNum2)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(290, 80);
     int result = steam(window, size, position);
     window.close();
@@ -1264,7 +1262,7 @@ TEST(Steam, Round2_TeamNum2)
 TEST(Steam, Round2_TeamNum3)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(290, 160);
     int result = steam(window, size, position);
     window.close();
@@ -1275,7 +1273,7 @@ TEST(Steam, Round2_TeamNum3)
 TEST(Steam, Round2_TeamNum4)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(290, 180);
     int result = steam(window, size, position);
     window.close();
@@ -1286,7 +1284,7 @@ TEST(Steam, Round2_TeamNum4)
 TEST(Steam, Round2_TeamNum5)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(290, 270);
     int result = steam(window, size, position);
     window.close();
@@ -1297,7 +1295,7 @@ TEST(Steam, Round2_TeamNum5)
 TEST(Steam, Round2_TeamNum6)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(290, 300);
     int result = steam(window, size, position);
     window.close();
@@ -1308,7 +1306,7 @@ TEST(Steam, Round2_TeamNum6)
 TEST(Steam, Round2_TeamNum7)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(290, 370);
     int result = steam(window, size, position);
     window.close();
@@ -1319,7 +1317,7 @@ TEST(Steam, Round2_TeamNum7)
 TEST(Steam, Round2_TeamNum8)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(290, 400);
     int result = steam(window, size, position);
     window.close();
@@ -1330,7 +1328,7 @@ TEST(Steam, Round2_TeamNum8)
 TEST(Steam, Round2_TeamNum9)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(290, 480);
     int result = steam(window, size, position);
     window.close();
@@ -1341,7 +1339,7 @@ TEST(Steam, Round2_TeamNum9)
 TEST(Steam, Round2_TeamNum10)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(290, 520);
     int result = steam(window, size, position);
     window.close();
@@ -1352,7 +1350,7 @@ TEST(Steam, Round2_TeamNum10)
 TEST(Steam, Round2_TeamNum11)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(290, 600);
     int result = steam(window, size, position);
     window.close();
@@ -1363,7 +1361,7 @@ TEST(Steam, Round2_TeamNum11)
 TEST(Steam, Round2_TeamNum12)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(290, 630);
     int result = steam(window, size, position);
     window.close();
@@ -1374,7 +1372,7 @@ TEST(Steam, Round2_TeamNum12)
 TEST(Steam, Round2_TeamNum13)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(290, 710);
     int result = steam(window, size, position);
     window.close();
@@ -1385,7 +1383,7 @@ TEST(Steam, Round2_TeamNum13)
 TEST(Steam, Round2_TeamNum14)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(290, 740);
     int result = steam(window, size, position);
     window.close();
@@ -1396,7 +1394,7 @@ TEST(Steam, Round2_TeamNum14)
 TEST(Steam, Round2_TeamNum15)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(290, 820);
     int result = steam(window, size, position);
     window.close();
@@ -1407,7 +1405,7 @@ TEST(Steam, Round2_TeamNum15)
 TEST(Steam, Round2_TeamNum16)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(290, 850);
     int result = steam(window, size, position);
     window.close();
@@ -1416,13 +1414,12 @@ TEST(Steam, Round2_TeamNum16)
 }
 //--------------------------------------------------
 
-
-//Steam3---------------------------------------------
+// Steam3---------------------------------------------
 
 TEST(Steam, Round3_TeamNum1)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(600, 110);
     int result = steam(window, size, position);
     window.close();
@@ -1433,7 +1430,7 @@ TEST(Steam, Round3_TeamNum1)
 TEST(Steam, Round3_TeamNum2)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(600, 130);
     int result = steam(window, size, position);
     window.close();
@@ -1444,7 +1441,7 @@ TEST(Steam, Round3_TeamNum2)
 TEST(Steam, Round3_TeamNum3)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(600, 320);
     int result = steam(window, size, position);
     window.close();
@@ -1455,7 +1452,7 @@ TEST(Steam, Round3_TeamNum3)
 TEST(Steam, Round3_TeamNum4)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(600, 350);
     int result = steam(window, size, position);
     window.close();
@@ -1466,7 +1463,7 @@ TEST(Steam, Round3_TeamNum4)
 TEST(Steam, Round3_TeamNum5)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(600, 550);
     int result = steam(window, size, position);
     window.close();
@@ -1477,7 +1474,7 @@ TEST(Steam, Round3_TeamNum5)
 TEST(Steam, Round3_TeamNum6)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(600, 570);
     int result = steam(window, size, position);
     window.close();
@@ -1488,7 +1485,7 @@ TEST(Steam, Round3_TeamNum6)
 TEST(Steam, Round3_TeamNum7)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(600, 770);
     int result = steam(window, size, position);
     window.close();
@@ -1499,7 +1496,7 @@ TEST(Steam, Round3_TeamNum7)
 TEST(Steam, Round3_TeamNum8)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
+    int size = 32;
     Vector2i position = Vector2i(600, 790);
     int result = steam(window, size, position);
     window.close();
@@ -1508,14 +1505,13 @@ TEST(Steam, Round3_TeamNum8)
 }
 //--------------------------------------------------
 
-
-//Steam4---------------------------------------------
+// Steam4---------------------------------------------
 
 TEST(Steam, Round4_TeamNum1)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
-    Vector2i position = Vector2i(600, 220);
+    int size = 32;
+    Vector2i position = Vector2i(820, 220);
     int result = steam(window, size, position);
     window.close();
     int expected = 300;
@@ -1525,8 +1521,8 @@ TEST(Steam, Round4_TeamNum1)
 TEST(Steam, Round4_TeamNum2)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
-    Vector2i position = Vector2i(600, 240);
+    int size = 32;
+    Vector2i position = Vector2i(820, 240);
     int result = steam(window, size, position);
     window.close();
     int expected = 301;
@@ -1536,8 +1532,8 @@ TEST(Steam, Round4_TeamNum2)
 TEST(Steam, Round4_TeamNum3)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
-    Vector2i position = Vector2i(600, 660);
+    int size = 32;
+    Vector2i position = Vector2i(820, 660);
     int result = steam(window, size, position);
     window.close();
     int expected = 302;
@@ -1547,8 +1543,8 @@ TEST(Steam, Round4_TeamNum3)
 TEST(Steam, Round4_TeamNum4)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
-    Vector2i position = Vector2i(600, 680);
+    int size = 32;
+    Vector2i position = Vector2i(820, 680);
     int result = steam(window, size, position);
     window.close();
     int expected = 303;
@@ -1556,14 +1552,13 @@ TEST(Steam, Round4_TeamNum4)
 }
 //--------------------------------------------------
 
-
-//Steam5---------------------------------------------
+// Steam5---------------------------------------------
 
 TEST(Steam, Round5_TeamNum1)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
-    Vector2i position = Vector2i(600, 430);
+    int size = 32;
+    Vector2i position = Vector2i(1020, 430);
     int result = steam(window, size, position);
     window.close();
     int expected = 400;
@@ -1573,8 +1568,8 @@ TEST(Steam, Round5_TeamNum1)
 TEST(Steam, Round5_TeamNum2)
 {
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    int size=32;
-    Vector2i position = Vector2i(600, 450);
+    int size = 32;
+    Vector2i position = Vector2i(1020, 450);
     int result = steam(window, size, position);
     window.close();
     int expected = 401;
@@ -1582,10 +1577,10 @@ TEST(Steam, Round5_TeamNum2)
 }
 //--------------------------------------------------
 
-//Column---------------------------------------------
+// Column---------------------------------------------
 TEST(Column, TeamNum2)
 {
-    int size=2;
+    int size = 2;
     int a1[size], b2[size], c3[size], d4[size];
     for (int i = 0; i < size; i++) {
         a1[i] = -1;
@@ -1601,11 +1596,15 @@ TEST(Column, TeamNum2)
     char** rnd5;
 
     team = new char*[size];
+    rnd2 = new char*[size];
+    rnd3 = new char*[size];
+    rnd4 = new char*[size];
+    rnd5 = new char*[size];
     for (int i = 0; i < size; i++) {
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -1621,23 +1620,42 @@ TEST(Column, TeamNum2)
         *rnd5[i] = ' ';
     }
 
-
     int r2 = 1, r3 = 1, r4 = 1, r5 = 1;
     Font font;
     font.loadFromFile("font/ubuntu.ttf");
     RenderWindow window(VideoMode(1500, 900), "Menu");
 
-
-    int result = column(window,team,font,size,rnd2,rnd3,rnd4,rnd5,a1,b2,c3,d4,r2,r3,r4,r5);
+    int result = column(
+            window,
+            team,
+            font,
+            size,
+            rnd2,
+            rnd3,
+            rnd4,
+            rnd5,
+            a1,
+            b2,
+            c3,
+            d4,
+            r2,
+            r3,
+            r4,
+            r5);
 
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
-      free (rnd2[i]);
-      free (rnd3[i]);
-      free (rnd4[i]);
-      free (rnd5[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
+        delete (rnd2[i]);
+        delete (rnd3[i]);
+        delete (rnd4[i]);
+        delete (rnd5[i]);
     }
+    delete (team);
+    delete (rnd2);
+    delete (rnd3);
+    delete (rnd4);
+    delete (rnd5);
     int expected = 0;
 
     EXPECT_EQ(expected, result);
@@ -1645,7 +1663,7 @@ TEST(Column, TeamNum2)
 
 TEST(Column, TeamNum4)
 {
-    int size=4;
+    int size = 4;
     int a1[size], b2[size], c3[size], d4[size];
     for (int i = 0; i < size; i++) {
         a1[i] = -1;
@@ -1661,11 +1679,15 @@ TEST(Column, TeamNum4)
     char** rnd5;
 
     team = new char*[size];
+    rnd2 = new char*[size];
+    rnd3 = new char*[size];
+    rnd4 = new char*[size];
+    rnd5 = new char*[size];
     for (int i = 0; i < size; i++) {
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -1681,23 +1703,42 @@ TEST(Column, TeamNum4)
         *rnd5[i] = ' ';
     }
 
-
     int r2 = 1, r3 = 1, r4 = 1, r5 = 1;
     Font font;
     font.loadFromFile("font/ubuntu.ttf");
     RenderWindow window(VideoMode(1500, 900), "Menu");
 
-
-    int result = column(window,team,font,size,rnd2,rnd3,rnd4,rnd5,a1,b2,c3,d4,r2,r3,r4,r5);
+    int result = column(
+            window,
+            team,
+            font,
+            size,
+            rnd2,
+            rnd3,
+            rnd4,
+            rnd5,
+            a1,
+            b2,
+            c3,
+            d4,
+            r2,
+            r3,
+            r4,
+            r5);
 
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
-      free (rnd2[i]);
-      free (rnd3[i]);
-      free (rnd4[i]);
-      free (rnd5[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
+        delete (rnd2[i]);
+        delete (rnd3[i]);
+        delete (rnd4[i]);
+        delete (rnd5[i]);
     }
+    delete (team);
+    delete (rnd2);
+    delete (rnd3);
+    delete (rnd4);
+    delete (rnd5);
     int expected = 1;
 
     EXPECT_EQ(expected, result);
@@ -1705,7 +1746,7 @@ TEST(Column, TeamNum4)
 
 TEST(Column, TeamNum8)
 {
-    int size=8;
+    int size = 8;
     int a1[size], b2[size], c3[size], d4[size];
     for (int i = 0; i < size; i++) {
         a1[i] = -1;
@@ -1721,11 +1762,15 @@ TEST(Column, TeamNum8)
     char** rnd5;
 
     team = new char*[size];
+    rnd2 = new char*[size];
+    rnd3 = new char*[size];
+    rnd4 = new char*[size];
+    rnd5 = new char*[size];
     for (int i = 0; i < size; i++) {
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -1741,23 +1786,42 @@ TEST(Column, TeamNum8)
         *rnd5[i] = ' ';
     }
 
-
     int r2 = 1, r3 = 1, r4 = 1, r5 = 1;
     Font font;
     font.loadFromFile("font/ubuntu.ttf");
     RenderWindow window(VideoMode(1500, 900), "Menu");
 
-
-    int result = column(window,team,font,size,rnd2,rnd3,rnd4,rnd5,a1,b2,c3,d4,r2,r3,r4,r5);
+    int result = column(
+            window,
+            team,
+            font,
+            size,
+            rnd2,
+            rnd3,
+            rnd4,
+            rnd5,
+            a1,
+            b2,
+            c3,
+            d4,
+            r2,
+            r3,
+            r4,
+            r5);
 
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
-      free (rnd2[i]);
-      free (rnd3[i]);
-      free (rnd4[i]);
-      free (rnd5[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
+        delete (rnd2[i]);
+        delete (rnd3[i]);
+        delete (rnd4[i]);
+        delete (rnd5[i]);
     }
+    delete (team);
+    delete (rnd2);
+    delete (rnd3);
+    delete (rnd4);
+    delete (rnd5);
     int expected = 2;
 
     EXPECT_EQ(expected, result);
@@ -1765,7 +1829,7 @@ TEST(Column, TeamNum8)
 
 TEST(Column, TeamNum16)
 {
-    int size=16;
+    int size = 16;
     int a1[size], b2[size], c3[size], d4[size];
     for (int i = 0; i < size; i++) {
         a1[i] = -1;
@@ -1781,11 +1845,15 @@ TEST(Column, TeamNum16)
     char** rnd5;
 
     team = new char*[size];
+    rnd2 = new char*[size];
+    rnd3 = new char*[size];
+    rnd4 = new char*[size];
+    rnd5 = new char*[size];
     for (int i = 0; i < size; i++) {
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -1801,23 +1869,42 @@ TEST(Column, TeamNum16)
         *rnd5[i] = ' ';
     }
 
-
     int r2 = 1, r3 = 1, r4 = 1, r5 = 1;
     Font font;
     font.loadFromFile("font/ubuntu.ttf");
     RenderWindow window(VideoMode(1500, 900), "Menu");
 
-
-    int result = column(window,team,font,size,rnd2,rnd3,rnd4,rnd5,a1,b2,c3,d4,r2,r3,r4,r5);
+    int result = column(
+            window,
+            team,
+            font,
+            size,
+            rnd2,
+            rnd3,
+            rnd4,
+            rnd5,
+            a1,
+            b2,
+            c3,
+            d4,
+            r2,
+            r3,
+            r4,
+            r5);
 
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
-      free (rnd2[i]);
-      free (rnd3[i]);
-      free (rnd4[i]);
-      free (rnd5[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
+        delete (rnd2[i]);
+        delete (rnd3[i]);
+        delete (rnd4[i]);
+        delete (rnd5[i]);
     }
+    delete (team);
+    delete (rnd2);
+    delete (rnd3);
+    delete (rnd4);
+    delete (rnd5);
     int expected = 3;
 
     EXPECT_EQ(expected, result);
@@ -1825,7 +1912,7 @@ TEST(Column, TeamNum16)
 
 TEST(Column, TeamNum32)
 {
-    int size=32;
+    int size = 32;
     int a1[size], b2[size], c3[size], d4[size];
     for (int i = 0; i < size; i++) {
         a1[i] = -1;
@@ -1841,11 +1928,15 @@ TEST(Column, TeamNum32)
     char** rnd5;
 
     team = new char*[size];
+    rnd2 = new char*[size];
+    rnd3 = new char*[size];
+    rnd4 = new char*[size];
+    rnd5 = new char*[size];
     for (int i = 0; i < size; i++) {
         team[i] = new char[30];
         char str[30] = "TeamNum";
         char num[30];
-        sprintf(num, "%d", i+1);
+        sprintf(num, "%d", i + 1);
         strcat(str, num);
         strcpy(team[i], str);
     }
@@ -1861,40 +1952,48 @@ TEST(Column, TeamNum32)
         *rnd5[i] = ' ';
     }
 
-
     int r2 = 1, r3 = 1, r4 = 1, r5 = 1;
     Font font;
     font.loadFromFile("font/ubuntu.ttf");
     RenderWindow window(VideoMode(1500, 900), "Menu");
 
-
-    int result = column(window,team,font,size,rnd2,rnd3,rnd4,rnd5,a1,b2,c3,d4,r2,r3,r4,r5);
+    int result = column(
+            window,
+            team,
+            font,
+            size,
+            rnd2,
+            rnd3,
+            rnd4,
+            rnd5,
+            a1,
+            b2,
+            c3,
+            d4,
+            r2,
+            r3,
+            r4,
+            r5);
 
     window.close();
-    for(int i=0;i<size;i++){
-      free (team[i]);
-      free (rnd2[i]);
-      free (rnd3[i]);
-      free (rnd4[i]);
-      free (rnd5[i]);
+    for (int i = 0; i < size; i++) {
+        delete (team[i]);
+        delete (rnd2[i]);
+        delete (rnd3[i]);
+        delete (rnd4[i]);
+        delete (rnd5[i]);
     }
+    delete (team);
+    delete (rnd2);
+    delete (rnd3);
+    delete (rnd4);
+    delete (rnd5);
     int expected = 4;
 
     EXPECT_EQ(expected, result);
 }
 
-
-
-
-
-
 //--------------------------------------------------
-*/
-
-
-
-
-
 
 int main(int argc, char** argv)
 {

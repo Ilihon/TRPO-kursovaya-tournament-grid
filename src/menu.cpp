@@ -1,8 +1,10 @@
 #include "menu.h"
 
+
 void menu(RenderWindow& window)
 {
     window.clear();
+    while(svit==1){
 
     Texture menuTexture1, menuTexture2, menuTexture3, menuBackground;
     menuTexture1.loadFromFile("images/1111.png");
@@ -59,6 +61,16 @@ void menu(RenderWindow& window)
         menuNum = 0;
         window.clear(Color(8, 186, 222));
 
+
+        Event event;
+        window.pollEvent(event);
+        if (event.type == Event::Closed){
+          svit=10;
+          window.close();
+          isMenu = false;
+        }
+
+
         if (IntRect(620, 200, 125, 50).contains(Mouse::getPosition(window))) {
             menu1.setColor(Color::Blue);
             menuNum = 1;
@@ -74,8 +86,8 @@ void menu(RenderWindow& window)
 
         if (Mouse::isButtonPressed(Mouse::Left)) {
             if (menuNum == 1) {
-                fon += 1;
-
+                fon = 1;
+                svit=2;
                 isMenu = false;
             }
             if (menuNum == 2) {
@@ -89,6 +101,7 @@ void menu(RenderWindow& window)
                 window.clear();
             }
             if (menuNum == 3) {
+                svit=10;
                 window.close();
                 isMenu = false;
             }
@@ -103,7 +116,7 @@ void menu(RenderWindow& window)
         window.draw(menu3);
         window.display();
 
-        if (fon > 0) {
+        if (fon == 1) {
             Texture stk;
             stk.loadFromFile("images/stk.jpg");
 
@@ -113,4 +126,56 @@ void menu(RenderWindow& window)
             window.display();
         }
     }
+  }
+  while(svit==3){
+    Texture WinnerBackground;
+    WinnerBackground.loadFromFile("images/winnerbackground.jpg");
+    Sprite WinBg(WinnerBackground);
+    WinBg.setPosition(-80, 0);
+
+
+    Font font;
+    font.loadFromFile("font/ubuntu.ttf");
+
+    int v=strlen(winner);
+
+    Text text_win(winner, font, 40);
+    text_win.setFillColor(Color::Red);
+    text_win.setStyle(Text::Bold);
+    text_win.setPosition(740-v*12, 520);
+
+    Text congrats("Conrats!", font, 80);
+    congrats.setFillColor(Color::Red);
+    congrats.setStyle(Text::Bold);
+    congrats.setPosition(600, 80);
+
+
+
+    bool isMenu = 1;
+    while (isMenu) {
+
+
+          Event event;
+          window.pollEvent(event);
+          if (event.type == Event::Closed){
+            svit=10;
+            window.close();
+            isMenu = false;
+          }
+
+
+
+          window.draw(WinBg);
+          window.draw(congrats);
+          window.draw(text_win);
+          window.display();
+          if (Keyboard::isKeyPressed(Keyboard::Escape)) {
+            isMenu = false;
+            svit=1;
+            winner_pos=3;
+            strcpy(winner," ");
+          }
+    }
+  }
+  return;
 }
