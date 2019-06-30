@@ -28,10 +28,14 @@ int column(
     int t, c, newsize,win_proof;
     newsize = (size + 1) / 2;
     if (size <= 2){
+      if(winner_pos!=3){
         strcpy(winner,team[winner_pos]);
+      }
+      if (strcmp(winner," ")!=0){
         svit=3;
-        newsize = 0;
-        return 0;
+      }
+      newsize = 0;
+      return 0;
     }
     // 1ый раунд -> 2ой раунд----------------------
     win_proof=0;

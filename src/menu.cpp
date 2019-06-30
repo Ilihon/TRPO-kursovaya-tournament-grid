@@ -128,6 +128,28 @@ void menu(RenderWindow& window)
     }
   }
   while(svit==3){
+    Texture WinnerBackground;
+    WinnerBackground.loadFromFile("images/winnerbackground.jpg");
+    Sprite WinBg(WinnerBackground);
+    WinBg.setPosition(-80, 0);
+
+
+    Font font;
+    font.loadFromFile("font/ubuntu.ttf");
+
+    int v=strlen(winner);
+
+    Text text_win(winner, font, 40);
+    text_win.setFillColor(Color::Red);
+    text_win.setStyle(Text::Bold);
+    text_win.setPosition(740-v*12, 520);
+
+    Text congrats("Conrats!", font, 80);
+    congrats.setFillColor(Color::Red);
+    congrats.setStyle(Text::Bold);
+    congrats.setPosition(600, 80);
+
+
 
     bool isMenu = 1;
     while (isMenu) {
@@ -140,15 +162,20 @@ void menu(RenderWindow& window)
             window.close();
             isMenu = false;
           }
+
+
+
+          window.draw(WinBg);
+          window.draw(congrats);
+          window.draw(text_win);
+          window.display();
           if (Keyboard::isKeyPressed(Keyboard::Escape)) {
             isMenu = false;
             svit=1;
+            winner_pos=3;
+            strcpy(winner," ");
           }
-
-
-
-          window.display();
     }
   }
-    return;
+  return;
 }

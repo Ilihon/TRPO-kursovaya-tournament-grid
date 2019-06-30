@@ -206,6 +206,10 @@ int main()
     int r2 = 0, r3 = 0, r4 = 0, r5 = 0;
 
     while (window.isOpen()) {
+        if (svit==3){
+          menu(window);
+          goto Again;
+        }
         Event event;
 
         while (window.pollEvent(event)) {
@@ -232,10 +236,10 @@ int main()
                   svit=1;
                     r2 = 0, r3 = 0, r4 = 0, r5 = 0;
                     for (int i = 0; i < size; i++) {
-                    *rnd2[i] = ' ';
-                    *rnd3[i] = ' ';
-                    *rnd4[i] = ' ';
-                    *rnd5[i] = ' ';
+                    strcpy(rnd2[i], " ");
+                    strcpy(rnd3[i], " ");
+                    strcpy(rnd4[i], " ");
+                    strcpy(rnd5[i], " ");
                     a1[i]=-1;
                     b2[i]=-1;
                     c3[i]=-1;
@@ -315,25 +319,7 @@ int main()
             }
 
             if ((Keyboard::isKeyPressed(Keyboard::Return))&&(svit==2)) {
-                column(window,
-                       team,
-                       font,
-                       size,
-                       rnd2,
-                       rnd3,
-                       rnd4,
-                       rnd5,
-                       a1,
-                       b2,
-                       c3,
-                       d4,
-                       r2,
-                       r3,
-                       r4,
-                       r5);
-                if (svit==3){
-                  menu(window);
-                }
+                column(window,team,font,size,rnd2,rnd3,rnd4,rnd5,a1,b2,c3,d4,r2,r3,r4,r5);
             }
         }
     }
