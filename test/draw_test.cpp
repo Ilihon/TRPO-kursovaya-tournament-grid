@@ -1,6 +1,6 @@
 #include "draw_test.h"
 
-int draw(int size)
+int draw(RenderWindow& window, char* team[], Font font, int size);
 {
   int t = 10; //переменнfz используемая в отрисовке сетке,
                       //для увелечения дистанции мду элементами

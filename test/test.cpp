@@ -1,7 +1,6 @@
-#include "../src/menu.h"
-#include "../src/draw.h"
-#include "../src/steam.h"
-#include "../src/column.h"
+#include "draw.h"
+#include "steam.h"
+#include "column.h"
 #include "gtest/gtest.h"
 
 

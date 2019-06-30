@@ -11,7 +11,7 @@
 using namespace sf;
 using namespace std;
 
-int column_test(
+int column(
         RenderWindow& window,
         char* team[],
         Font font,
