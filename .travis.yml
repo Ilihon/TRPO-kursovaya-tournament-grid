@@ -8,4 +8,4 @@ branches:
   - develop
 
 script:
-  - make
+  - make	

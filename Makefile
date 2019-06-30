@@ -33,7 +33,4 @@ clean:
 	rm -f $(DIR_BIN)/main
 	rm -f $(DIR_BUILD)/*.o
 
-format:
-	clang-format -i $(DIR_SRC)/*.h
-	clang-format -i $(DIR_SRC)/*.cpp  
 	
