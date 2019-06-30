@@ -40,10 +40,6 @@ int column(
                 c = 0;
             }
 
-            for (int j = 1; j < 100000; j++) {
-                j = j;
-            }
-
             if (a1[i] != -1) {
                 strcpy(rnd2[i], team[a1[i]]);
             } else {
@@ -75,10 +71,6 @@ int column(
             if (c == 2) {
                 t += 169;
                 c = 0;
-            }
-
-            for (int j = 1; j < 1000000; j++) {
-                j = j;
             }
 
             if (b2[i] != -1) {
@@ -113,10 +105,6 @@ int column(
             if (c == 2) {
                 t += 389;
                 c = 0;
-            }
-
-            for (int j = 1; j < 1000000; j++) {
-                j = j;
             }
 
             if (c3[i] != -1) {

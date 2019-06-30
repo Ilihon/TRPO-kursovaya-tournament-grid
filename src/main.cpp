@@ -309,8 +309,7 @@ int main()
 
                 break;
             }
-            for (int j = 0; j < 1000; j++)
-                j = j;
+            
             if ((Keyboard::isKeyPressed(Keyboard::Return))&&(svit==2)) {
                 column(window,
                        team,

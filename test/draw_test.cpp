@@ -1,6 +1,6 @@
-#include "draw.h"
+#include "draw_test.h"
 
-int draw(RenderWindow& window, char* team[], Font font, int size)
+int draw(int size)
 {
   int t = 10; //переменнfz используемая в отрисовке сетке,
                       //для увелечения дистанции мду элементами
@@ -41,9 +41,6 @@ int draw(RenderWindow& window, char* team[], Font font, int size)
 
       window.draw(rectangle);
       window.draw(text);
-
-      window.display();
-
       t += 24;
       c++;
   }
