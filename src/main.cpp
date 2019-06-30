@@ -169,7 +169,9 @@ int main()
         *rnd4[i] = ' ';
         *rnd5[i] = ' ';
     }
-
+  //  float scrX = GetSystemMetrics(SM_CXSCREEN);
+    //	float scrY = GetSystemMetrics(SM_CYSCREEN);
+    //	RenderWindow window(VideoMode(scrX, scrY), "Menu", Style::Fullscreen);
     RenderWindow window(VideoMode(1500, 900), "Menu");
 
     Texture men;
