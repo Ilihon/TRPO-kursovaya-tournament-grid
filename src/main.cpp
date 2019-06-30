@@ -200,6 +200,19 @@ int main()
                 Again:
                     menu(window);
 
+
+                    r2 = 0, r3 = 0, r4 = 0, r5 = 0;
+                    for (int i = 0; i < size; i++) {
+                      *rnd2[i] = ' ';
+                      *rnd3[i] = ' ';
+                      *rnd4[i] = ' ';
+                      *rnd5[i] = ' ';
+                      a1[i]=-1;
+                      b2[i]=-1;
+                      c3[i]=-1;
+                      d4[i]=-1;
+                  }
+
                     Text text("", font, 10);
                     text.setFillColor(Color::Red);
 
