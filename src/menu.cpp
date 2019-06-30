@@ -1,5 +1,6 @@
 #include "menu.h"
 
+
 void menu(RenderWindow& window)
 {
     window.clear();
@@ -84,7 +85,7 @@ void menu(RenderWindow& window)
         if (Mouse::isButtonPressed(Mouse::Left)) {
             if (menuNum == 1) {
                 fon += 1;
-
+                svit=2;
                 isMenu = false;
             }
             if (menuNum == 2) {

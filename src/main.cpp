@@ -12,6 +12,8 @@
 using namespace sf;
 using namespace std;
 
+int svit=0;
+
 int main()
 {
     //////////////////
@@ -21,7 +23,6 @@ int main()
     cout << "Enter team num(2-32): ";
     cin.getline(sizestring,256);
     size = atoi(sizestring);
-
     while (size < 2 || size > 32) {
         puts("Uncorrect team count!");
         cout <<"Please enter team num again: ";
@@ -212,23 +213,25 @@ int main()
               delete (rnd4);
               delete (rnd5);
               window.close();
+              return 0;
            }
 
             if (event.type == Event::KeyPressed)
-                if (event.key.code == Keyboard::Space) {
+                if ((event.key.code == Keyboard::Space)&&(svit==0)){
                 Again:{
-                    menu(window);
+                  svit=1;
                     r2 = 0, r3 = 0, r4 = 0, r5 = 0;
                     for (int i = 0; i < size; i++) {
-                      *rnd2[i] = ' ';
-                      *rnd3[i] = ' ';
-                      *rnd4[i] = ' ';
-                      *rnd5[i] = ' ';
-                      a1[i]=-1;
-                      b2[i]=-1;
-                      c3[i]=-1;
-                      d4[i]=-1;
+                    *rnd2[i] = ' ';
+                    *rnd3[i] = ' ';
+                    *rnd4[i] = ' ';
+                    *rnd5[i] = ' ';
+                    a1[i]=-1;
+                    b2[i]=-1;
+                    c3[i]=-1;
+                    d4[i]=-1;
                     }
+                    menu(window);
                   }
 
                     Text text("", font, 10);
@@ -237,10 +240,10 @@ int main()
                     draw(window, team, font, size);
                     break;
                 }
-            if (Keyboard::isKeyPressed(Keyboard::Escape)) {
+            if ((Keyboard::isKeyPressed(Keyboard::Escape))&&(svit>0)) {
                 goto Again;
             }
-            if (Mouse::isButtonPressed(Mouse::Left)) {
+            if ((Mouse::isButtonPressed(Mouse::Left))&&(svit==2)) {
                 Vector2i position = Mouse::getPosition(window);
                 int x = steam(window, size, position);
                 // 1rst column--------------
@@ -282,7 +285,7 @@ int main()
             }
             for (int j = 0; j < 1000; j++)
                 j = j;
-            if (Keyboard::isKeyPressed(Keyboard::Return)) {
+            if ((Keyboard::isKeyPressed(Keyboard::Return))&&(svit==2)) {
                 column(window,
                        team,
                        font,
