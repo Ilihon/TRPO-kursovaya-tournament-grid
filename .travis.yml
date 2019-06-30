@@ -8,5 +8,4 @@ branches:
   - develop
 
 script:
-  - make && make test
-  - ./runtest.sh	
+  - make && make test	
