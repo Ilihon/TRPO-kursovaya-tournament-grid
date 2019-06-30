@@ -331,6 +331,9 @@ int main()
                        r3,
                        r4,
                        r5);
+                if (svit==3){
+                  menu(window);
+                }
             }
         }
     }

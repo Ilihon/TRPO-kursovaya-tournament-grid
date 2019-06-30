@@ -4,6 +4,7 @@
 void menu(RenderWindow& window)
 {
     window.clear();
+    while(svit==1){
 
     Texture menuTexture1, menuTexture2, menuTexture3, menuBackground;
     menuTexture1.loadFromFile("images/1111.png");
@@ -64,8 +65,9 @@ void menu(RenderWindow& window)
         Event event;
         window.pollEvent(event);
         if (event.type == Event::Closed){
+          svit=10;
           window.close();
-          return;
+          isMenu = false;
         }
 
 
@@ -99,6 +101,7 @@ void menu(RenderWindow& window)
                 window.clear();
             }
             if (menuNum == 3) {
+                svit=10;
                 window.close();
                 isMenu = false;
             }
@@ -123,5 +126,29 @@ void menu(RenderWindow& window)
             window.display();
         }
     }
+  }
+  while(svit==3){
+
+    bool isMenu = 1;
+    while (isMenu) {
+
+
+          Event event;
+          window.pollEvent(event);
+          if (event.type == Event::Closed){
+            svit=10;
+            window.close();
+            isMenu = false;
+          }
+          if (Keyboard::isKeyPressed(Keyboard::Escape)) {
+            isMenu = false;
+            svit=1;
+          }
+
+
+
+          window.display();
+    }
+  }
     return;
 }
