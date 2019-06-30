@@ -13,7 +13,7 @@ using namespace sf;
 using namespace std;
 
 int svit=0;
-int winner_pos=0;
+int winner_pos=3;
 char winner[30]=" ";
 
 int main()
@@ -171,10 +171,10 @@ int main()
             return 1; // выход по ошибке, код ошибки 1
         }
 
-        *rnd2[i] = ' ';
-        *rnd3[i] = ' ';
-        *rnd4[i] = ' ';
-        *rnd5[i] = ' ';
+        strcpy(rnd2[i]," ");
+        strcpy(rnd3[i]," ");
+        strcpy(rnd4[i]," ");
+        strcpy(rnd5[i]," ");
     }
     //float scrX = window.getSize().x;
     //float scrY = window.getSize().y;
