@@ -18,10 +18,8 @@ int column(
         int r4,
         int r5)
 {
-    //  if (Keyboard::isKeyPressed(Keyboard::Return)) {
     Text text("", font, 10);
     text.setFillColor(Color::Red);
-    // window.clear();
     draw(window, team, font, size);
     window.display();
 

@@ -11,6 +11,6 @@
 using namespace sf;
 using namespace std;
 
-int draw(int size);
+int draw_test(int size);
 
 #endif
