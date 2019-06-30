@@ -18,11 +18,11 @@ int main()
     setlocale(LC_ALL, "Rus");
     char sizestring[2];
     int size; //кол-во комманд
-    cout << "Enter team num(1-32): ";
+    cout << "Enter team num(2-32): ";
     cin >> sizestring;
     size = atoi(sizestring);
 
-    while (size < 1 || size > 32) {
+    while (size < 2 || size > 32) {
         puts("Uncorrect team count!");
         puts("Please enter team num again!");
         cin >> sizestring;
@@ -47,14 +47,15 @@ int main()
     cout << "Enter team namesf? (y/n) \n";
     char g[1]; //
     cin >> g;
+
     while ((strcmp(g, "y") != 0) && (strcmp(g, "Y") != 0)
            && (strcmp(g, "n") != 0) && (strcmp(g, "N") != 0)) {
         cout << "Yes OR Not?\n";
-        cin >> g;
+        cin >>g;
     }
 
-    if ((strcmp(g, "y") == 0)
-        || (strcmp(g, "Y") == 0)) { //считываем имена комманд
+    if ((strcmp(g, "y") == 0) || (strcmp(g, "Y") == 0)) { //считываем имена комманд
+        cin.getline(g,1);
         for (int i = 0; i < size; i++) {
             team[i] = new char[30];
 
