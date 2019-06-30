@@ -72,6 +72,10 @@ int main()
                 puts("Please, enter team name with 30 or less characters");
                 cin.getline(sizestring, 256);
             }
+            while(strcmp(sizestring," ")==0){
+                puts("Please, enter non empty team name");
+                cin.getline(sizestring, 256);
+            }
             strcpy(team[i],sizestring);
         }
     } else { //генерируем имена комманд
@@ -309,7 +313,7 @@ int main()
 
                 break;
             }
-            
+
             if ((Keyboard::isKeyPressed(Keyboard::Return))&&(svit==2)) {
                 column(window,
                        team,
