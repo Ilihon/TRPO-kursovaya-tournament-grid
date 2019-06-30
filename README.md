@@ -1,7 +1,7 @@
 # Генератор турнирной сетки
 
 Курсовой проект по дисциплине Технологии разработки программного обеспечения.
-https://travis-ci.org/Ilihon/TRPO-kursovaya-tournament-grid.svg?branch=develop
+[![Build Status](https://travis-ci.org/Ilihon/TRPO-kursovaya-tournament-grid.svg?branch=develop)
 
 # О проекте
 Проект представляет собой консольной приложение с использованием графических библиотек SFML, разработанное для OC Linux. 
