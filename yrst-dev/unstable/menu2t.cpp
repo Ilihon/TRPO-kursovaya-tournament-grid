@@ -549,7 +549,7 @@ void(draw)(
     newsize = (size+1) / 2;
     if (size <= 2)
            newsize = 0;
-    if (stop == 0) {
+    if ((stop == 0) && (newsize>0))  {
         c = 0;
         t = 36;
         for (int i = 0; i < newsize; i++) {
@@ -583,7 +583,7 @@ void(draw)(
     if (newsize<=2)
   newsize=0;
     newsize = (newsize+1)/2;
-    if (stop == 1) {
+    if ((stop == 1) && (newsize>0)) {
         c = 0;
         t = 97;
         for (int i = 0; i < newsize; i++) {
@@ -617,7 +617,7 @@ void(draw)(
     if (newsize<=2)
   newsize=0;
     newsize=(newsize+1)/2;
-    if (stop == 2) {
+    if ((stop == 2) && (newsize>0))  {
         c = 0;
         t = 205;
         for (int i = 0; i < newsize; i++) {

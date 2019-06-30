@@ -40,23 +40,25 @@ int main()
     /////////////////проверка на выделение памяти
     if (team == NULL) {
         printf("Failed to allocate memory");
-  return 1; // выход по ошибке, код ошибки 1
+        return 1; // выход по ошибке, код ошибки 1
     }
 
     //сгенерировать или считать имена комманд
     cout << "Enter team namesf? (y/n) \n";
     char g[1]; //
     cin >> g;
-    while ((strcmp(g,"y")!=0) && (strcmp(g,"Y")!=0) && (strcmp(g,"n")!=0) && (strcmp(g,"N")!=0)) {
+    while ((strcmp(g, "y") != 0) && (strcmp(g, "Y") != 0)
+           && (strcmp(g, "n") != 0) && (strcmp(g, "N") != 0)) {
         cout << "Yes OR Not?\n";
-        cin>>g;
+        cin >> g;
     }
 
-    if ((strcmp(g,"y")==0) || (strcmp(g,"Y")==0)){ //считываем имена комманд
+    if ((strcmp(g, "y") == 0)
+        || (strcmp(g, "Y") == 0)) { //считываем имена комманд
         for (int i = 0; i < size; i++) {
             team[i] = new char[30];
 
-      /////////////////проверка на выделение памяти
+            /////////////////проверка на выделение памяти
             if (team[i] == NULL) {
                 printf("Failed to allocate memory");
                 return 1; // выход по ошибке, код ошибки 1
@@ -67,7 +69,7 @@ int main()
         for (int i = 0; i < size; i++) {
             team[i] = new char[30];
 
-        /////////////////проверка на выделение памяти
+            /////////////////проверка на выделение памяти
             if (team[i] == NULL) {
                 printf("Failed to allocate memory");
                 return 1; // выход по ошибке, код ошибки 1
@@ -75,7 +77,7 @@ int main()
 
             char str[30] = "TeamNum";
             char num[30];
-            sprintf(num, "%d", i+1);
+            sprintf(num, "%d", i + 1);
             strcat(str, num);
             strcpy(team[i], str);
         }
@@ -185,17 +187,31 @@ int main()
     window.display();
 
     int r2 = 0, r3 = 0, r4 = 0, r5 = 0;
+
     while (window.isOpen()) {
         Event event;
 
         while (window.pollEvent(event)) {
-          if (event.type == Event::Closed)
+            if (event.type == Event::Closed)
                 window.close();
 
-                if (event.type == Event::KeyPressed)
+            if (event.type == Event::KeyPressed)
                 if (event.key.code == Keyboard::Space) {
                 Again:
                     menu(window);
+
+
+                    r2 = 0, r3 = 0, r4 = 0, r5 = 0;
+                    for (int i = 0; i < size; i++) {
+                      *rnd2[i] = ' ';
+                      *rnd3[i] = ' ';
+                      *rnd4[i] = ' ';
+                      *rnd5[i] = ' ';
+                      a1[i]=-1;
+                      b2[i]=-1;
+                      c3[i]=-1;
+                      d4[i]=-1;
+                  }
 
                     Text text("", font, 10);
                     text.setFillColor(Color::Red);
@@ -203,58 +219,52 @@ int main()
                     draw(window, team, font, size);
                     break;
                 }
-                if (Keyboard::isKeyPressed(Keyboard::Escape))
-                  goto Again;
-                if (Mouse::isButtonPressed(Mouse::Left)) {
-                    int x = steam(window, size);
-                    // 1rst column--------------
-                    if ((x>=0) && (x <= 31)) {
-                      int pl;
-                      pl = x/2;
-
-                      printf("%d\n", pl);
-                      a1[pl] = x;
-                      r2=1;
-                    }
-
-                    // 2nd column--------------
-                    if ((x >= 100) && (x <= 115)) {
-                x = x % 100;
-                int pl;
-                pl = x/2;
-
-                printf("%d\n", pl);
-                b2[pl] = x;
-                r3=1;
-                    }
-
-                    // 3rd column--------------
-                    if ((x >= 200) && (x <= 207)) {
-                          x = x % 100;
-                          int pl;
-                          pl = x /2;
-
-                          printf("%d\n", pl);
-                          c3[pl] = x;
-                          r4=1;
-                    }
-
-                    // 4th column--------------
-                    if ((x >= 300) && (x <= 303)) {
-                          x = x % 100;
-                          int pl;
-              pl = x/2;
-
-                          printf("%d\n", pl);
-                          d4[pl] = x;
-                          r5=1;
-                    }
-
-                    break;
+            if (Keyboard::isKeyPressed(Keyboard::Escape)) {
+                goto Again;
+            }
+            if (Mouse::isButtonPressed(Mouse::Left)) {
+                Vector2i position = Mouse::getPosition(window);
+                int x = steam(window, size, position);
+                // 1rst column--------------
+                if ((x >= 0) && (x <= 31)) {
+                    int pl;
+                    pl = x / 2;
+                    a1[pl] = x;
+                    r2 = 1;
                 }
-                for (int j = 0; j < 1000; j++)
-                    j = j;
 
+                // 2nd column--------------
+                if ((x >= 100) && (x <= 115)) {
+                    x = x % 100;
+                    int pl;
+                    pl = x / 2;
+                    b2[pl] = x;
+                    r3 = 1;
+                }
+
+                // 3rd column--------------
+                if ((x >= 200) && (x <= 207)) {
+                    x = x % 100;
+                    int pl;
+                    pl = x / 2;
+                    c3[pl] = x;
+                    r4 = 1;
+                }
+
+                // 4th column--------------
+                if ((x >= 300) && (x <= 303)) {
+                    x = x % 100;
+                    int pl;
+                    pl = x / 2;
+                    d4[pl] = x;
+                    r5 = 1;
+                }
+
+                break;
+            }
+            for (int j = 0; j < 1000; j++)
+                j = j;
+            if (Keyboard::isKeyPressed(Keyboard::Return)) {
                 column(window,
                        team,
                        font,
@@ -273,6 +283,7 @@ int main()
                        r5);
             }
         }
-
-        return 0;
     }
+
+    return 0;
+}

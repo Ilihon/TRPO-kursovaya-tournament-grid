@@ -11,10 +11,6 @@
 using namespace sf;
 using namespace std;
 
-void draw(
-        RenderWindow& window,
-        char* team[],
-        Font font,
-        int size);
+int draw(RenderWindow& window, char* team[], Font font, int size);
 
 #endif

@@ -22,7 +22,7 @@ void menu(RenderWindow& window)
     text4.setFillColor(Color::Red);
     text5.setFillColor(Color::Red);
 
-    text.setString("Tournament Grid");
+    text.setString("Tournament Grid Generator");
     text2.setString(
             "                             ABOUT PROGRAMM\n\n This program is "
             "an "
@@ -36,7 +36,7 @@ void menu(RenderWindow& window)
     text4.setString(" - Start's the grid generator.");
     text5.setString(" - Read the info about programm first.");
 
-    text.setPosition(550, 100);
+    text.setPosition(460, 100);
 
     Sprite menu1(menuTexture1), menu2(menuTexture2), menu3(menuTexture3),
             menuBg(menuBackground);

@@ -12,7 +12,7 @@
 using namespace sf;
 using namespace std;
 
-void column(
+int column(
         RenderWindow& window,
         char* team[],
         Font font,
