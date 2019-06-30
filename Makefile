@@ -1,5 +1,7 @@
 DIR_BIN = ./bin
+DIR_TEST = ./test
 DIR_BUILD = ./build
+DIR_BUILD_TEST = ./build/test
 DIR_SRC = ./src
 GTEST_DIR = thirdparty/googletest
 
@@ -26,6 +28,12 @@ testlib:
     -pthread -c ${GTEST_DIR}/src/gtest-all.cc -o build/test/gtest-all.o
 	ar -rv build/test/libgtest.a build/test/gtest-all.o
 
+teststart: testbuild $(DIR_BUILD)/menu.o $(DIR_BUILD)/draw.o $(DIR_BUILD)/steam.o $(DIR_BUILD)/column.o
+	g++ -std=c++11 -Wall -Werror -I SFML/include -L SFML/lib -isystem ${GTEST_DIR}/include -pthread \ $^ build/test/libgtest.a \ -lsfml-graphics -lsfml-window -lsfml-system -o $@
+
+testbuild: test/test.cpp
+	g++ -std=c++11 -Wall -Werror -I SFML/include -L SFML/lib $^ -I $(GTEST_DIR)/include -o $@ -lsfml-graphics -lsfml-window -lsfml-system
+
 
 run: all
 	./run.sh
@@ -33,5 +41,6 @@ run: all
 clean:
 	rm -f $(DIR_BIN)/main
 	rm -f $(DIR_BUILD)/*.o
+	rm -f $(DIR_BUILD)/test/*.o
 
 	
