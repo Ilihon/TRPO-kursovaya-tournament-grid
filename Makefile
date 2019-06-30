@@ -1,7 +1,7 @@
 .PHONY=addDir all clean remake test testlib
 
 CC=g++
-CFLAGS=-Wall -c -I SFML/include -L SFML/lib -std=c++11
+CFLAGS=-Wall -c -I SFML/include -std=c++11
 EFLAGS=-L SFML/lib -lsfml-system -lsfml-window -lsfml-graphics
 
 SRC=src/
