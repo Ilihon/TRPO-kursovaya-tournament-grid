@@ -1,5 +1,6 @@
 #include "menu.h"
 
+
 void menu(RenderWindow& window)
 {
     window.clear();
@@ -59,6 +60,15 @@ void menu(RenderWindow& window)
         menuNum = 0;
         window.clear(Color(8, 186, 222));
 
+
+        Event event;
+        window.pollEvent(event);
+        if (event.type == Event::Closed){
+          window.close();
+          return;
+        }
+
+
         if (IntRect(620, 200, 125, 50).contains(Mouse::getPosition(window))) {
             menu1.setColor(Color::Blue);
             menuNum = 1;
@@ -74,8 +84,8 @@ void menu(RenderWindow& window)
 
         if (Mouse::isButtonPressed(Mouse::Left)) {
             if (menuNum == 1) {
-                fon += 1;
-
+                fon = 1;
+                svit=2;
                 isMenu = false;
             }
             if (menuNum == 2) {
@@ -103,7 +113,7 @@ void menu(RenderWindow& window)
         window.draw(menu3);
         window.display();
 
-        if (fon > 0) {
+        if (fon == 1) {
             Texture stk;
             stk.loadFromFile("images/stk.jpg");
 
@@ -113,4 +123,5 @@ void menu(RenderWindow& window)
             window.display();
         }
     }
+    return;
 }

@@ -25,9 +25,9 @@ TEST(Draw, TeamNum1)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 2;
     EXPECT_EQ(expected, result);
 }
@@ -52,9 +52,9 @@ TEST(Draw, TeamNum2)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 2;
     EXPECT_EQ(expected, result);
 }
@@ -79,9 +79,9 @@ TEST(Draw, TeamNum3)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 3;
     EXPECT_EQ(expected, result);
 }
@@ -106,9 +106,9 @@ TEST(Draw, TeamNum4)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 3;
     EXPECT_EQ(expected, result);
 }
@@ -133,9 +133,9 @@ TEST(Draw, TeamNum5)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 4;
     EXPECT_EQ(expected, result);
 }
@@ -160,9 +160,9 @@ TEST(Draw, TeamNum6)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 4;
     EXPECT_EQ(expected, result);
 }
@@ -187,9 +187,9 @@ TEST(Draw, TeamNum7)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 4;
     EXPECT_EQ(expected, result);
 }
@@ -214,9 +214,9 @@ TEST(Draw, TeamNum8)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete(team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 4;
     EXPECT_EQ(expected, result);
 }
@@ -241,9 +241,9 @@ TEST(Draw, TeamNum9)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete(team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 5;
     EXPECT_EQ(expected, result);
 }
@@ -268,9 +268,9 @@ TEST(Draw, TeamNum10)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 5;
     EXPECT_EQ(expected, result);
 }
@@ -295,9 +295,9 @@ TEST(Draw, TeamNum11)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 5;
     EXPECT_EQ(expected, result);
 }
@@ -322,9 +322,9 @@ TEST(Draw, TeamNum12)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 5;
     EXPECT_EQ(expected, result);
 }
@@ -349,9 +349,9 @@ TEST(Draw, TeamNum13)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 5;
     EXPECT_EQ(expected, result);
 }
@@ -376,9 +376,9 @@ TEST(Draw, TeamNum14)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 5;
     EXPECT_EQ(expected, result);
 }
@@ -403,9 +403,9 @@ TEST(Draw, TeamNum15)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 5;
     EXPECT_EQ(expected, result);
 }
@@ -430,9 +430,9 @@ TEST(Draw, TeamNum16)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 5;
     EXPECT_EQ(expected, result);
 }
@@ -457,9 +457,9 @@ TEST(Draw, TeamNum17)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -484,9 +484,9 @@ TEST(Draw, TeamNum18)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -511,9 +511,9 @@ TEST(Draw, TeamNum19)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);;
+    delete(team);;
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -538,9 +538,9 @@ TEST(Draw, TeamNum20)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -565,9 +565,9 @@ TEST(Draw, TeamNum21)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -592,9 +592,9 @@ TEST(Draw, TeamNum22)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -619,9 +619,9 @@ TEST(Draw, TeamNum23)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -646,9 +646,9 @@ TEST(Draw, TeamNum24)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -673,9 +673,9 @@ TEST(Draw, TeamNum25)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -699,9 +699,9 @@ TEST(Draw, TeamNum26)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -726,9 +726,9 @@ TEST(Draw, TeamNum27)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -753,9 +753,9 @@ TEST(Draw, TeamNum28)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -780,9 +780,9 @@ TEST(Draw, TeamNum29)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -807,9 +807,9 @@ TEST(Draw, TeamNum30)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -834,9 +834,9 @@ TEST(Draw, TeamNum31)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -861,9 +861,9 @@ TEST(Draw, TeamNum32)
     int result = draw(window, team, font, size);
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
+      delete (team[i]);
     }
-    free(team);
+    delete(team);
     int expected = 1;
     EXPECT_EQ(expected, result);
 }
@@ -1632,12 +1632,17 @@ TEST(Column, TeamNum2)
 
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
-      free (rnd2[i]);
-      free (rnd3[i]);
-      free (rnd4[i]);
-      free (rnd5[i]);
+      delete (team[i]);
+      delete (rnd2[i]);
+      delete (rnd3[i]);
+      delete (rnd4[i]);
+      delete (rnd5[i]);
     }
+    delete (team);
+    delete (rnd2);
+    delete (rnd3);
+    delete (rnd4);
+    delete (rnd5);
     int expected = 0;
 
     EXPECT_EQ(expected, result);
@@ -1692,12 +1697,17 @@ TEST(Column, TeamNum4)
 
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
-      free (rnd2[i]);
-      free (rnd3[i]);
-      free (rnd4[i]);
-      free (rnd5[i]);
+      delete (team[i]);
+      delete (rnd2[i]);
+      delete (rnd3[i]);
+      delete (rnd4[i]);
+      delete (rnd5[i]);
     }
+    delete (team);
+    delete (rnd2);
+    delete (rnd3);
+    delete (rnd4);
+    delete (rnd5);
     int expected = 1;
 
     EXPECT_EQ(expected, result);
@@ -1752,12 +1762,17 @@ TEST(Column, TeamNum8)
 
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
-      free (rnd2[i]);
-      free (rnd3[i]);
-      free (rnd4[i]);
-      free (rnd5[i]);
+      delete (team[i]);
+      delete (rnd2[i]);
+      delete (rnd3[i]);
+      delete (rnd4[i]);
+      delete (rnd5[i]);
     }
+    delete (team);
+    delete (rnd2);
+    delete (rnd3);
+    delete (rnd4);
+    delete (rnd5);
     int expected = 2;
 
     EXPECT_EQ(expected, result);
@@ -1812,12 +1827,17 @@ TEST(Column, TeamNum16)
 
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
-      free (rnd2[i]);
-      free (rnd3[i]);
-      free (rnd4[i]);
-      free (rnd5[i]);
+      delete (team[i]);
+      delete (rnd2[i]);
+      delete (rnd3[i]);
+      delete (rnd4[i]);
+      delete (rnd5[i]);
     }
+    delete (team);
+    delete (rnd2);
+    delete (rnd3);
+    delete (rnd4);
+    delete (rnd5);
     int expected = 3;
 
     EXPECT_EQ(expected, result);
@@ -1872,12 +1892,17 @@ TEST(Column, TeamNum32)
 
     window.close();
     for(int i=0;i<size;i++){
-      free (team[i]);
-      free (rnd2[i]);
-      free (rnd3[i]);
-      free (rnd4[i]);
-      free (rnd5[i]);
+      delete (team[i]);
+      delete (rnd2[i]);
+      delete (rnd3[i]);
+      delete (rnd4[i]);
+      delete (rnd5[i]);
     }
+    delete (team);
+    delete (rnd2);
+    delete (rnd3);
+    delete (rnd4);
+    delete (rnd5);
     int expected = 4;
 
     EXPECT_EQ(expected, result);
