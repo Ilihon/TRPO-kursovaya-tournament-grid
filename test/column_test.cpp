@@ -23,7 +23,7 @@ int column(
 
     int t, c, newsize;
     newsize = (size + 1) / 2;
-    if (size <= 2){
+    if (size <= 2) {
         newsize = 0;
         return 0;
     }
@@ -58,7 +58,7 @@ int column(
     //--------------------------------------------
     int oldsize = newsize;
     newsize = (newsize + 1) / 2;
-    if (oldsize <= 2){
+    if (oldsize <= 2) {
         newsize = 0;
         return 1;
     }
@@ -94,7 +94,7 @@ int column(
 
     oldsize = newsize;
     newsize = (newsize + 1) / 2;
-    if (oldsize <= 2){
+    if (oldsize <= 2) {
         newsize = 0;
         return 2;
     }
@@ -131,7 +131,7 @@ int column(
 
     oldsize = newsize;
     newsize = (newsize + 1) / 2;
-    if (oldsize <= 2){
+    if (oldsize <= 2) {
         newsize = 0;
         return 3;
     }
@@ -140,7 +140,6 @@ int column(
     if ((newsize > 0) && (r5 = 1)) {
         t = 423;
         for (int i = 0; i < oldsize; i++) {
-
             if (d4[i] != -1) {
                 strcpy(rnd5[i], rnd4[d4[i]]);
             } else {
@@ -153,7 +152,6 @@ int column(
 
             t += 25;
         }
-        strcpy(winner,rnd5[winner_pos]);
     }
     //--------------------------------------------
 

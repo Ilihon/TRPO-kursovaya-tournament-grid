@@ -1,5 +1,5 @@
-#ifndef DRAW_H
-#define DRAW_H
+#ifndef DRAW_TEST_H
+#define DRAW_TEST_H
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
