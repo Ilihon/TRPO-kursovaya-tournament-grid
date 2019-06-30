@@ -147,9 +147,6 @@ int column(
     if ((newsize > 0) && (r5 = 1)) {
         t = 423;
         for (int i = 0; i < oldsize; i++) {
-            for (int j = 1; j < 1000000; j++) {
-                j = j;
-            }
 
             if (d4[i] != -1) {
                 strcpy(rnd5[i], rnd4[d4[i]]);
@@ -164,8 +161,9 @@ int column(
 
             t += 25;
         }
+        strcpy(winner,rnd5[winner_pos]);
     }
     //--------------------------------------------
-    //  }
+
     return 4;
 }

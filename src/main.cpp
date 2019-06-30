@@ -13,6 +13,8 @@ using namespace sf;
 using namespace std;
 
 int svit=0;
+int winner_pos=0;
+char winner[30]=" ";
 
 int main()
 {
@@ -99,6 +101,7 @@ int main()
         d4[i] = -1;
     }
 
+
     rnd2 = new char*[size];
 
     /////////////////проверка на выделение памяти
@@ -169,10 +172,11 @@ int main()
         *rnd4[i] = ' ';
         *rnd5[i] = ' ';
     }
-  //  float scrX = GetSystemMetrics(SM_CXSCREEN);
-    //	float scrY = GetSystemMetrics(SM_CYSCREEN);
+    //float scrX = window.getSize().x;
+    //float scrY = window.getSize().y;
     //	RenderWindow window(VideoMode(scrX, scrY), "Menu", Style::Fullscreen);
     RenderWindow window(VideoMode(1500, 900), "Menu");
+    //RenderWindow window(VideoMode::getDesktopMode(), "Menu", Style::Fullscreen);
 
     Texture men;
     men.loadFromFile("images/loading.jpg");
@@ -250,6 +254,9 @@ int main()
                 int x = steam(window, size, position);
                 // 1rst column--------------
                 if ((x >= 0) && (x <= 31)) {
+                    if(size==2){
+                      winner_pos=x;
+                    }
                     int pl;
                     pl = x / 2;
                     a1[pl] = x;
@@ -259,6 +266,9 @@ int main()
                 // 2nd column--------------
                 if ((x >= 100) && (x <= 115)) {
                     x = x % 100;
+                    if(size<=4){
+                      winner_pos=x;
+                    }
                     int pl;
                     pl = x / 2;
                     b2[pl] = x;
@@ -268,6 +278,9 @@ int main()
                 // 3rd column--------------
                 if ((x >= 200) && (x <= 207)) {
                     x = x % 100;
+                    if(size<=8){
+                      winner_pos=x;
+                    }
                     int pl;
                     pl = x / 2;
                     c3[pl] = x;
@@ -277,10 +290,21 @@ int main()
                 // 4th column--------------
                 if ((x >= 300) && (x <= 303)) {
                     x = x % 100;
+                    if(size<=16){
+                      winner_pos=x;
+                    }
                     int pl;
                     pl = x / 2;
                     d4[pl] = x;
                     r5 = 1;
+                }
+
+                // 5th column--------------
+                if (x == 400) {
+                  winner_pos=0;
+                }
+                if (x==401){
+                  winner_pos=1;
                 }
 
                 break;
@@ -319,5 +343,7 @@ int main()
       delete (rnd3);
       delete (rnd4);
       delete (rnd5);
+      cout << winner_pos;
+      cout << winner;
     return 0;
 }

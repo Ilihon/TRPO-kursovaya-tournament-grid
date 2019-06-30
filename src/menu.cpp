@@ -84,7 +84,7 @@ void menu(RenderWindow& window)
 
         if (Mouse::isButtonPressed(Mouse::Left)) {
             if (menuNum == 1) {
-                fon += 1;
+                fon = 1;
                 svit=2;
                 isMenu = false;
             }
@@ -113,7 +113,7 @@ void menu(RenderWindow& window)
         window.draw(menu3);
         window.display();
 
-        if (fon > 0) {
+        if (fon == 1) {
             Texture stk;
             stk.loadFromFile("images/stk.jpg");
 
