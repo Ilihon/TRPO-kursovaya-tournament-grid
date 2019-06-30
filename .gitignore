@@ -4,5 +4,6 @@ Ilihon-develop/main
 Ilihon-develop/*.txt
 *.o
 bin/main
+bin/test
 src/menu1t.cpp
 run

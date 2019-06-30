@@ -8,4 +8,6 @@ branches:
   - develop
 
 script:
-  - make	
+  - make && make test
+  - chmod 777 runtest.sh
+  - ./runtest.sh	
