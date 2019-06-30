@@ -1,4 +1,4 @@
-#include "steam.h"
+#include "steam_test.h"
 
 int steam(RenderWindow& window, int size, Vector2i position)
 {
@@ -27,13 +27,11 @@ int steam(RenderWindow& window, int size, Vector2i position)
                     kvad.setFillColor(Color::Red);
                     kvad.setPosition(200, t);
                     window.draw(kvad);
-                    window.display();
 
                     if (i != size - 1) {
                         kvad.setFillColor(Color::Black);
                         kvad.setPosition(200, t + 24);
                         window.draw(kvad);
-                        window.display();
                     }
 
                 } else if (c == 1) { // второй опонент
@@ -41,12 +39,10 @@ int steam(RenderWindow& window, int size, Vector2i position)
                     kvad.setFillColor(Color::Red);
                     kvad.setPosition(200, t);
                     window.draw(kvad);
-                    window.display();
 
                     kvad.setFillColor(Color::Black);
                     kvad.setPosition(200, t - 24);
                     window.draw(kvad);
-                    window.display();
                 }
                 isMenu = false;
                 return (teamnum);
@@ -75,25 +71,21 @@ int steam(RenderWindow& window, int size, Vector2i position)
                     kvad.setFillColor(Color::Red);
                     kvad.setPosition(460, t);
                     window.draw(kvad);
-                    window.display();
 
                     if (i != newsize - 1) {
                         kvad.setFillColor(Color::Black);
                         kvad.setPosition(460, t + 25);
                         window.draw(kvad);
-                        window.display();
                     }
 
                 } else if (c == 1) {
                     kvad.setFillColor(Color::Red);
                     kvad.setPosition(460, t);
                     window.draw(kvad);
-                    window.display();
 
                     kvad.setFillColor(Color::Black);
                     kvad.setPosition(460, t - 25);
                     window.draw(kvad);
-                    window.display();
                 }
                 isMenu = false;
                 return (teamnum);
@@ -122,25 +114,21 @@ int steam(RenderWindow& window, int size, Vector2i position)
                     kvad.setFillColor(Color::Red);
                     kvad.setPosition(720, t);
                     window.draw(kvad);
-                    window.display();
 
                     if (i != newsize - 1) {
                         kvad.setFillColor(Color::Black);
                         kvad.setPosition(720, t + 25);
                         window.draw(kvad);
-                        window.display();
                     }
 
                 } else if (c == 1) {
                     kvad.setFillColor(Color::Red);
                     kvad.setPosition(720, t);
                     window.draw(kvad);
-                    window.display();
 
                     kvad.setFillColor(Color::Black);
                     kvad.setPosition(720, t - 25);
                     window.draw(kvad);
-                    window.display();
                 }
                 isMenu = false;
                 return (teamnum);
@@ -169,25 +157,21 @@ int steam(RenderWindow& window, int size, Vector2i position)
                     kvad.setFillColor(Color::Red);
                     kvad.setPosition(990, t);
                     window.draw(kvad);
-                    window.display();
 
                     if (i != (newsize - 1)) {
                         kvad.setFillColor(Color::Black);
                         kvad.setPosition(990, t + 25);
                         window.draw(kvad);
-                        window.display();
                     }
 
                 } else if (c == 1) {
                     kvad.setFillColor(Color::Red);
                     kvad.setPosition(990, t);
                     window.draw(kvad);
-                    window.display();
 
                     kvad.setFillColor(Color::Black);
                     kvad.setPosition(990, t - 25);
                     window.draw(kvad);
-                    window.display();
                 }
                 isMenu = false;
                 return (teamnum);
@@ -210,23 +194,19 @@ int steam(RenderWindow& window, int size, Vector2i position)
                     kvad.setFillColor(Color::Red);
                     kvad.setPosition(1190, t);
                     window.draw(kvad);
-                    window.display();
 
                     kvad.setFillColor(Color::Black);
                     kvad.setPosition(1190, t + 25);
                     window.draw(kvad);
-                    window.display();
 
                 } else if (c == 1) {
                     kvad.setFillColor(Color::Red);
                     kvad.setPosition(1190, t);
                     window.draw(kvad);
-                    window.display();
 
                     kvad.setFillColor(Color::Black);
                     kvad.setPosition(1190, t - 25);
                     window.draw(kvad);
-                    window.display();
                 }
                 isMenu = false;
                 return (teamnum);
