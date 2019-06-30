@@ -1,4 +1,4 @@
-#include "column.h"
+#include "column_test.h"
 
 int column(
         RenderWindow& window,
@@ -20,8 +20,6 @@ int column(
 {
     Text text("", font, 10);
     text.setFillColor(Color::Red);
-    draw(window, team, font, size);
-    window.display();
 
     int t, c, newsize;
     newsize = (size + 1) / 2;
@@ -51,7 +49,6 @@ int column(
             text.setString(rnd2[i]);
             text.setPosition(280, t);
             window.draw(text);
-            window.display();
 
             t += 25;
             c++;
@@ -88,7 +85,6 @@ int column(
             text.setString(rnd3[i]);
             text.setPosition(540, t);
             window.draw(text);
-            window.display();
 
             t += 25;
             c++;
@@ -126,7 +122,6 @@ int column(
             text.setString(rnd4[i]);
             text.setPosition(808, t);
             window.draw(text);
-            window.display();
 
             t += 25;
             c++;
@@ -155,7 +150,6 @@ int column(
             text.setString(rnd5[i]);
             text.setPosition(1008, t);
             window.draw(text);
-            window.display();
 
             t += 25;
         }

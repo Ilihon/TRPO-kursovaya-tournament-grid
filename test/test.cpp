@@ -3,9 +3,6 @@
 #include "../src/steam.h"
 #include "../src/column.h"
 #include "gtest/gtest.h"
-int svit=0;
-int winner_pos=0;
-char winner[30]=" ";
 
 
 //Draw-----------------------------------------------------
