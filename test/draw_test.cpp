@@ -24,14 +24,10 @@ int draw(int size)
           c = 0;
       }
 
-      text.setString(team[i]);
-      text.setPosition(20, t);
-
       rectangle.setFillColor(sf::Color(133,250,165));
       rectangle.setPosition(18, t);
 
       window.draw(rectangle);
-      window.draw(text);
       t += 24;
       c++;
   }
