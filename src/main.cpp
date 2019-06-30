@@ -193,8 +193,21 @@ int main()
         Event event;
 
         while (window.pollEvent(event)) {
-            if (event.type == Event::Closed)
-                window.close();
+            if (event.type == Event::Closed){
+              for(int i=0;i<size;i++){
+                delete (team[i]);
+                delete (rnd2[i]);
+                delete (rnd3[i]);
+                delete (rnd4[i]);
+                delete (rnd5[i]);
+              }
+              delete (team);
+              delete (rnd2);
+              delete (rnd3);
+              delete (rnd4);
+              delete (rnd5);
+              window.close();
+           }
 
             if (event.type == Event::KeyPressed)
                 if (event.key.code == Keyboard::Space) {
@@ -285,6 +298,17 @@ int main()
             }
         }
     }
-
+      for(int i=0;i<size;i++){
+        delete (team[i]);
+        delete (rnd2[i]);
+        delete (rnd3[i]);
+        delete (rnd4[i]);
+        delete (rnd5[i]);
+      }
+      delete (team);
+      delete (rnd2);
+      delete (rnd3);
+      delete (rnd4);
+      delete (rnd5);
     return 0;
 }

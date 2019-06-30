@@ -59,6 +59,15 @@ void menu(RenderWindow& window)
         menuNum = 0;
         window.clear(Color(8, 186, 222));
 
+
+        Event event;
+        window.pollEvent(event);
+        if (event.type == Event::Closed){
+          window.close();
+          return;
+        }
+
+
         if (IntRect(620, 200, 125, 50).contains(Mouse::getPosition(window))) {
             menu1.setColor(Color::Blue);
             menuNum = 1;
@@ -113,4 +122,5 @@ void menu(RenderWindow& window)
             window.display();
         }
     }
+    return;
 }
