@@ -18,21 +18,21 @@ void column(
         int r4,
         int r5)
 {
-  if (Keyboard::isKeyPressed(Keyboard::Return)) {
-      Text text("", font, 10);
-      text.setFillColor(Color::Red);
-      // window.clear();
-      draw(window, team, font, size);
-      window.display();
+    if (Keyboard::isKeyPressed(Keyboard::Return)) {
+        Text text("", font, 10);
+        text.setFillColor(Color::Red);
+        // window.clear();
+        draw(window, team, font, size);
+        window.display();
 
-      int t, c, newsize;
-            newsize = (size+1) / 2;
-            if (size <= 2)
-                newsize = 0;
-      //1ый раунд -> 2ой раунд----------------------
-            if ((newsize>0) && (r2==1)) {
-              t = 36, c = 0;
-        for (int i = 0; i < size; i++) {
+        int t, c, newsize;
+        newsize = (size + 1) / 2;
+        if (size <= 2)
+            newsize = 0;
+        // 1ый раунд -> 2ой раунд----------------------
+        if ((newsize > 0) && (r2 == 1)) {
+            t = 36, c = 0;
+            for (int i = 0; i < size; i++) {
                 if (c == 2) {
                     t += 61;
                     c = 0;
@@ -42,15 +42,11 @@ void column(
                     j = j;
                 }
 
-                if(a1[i] != -1){
-            printf("%d\n 1AAAAAAAAAAAAAAAAAAAAAAAAAA\n", a1[i]);
-                  printf("%d\n 1IIIIIIIIIIIIIIIIIIIIIIIIII\n", i);
-            strcpy(rnd2[i],team[a1[i]]);
-                  printf("%s\n", rnd2[i]);
-          }
-          else{
-            strcpy(rnd2[i]," ");
-          }
+                if (a1[i] != -1) {
+                    strcpy(rnd2[i], team[a1[i]]);
+                } else {
+                    strcpy(rnd2[i], " ");
+                }
 
                 text.setString(rnd2[i]);
                 text.setPosition(280, t);
@@ -59,122 +55,107 @@ void column(
 
                 t += 25;
                 c++;
-                  }
             }
-      //--------------------------------------------
-      int oldsize=newsize;
-      newsize = (newsize+1) / 2;
-            if (oldsize <= 2)
-                newsize = 0;
+        }
+        //--------------------------------------------
+        int oldsize = newsize;
+        newsize = (newsize + 1) / 2;
+        if (oldsize <= 2)
+            newsize = 0;
 
-      //2ой раунд -> 3ий раунд----------------------
-            if ((newsize>0) && (r3 == 1)) {
-                  t = 97, c = 0;
-                  for (int i = 0; i < oldsize; i++) {
-                      if (c == 2) {
-                              t += 169;
-                        c = 0;
-                      }
+        // 2ой раунд -> 3ий раунд----------------------
+        if ((newsize > 0) && (r3 == 1)) {
+            t = 97, c = 0;
+            for (int i = 0; i < oldsize; i++) {
+                if (c == 2) {
+                    t += 169;
+                    c = 0;
+                }
 
-                      for (int j = 1; j < 1000000; j++) {
-                        j = j;
-                      }
+                for (int j = 1; j < 1000000; j++) {
+                    j = j;
+                }
 
-          if(b2[i] != -1){
-            printf("%d\n 2AAAAAAAAAAAAAAAAAAAAAAAAAA\n", b2[i]);
-                  printf("%d\n 2IIIIIIIIIIIIIIIIIIIIIIIIII\n", i);
-            strcpy(rnd3[i],rnd2[b2[i]]);
-                  printf("%s\n", rnd3[i]);
-          }
-          else{
-            strcpy(rnd3[i]," ");
-          }
+                if (b2[i] != -1) {
+                    strcpy(rnd3[i], rnd2[b2[i]]);
+                } else {
+                    strcpy(rnd3[i], " ");
+                }
 
-                      text.setString(rnd3[i]);
+                text.setString(rnd3[i]);
                 text.setPosition(540, t);
                 window.draw(text);
                 window.display();
 
-
-                      t += 25;
-                      c++;
+                t += 25;
+                c++;
+            }
         }
-            }
-      //--------------------------------------------
-
-        oldsize=newsize;
-        newsize = (newsize+1) / 2;
-              if (oldsize <= 2)
-                  newsize = 0;
-
-        //3ий раунд -> 4ый раунд----------------------
-              if ((newsize>0) && (r4 = 1)) {
-                    t = 205; c = 0;
-                    for (int i = 0; i < size; i++) {
-                        if (c == 2) {
-                                t += 389;
-                                c = 0;
-                            }
-
-                            for (int j = 1; j < 1000000; j++) {
-                                j = j;
-                            }
-
-            if(c3[i] != -1){
-              printf("%d\n 3AAAAAAAAAAAAAAAAAAAAAAAAAA\n", c3[i]);
-                    printf("%d\n 3IIIIIIIIIIIIIIIIIIIIIIIIII\n", i);
-              strcpy(rnd4[i],rnd3[c3[i]]);
-                    printf("%s\n", rnd4[i]);
-            }
-            else{
-              strcpy(rnd4[i]," ");
-            }
-
-            text.setString(rnd4[i]);
-            text.setPosition(808, t);
-                  window.draw(text);
-                  window.display();
-
-                            t += 25;
-                            c++;
-                    }
-              }
         //--------------------------------------------
 
-                oldsize=newsize;
-          newsize = (newsize+1) / 2;
-                if (oldsize <= 2)
-                    newsize = 0;
+        oldsize = newsize;
+        newsize = (newsize + 1) / 2;
+        if (oldsize <= 2)
+            newsize = 0;
 
-          //4ый раунд -> 5ый раунд----------------------
-                if ((newsize>0) && (r5 = 1)) {
-                      t = 423;
-                      for (int i = 0; i < oldsize; i++) {
-
-                              for (int j = 1; j < 1000000; j++) {
-                                  j = j;
-                              }
-
-              if(d4[i] != -1){
-                printf("%d\n 4AAAAAAAAAAAAAAAAAAAAAAAAAA\n", d4[i]);
-                      printf("%d\n 4IIIIIIIIIIIIIIIIIIIIIIIIII\n", i);
-                strcpy(rnd5[i],rnd4[d4[i]]);
-                      printf("%s\n", rnd5[i]);
-              }
-              else{
-                strcpy(rnd5[i]," ");
-              }
-
-              text.setString(rnd5[i]);
-              text.setPosition(1008, t);
-                    window.draw(text);
-                    window.display();
-
-                              t += 25;
-
-                    }
+        // 3ий раунд -> 4ый раунд----------------------
+        if ((newsize > 0) && (r4 = 1)) {
+            t = 205;
+            c = 0;
+            for (int i = 0; i < size; i++) {
+                if (c == 2) {
+                    t += 389;
+                    c = 0;
                 }
-          //--------------------------------------------
 
+                for (int j = 1; j < 1000000; j++) {
+                    j = j;
+                }
+
+                if (c3[i] != -1) {
+                    strcpy(rnd4[i], rnd3[c3[i]]);
+                } else {
+                    strcpy(rnd4[i], " ");
+                }
+
+                text.setString(rnd4[i]);
+                text.setPosition(808, t);
+                window.draw(text);
+                window.display();
+
+                t += 25;
+                c++;
             }
         }
+        //--------------------------------------------
+
+        oldsize = newsize;
+        newsize = (newsize + 1) / 2;
+        if (oldsize <= 2)
+            newsize = 0;
+
+        // 4ый раунд -> 5ый раунд----------------------
+        if ((newsize > 0) && (r5 = 1)) {
+            t = 423;
+            for (int i = 0; i < oldsize; i++) {
+                for (int j = 1; j < 1000000; j++) {
+                    j = j;
+                }
+
+                if (d4[i] != -1) {
+                    strcpy(rnd5[i], rnd4[d4[i]]);
+                } else {
+                    strcpy(rnd5[i], " ");
+                }
+
+                text.setString(rnd5[i]);
+                text.setPosition(1008, t);
+                window.draw(text);
+                window.display();
+
+                t += 25;
+            }
+        }
+        //--------------------------------------------
+    }
+}

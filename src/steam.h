@@ -11,6 +11,6 @@
 using namespace sf;
 using namespace std;
 
-int steam(RenderWindow& window, int size);
+int steam(RenderWindow& window, int size, Vector2i position);
 
 #endif
