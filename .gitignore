@@ -7,3 +7,4 @@ bin/main
 bin/test
 src/menu1t.cpp
 run
+build/test/libgtest.a
