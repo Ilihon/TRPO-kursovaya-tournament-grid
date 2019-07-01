@@ -26,7 +26,7 @@ int draw(RenderWindow& window, char* team[], Font font, int size)
         text.setString(team[i]);
         text.setPosition(20, t);
 
-        rectangle.setFillColor(sf::Color(133, 250, 165));
+        rectangle.setFillColor(sf::Color(43, 237, 59));
         rectangle.setPosition(18, t);
 
         /*
@@ -57,7 +57,7 @@ int draw(RenderWindow& window, char* team[], Font font, int size)
                 c = 0;
             }
 
-            rectangle.setFillColor(sf::Color(133, 250, 165));
+            rectangle.setFillColor(sf::Color(43, 237, 59));
             rectangle.setPosition(278, t);
 
             /*
@@ -89,7 +89,7 @@ int draw(RenderWindow& window, char* team[], Font font, int size)
                 c = 0;
             }
 
-            rectangle.setFillColor(sf::Color(133, 250, 165));
+            rectangle.setFillColor(sf::Color(43, 237, 59));
             rectangle.setPosition(538, t);
 
             /*
@@ -121,7 +121,7 @@ int draw(RenderWindow& window, char* team[], Font font, int size)
                 c = 0;
             }
 
-            rectangle.setFillColor(sf::Color(133, 250, 165));
+            rectangle.setFillColor(sf::Color(43, 237, 59));
             rectangle.setPosition(808, t);
 
             /*
@@ -145,7 +145,7 @@ int draw(RenderWindow& window, char* team[], Font font, int size)
         newsize = (newsize + 1) / 2;
         t = 423;
         for (int i = 0; i < newsize; i++) {
-            rectangle.setFillColor(sf::Color(133, 250, 165));
+            rectangle.setFillColor(sf::Color(43, 237, 59));
             rectangle.setPosition(1008, t);
 
             /*
