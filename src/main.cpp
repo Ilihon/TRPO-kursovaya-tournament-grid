@@ -12,9 +12,9 @@
 using namespace sf;
 using namespace std;
 
-int svit=0;
-int winner_pos=3;
-char winner[30]=" ";
+int svit = 0;
+int winner_pos = 3;
+char winner[30] = " ";
 
 int main()
 {
@@ -23,12 +23,12 @@ int main()
     char sizestring[256];
     int size; //кол-во комманд
     cout << "Enter team num(2-32): ";
-    cin.getline(sizestring,256);
+    cin.getline(sizestring, 256);
     size = atoi(sizestring);
     while (size < 2 || size > 32) {
         puts("Uncorrect team count!");
-        cout <<"Please enter team num again: ";
-        cin.getline(sizestring,256);
+        cout << "Please enter team num again: ";
+        cin.getline(sizestring, 256);
         size = atoi(sizestring);
     }
 
@@ -49,16 +49,17 @@ int main()
     //сгенерировать или считать имена комманд
     cout << "Enter team namesf? (y/n) ";
     char g[256]; //
-    cin.getline(g,256);
+    cin.getline(g, 256);
 
     while ((strcmp(g, "y") != 0) && (strcmp(g, "Y") != 0)
            && (strcmp(g, "n") != 0) && (strcmp(g, "N") != 0)) {
         cout << "Uncorrect answer, only Yes or Not: ";
-        cin.getline(g,256);
+        cin.getline(g, 256);
     }
 
-    if ((strcmp(g, "y") == 0) || (strcmp(g, "Y") == 0)) { //считываем имена комманд
-      puts("You can enter yout team names:");
+    if ((strcmp(g, "y") == 0)
+        || (strcmp(g, "Y") == 0)) { //считываем имена комманд
+        puts("You can enter yout team names:");
         for (int i = 0; i < size; i++) {
             team[i] = new char[30];
 
@@ -68,15 +69,15 @@ int main()
                 return 1; // выход по ошибке, код ошибки 1
             }
             cin.getline(sizestring, 256);
-            while(strlen(sizestring)>30){
+            while (strlen(sizestring) > 30) {
                 puts("Please, enter team name with 30 or less characters");
                 cin.getline(sizestring, 256);
             }
-            while(strcmp(sizestring," ")==0){
+            while (strcmp(sizestring, " ") == 0) {
                 puts("Please, enter non empty team name");
                 cin.getline(sizestring, 256);
             }
-            strcpy(team[i],sizestring);
+            strcpy(team[i], sizestring);
         }
     } else { //генерируем имена комманд
         for (int i = 0; i < size; i++) {
@@ -104,7 +105,6 @@ int main()
         c3[i] = -1;
         d4[i] = -1;
     }
-
 
     rnd2 = new char*[size];
 
@@ -171,16 +171,17 @@ int main()
             return 1; // выход по ошибке, код ошибки 1
         }
 
-        strcpy(rnd2[i]," ");
-        strcpy(rnd3[i]," ");
-        strcpy(rnd4[i]," ");
-        strcpy(rnd5[i]," ");
+        strcpy(rnd2[i], " ");
+        strcpy(rnd3[i], " ");
+        strcpy(rnd4[i], " ");
+        strcpy(rnd5[i], " ");
     }
-    //float scrX = window.getSize().x;
-    //float scrY = window.getSize().y;
+    // float scrX = window.getSize().x;
+    // float scrY = window.getSize().y;
     //	RenderWindow window(VideoMode(scrX, scrY), "Menu", Style::Fullscreen);
     RenderWindow window(VideoMode(1500, 900), "Menu");
-    //RenderWindow window(VideoMode::getDesktopMode(), "Menu", Style::Fullscreen);
+    // RenderWindow window(VideoMode::getDesktopMode(), "Menu",
+    // Style::Fullscreen);
 
     Texture men;
     men.loadFromFile("images/loading.jpg");
@@ -206,47 +207,47 @@ int main()
     int r2 = 0, r3 = 0, r4 = 0, r5 = 0;
 
     while (window.isOpen()) {
-        if (svit==3){
-          menu(window);
-          goto Again;
+        if (svit == 3) {
+            menu(window);
+            goto Again;
         }
         Event event;
 
         while (window.pollEvent(event)) {
-            if (event.type == Event::Closed){
-              for(int i=0;i<size;i++){
-                delete (team[i]);
-                delete (rnd2[i]);
-                delete (rnd3[i]);
-                delete (rnd4[i]);
-                delete (rnd5[i]);
-              }
-              delete (team);
-              delete (rnd2);
-              delete (rnd3);
-              delete (rnd4);
-              delete (rnd5);
-              window.close();
-              return 0;
-           }
+            if (event.type == Event::Closed) {
+                for (int i = 0; i < size; i++) {
+                    delete (team[i]);
+                    delete (rnd2[i]);
+                    delete (rnd3[i]);
+                    delete (rnd4[i]);
+                    delete (rnd5[i]);
+                }
+                delete (team);
+                delete (rnd2);
+                delete (rnd3);
+                delete (rnd4);
+                delete (rnd5);
+                window.close();
+                return 0;
+            }
 
             if (event.type == Event::KeyPressed)
-                if ((event.key.code == Keyboard::Space)&&(svit==0)){
-                Again:{
-                  svit=1;
+                if ((event.key.code == Keyboard::Space) && (svit == 0)) {
+                Again : {
+                    svit = 1;
                     r2 = 0, r3 = 0, r4 = 0, r5 = 0;
                     for (int i = 0; i < size; i++) {
-                    strcpy(rnd2[i], " ");
-                    strcpy(rnd3[i], " ");
-                    strcpy(rnd4[i], " ");
-                    strcpy(rnd5[i], " ");
-                    a1[i]=-1;
-                    b2[i]=-1;
-                    c3[i]=-1;
-                    d4[i]=-1;
+                        strcpy(rnd2[i], " ");
+                        strcpy(rnd3[i], " ");
+                        strcpy(rnd4[i], " ");
+                        strcpy(rnd5[i], " ");
+                        a1[i] = -1;
+                        b2[i] = -1;
+                        c3[i] = -1;
+                        d4[i] = -1;
                     }
                     menu(window);
-                  }
+                }
 
                     Text text("", font, 10);
                     text.setFillColor(Color::Red);
@@ -254,16 +255,16 @@ int main()
                     draw(window, team, font, size);
                     break;
                 }
-            if ((Keyboard::isKeyPressed(Keyboard::Escape))&&(svit>0)) {
+            if ((Keyboard::isKeyPressed(Keyboard::Escape)) && (svit > 0)) {
                 goto Again;
             }
-            if ((Mouse::isButtonPressed(Mouse::Left))&&(svit==2)) {
+            if ((Mouse::isButtonPressed(Mouse::Left)) && (svit == 2)) {
                 Vector2i position = Mouse::getPosition(window);
                 int x = steam(window, size, position);
                 // 1rst column--------------
                 if ((x >= 0) && (x <= 31)) {
-                    if(size==2){
-                      winner_pos=x;
+                    if (size == 2) {
+                        winner_pos = x;
                     }
                     int pl;
                     pl = x / 2;
@@ -274,8 +275,8 @@ int main()
                 // 2nd column--------------
                 if ((x >= 100) && (x <= 115)) {
                     x = x % 100;
-                    if(size<=4){
-                      winner_pos=x;
+                    if (size <= 4) {
+                        winner_pos = x;
                     }
                     int pl;
                     pl = x / 2;
@@ -286,8 +287,8 @@ int main()
                 // 3rd column--------------
                 if ((x >= 200) && (x <= 207)) {
                     x = x % 100;
-                    if(size<=8){
-                      winner_pos=x;
+                    if (size <= 8) {
+                        winner_pos = x;
                     }
                     int pl;
                     pl = x / 2;
@@ -298,8 +299,8 @@ int main()
                 // 4th column--------------
                 if ((x >= 300) && (x <= 303)) {
                     x = x % 100;
-                    if(size<=16){
-                      winner_pos=x;
+                    if (size <= 16) {
+                        winner_pos = x;
                     }
                     int pl;
                     pl = x / 2;
@@ -309,33 +310,48 @@ int main()
 
                 // 5th column--------------
                 if (x == 400) {
-                  winner_pos=0;
+                    winner_pos = 0;
                 }
-                if (x==401){
-                  winner_pos=1;
+                if (x == 401) {
+                    winner_pos = 1;
                 }
 
                 break;
             }
 
-            if ((Keyboard::isKeyPressed(Keyboard::Return))&&(svit==2)) {
-                column(window,team,font,size,rnd2,rnd3,rnd4,rnd5,a1,b2,c3,d4,r2,r3,r4,r5);
+            if ((Keyboard::isKeyPressed(Keyboard::Return)) && (svit == 2)) {
+                column(window,
+                       team,
+                       font,
+                       size,
+                       rnd2,
+                       rnd3,
+                       rnd4,
+                       rnd5,
+                       a1,
+                       b2,
+                       c3,
+                       d4,
+                       r2,
+                       r3,
+                       r4,
+                       r5);
             }
         }
     }
-      for(int i=0;i<size;i++){
+    for (int i = 0; i < size; i++) {
         delete (team[i]);
         delete (rnd2[i]);
         delete (rnd3[i]);
         delete (rnd4[i]);
         delete (rnd5[i]);
-      }
-      delete (team);
-      delete (rnd2);
-      delete (rnd3);
-      delete (rnd4);
-      delete (rnd5);
-      cout << winner_pos;
-      cout << winner;
+    }
+    delete (team);
+    delete (rnd2);
+    delete (rnd3);
+    delete (rnd4);
+    delete (rnd5);
+    cout << winner_pos;
+    cout << winner;
     return 0;
 }

@@ -25,20 +25,20 @@ int column(
     draw(window, team, font, size);
     window.display();
 
-    int t, c, newsize,win_proof;
+    int t, c, newsize, win_proof;
     newsize = (size + 1) / 2;
-    if (size <= 2){
-      if(winner_pos!=3){
-        strcpy(winner,team[winner_pos]);
-      }
-      if (strcmp(winner," ")!=0){
-        svit=3;
-      }
-      newsize = 0;
-      return 0;
+    if (size <= 2) {
+        if (winner_pos != 3) {
+            strcpy(winner, team[winner_pos]);
+        }
+        if (strcmp(winner, " ") != 0) {
+            svit = 3;
+        }
+        newsize = 0;
+        return 0;
     }
     // 1ый раунд -> 2ой раунд----------------------
-    win_proof=0;
+    win_proof = 0;
     if ((newsize > 0) && (r2 == 1)) {
         t = 36, c = 0;
         for (int i = 0; i < size; i++) {
@@ -61,22 +61,22 @@ int column(
             t += 25;
             c++;
         }
-        for (int i =0; i<newsize;i++){
-          if(strcmp(rnd2[i]," ")==0){
-            win_proof=1;
-          }
+        for (int i = 0; i < newsize; i++) {
+            if (strcmp(rnd2[i], " ") == 0) {
+                win_proof = 1;
+            }
         }
     }
     //--------------------------------------------
     int oldsize = newsize;
     newsize = (newsize + 1) / 2;
-    if (oldsize <= 2){
-      if(winner_pos!=3){
-        strcpy(winner,rnd2[winner_pos]);
-      }
-            if ((win_proof==0)&&(strcmp(winner," ")!=0)){
-                svit=3;
-            }
+    if (oldsize <= 2) {
+        if (winner_pos != 3) {
+            strcpy(winner, rnd2[winner_pos]);
+        }
+        if ((win_proof == 0) && (strcmp(winner, " ") != 0)) {
+            svit = 3;
+        }
         newsize = 0;
         return 1;
     }
@@ -104,22 +104,22 @@ int column(
             t += 25;
             c++;
         }
-        for (int i =0; i<newsize;i++){
-          if(strcmp(rnd3[i]," ")==0){
-            win_proof=1;
-          }
+        for (int i = 0; i < newsize; i++) {
+            if (strcmp(rnd3[i], " ") == 0) {
+                win_proof = 1;
+            }
         }
     }
     //--------------------------------------------
 
     oldsize = newsize;
     newsize = (newsize + 1) / 2;
-    if (oldsize <= 2){
-      if(winner_pos!=3){
-        strcpy(winner,rnd2[winner_pos]);
-      }
-        if ((win_proof==0)&&(strcmp(winner," ")!=0)){
-          svit=3;
+    if (oldsize <= 2) {
+        if (winner_pos != 3) {
+            strcpy(winner, rnd2[winner_pos]);
+        }
+        if ((win_proof == 0) && (strcmp(winner, " ") != 0)) {
+            svit = 3;
         }
         newsize = 0;
         return 2;
@@ -149,22 +149,22 @@ int column(
             t += 25;
             c++;
         }
-        for (int i =0; i<newsize;i++){
-          if(strcmp(rnd4[i]," ")==0){
-            win_proof=1;
-          }
+        for (int i = 0; i < newsize; i++) {
+            if (strcmp(rnd4[i], " ") == 0) {
+                win_proof = 1;
+            }
         }
     }
     //--------------------------------------------
 
     oldsize = newsize;
     newsize = (newsize + 1) / 2;
-    if (oldsize <= 2){
-      if(winner_pos!=3){
-        strcpy(winner,rnd2[winner_pos]);
-      }
-        if ((win_proof==0)&&(strcmp(winner," ")!=0)){
-          svit=3;
+    if (oldsize <= 2) {
+        if (winner_pos != 3) {
+            strcpy(winner, rnd2[winner_pos]);
+        }
+        if ((win_proof == 0) && (strcmp(winner, " ") != 0)) {
+            svit = 3;
         }
         newsize = 0;
         return 3;
@@ -174,7 +174,6 @@ int column(
     if ((newsize > 0) && (r5 = 1)) {
         t = 423;
         for (int i = 0; i < oldsize; i++) {
-
             if (d4[i] != -1) {
                 strcpy(rnd5[i], rnd4[d4[i]]);
             } else {
@@ -188,16 +187,16 @@ int column(
 
             t += 25;
         }
-        for (int i =0; i<newsize;i++){
-          if(strcmp(rnd5[i]," ")==0){
-            win_proof=1;
-          }
+        for (int i = 0; i < newsize; i++) {
+            if (strcmp(rnd5[i], " ") == 0) {
+                win_proof = 1;
+            }
         }
-          if(winner_pos!=3){
-            strcpy(winner,rnd2[winner_pos]);
-          }
-        if ((win_proof==0)&&(strcmp(winner," ")!=0)){
-          svit=3;
+        if (winner_pos != 3) {
+            strcpy(winner, rnd2[winner_pos]);
+        }
+        if ((win_proof == 0) && (strcmp(winner, " ") != 0)) {
+            svit = 3;
         }
     }
     //--------------------------------------------
