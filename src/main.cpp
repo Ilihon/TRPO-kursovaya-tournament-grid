@@ -69,14 +69,37 @@ int main()
                 return 1; // выход по ошибке, код ошибки 1
             }
             cin.getline(sizestring, 256);
-            while (strlen(sizestring) > 30) {
+	
+	char* space;
+    	space = new char [size];
+	bool checkspace=0;
+	strcpy(space," ");
+	int len=strlen(sizestring);
+	for(int i=0 ;i<len;i++) {
+		if((strcmp(sizestring,space))==0){
+			checkspace=1;
+		}
+		strcat(space," ");
+	}		
+	while((strlen(sizestring) > 30)||(checkspace)||(strcmp(sizestring,"")==0)){
+            if (strlen(sizestring) > 30) {
                 puts("Please, enter team name with 30 or less characters");
                 cin.getline(sizestring, 256);
             }
-            while (strcmp(sizestring, " ") == 0) {
+            if ((checkspace)||(strcmp(sizestring,"")==0)) {
+		checkspace=0;
+		strcpy(space," ");
                 puts("Please, enter non empty team name");
                 cin.getline(sizestring, 256);
+		int len=strlen(sizestring);
+		for(int i=0;i<len;i++){
+			if((strcmp(sizestring,space))==0){
+				checkspace=1;
+			}
+			strcat(space," ");
+		}
             }
+	}
             strcpy(team[i], sizestring);
         }
     } else { //генерируем имена комманд
