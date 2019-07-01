@@ -116,7 +116,7 @@ int column(
     newsize = (newsize + 1) / 2;
     if (oldsize <= 2) {
         if (winner_pos != 3) {
-            strcpy(winner, rnd2[winner_pos]);
+            strcpy(winner, rnd3[winner_pos]);
         }
         if ((win_proof == 0) && (strcmp(winner, " ") != 0)) {
             svit = 3;
@@ -161,7 +161,7 @@ int column(
     newsize = (newsize + 1) / 2;
     if (oldsize <= 2) {
         if (winner_pos != 3) {
-            strcpy(winner, rnd2[winner_pos]);
+            strcpy(winner, rnd4[winner_pos]);
         }
         if ((win_proof == 0) && (strcmp(winner, " ") != 0)) {
             svit = 3;
@@ -193,7 +193,7 @@ int column(
             }
         }
         if (winner_pos != 3) {
-            strcpy(winner, rnd2[winner_pos]);
+            strcpy(winner, rnd5[winner_pos]);
         }
         if ((win_proof == 0) && (strcmp(winner, " ") != 0)) {
             svit = 3;
